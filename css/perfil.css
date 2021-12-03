@@ -1,0 +1,359 @@
+.tarjeta {
+	border-radius: 14px 14px 14px 14px;
+	-moz-border-radius: 14px 14px 14px 14px;
+	-webkit-border-radius: 14px 14px 14px 14px;
+	border: 1px solid #dfdfdf;
+	background: white;
+}
+
+.tarjeta-form {
+	border-radius: 14px 14px 14px 14px;
+	-moz-border-radius: 14px 14px 14px 14px;
+	-webkit-border-radius: 14px 14px 14px 14px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+}
+
+.tarjeta-products {
+	border-radius: 14px 14px 14px 14px;
+	-moz-border-radius: 14px 14px 14px 14px;
+	-webkit-border-radius: 14px 14px 14px 14px;
+	border-right: transparent;
+	border-left: transparent;
+}
+
+.borders-card {
+	background: transparent;
+}
+
+.titulo-product {
+	background-color: #030786;
+	color: #ffff;
+	border-radius: 14px 14px 0px 0px !important;
+	-moz-border-radius: 14px 14px 0px 0px !important;
+	-webkit-border-radius: 14px 14px 0px 0px !important;
+}
+
+.margin-pais {
+	margin-left: 4px;
+}
+
+.img-fluid-banderas {
+	max-width: 35%;
+	height: auto;
+	border-radius: 50%;
+}
+
+.img-fluid-empresas {
+	max-width: 40%;
+	height: auto;
+	border-radius: 50%;
+}
+
+.card-margins-right {
+	border-top: transparent !important;
+	width: 45%;
+}
+
+.card-margins-left {
+	border-top: transparent !important;
+	width: 55%;
+}
+
+.lista-card {
+	border: transparent !important;
+	padding: 0.2rem !important;
+}
+
+.pie-costos {
+	color: #ffff;
+	background-color: #28a745;
+	border-radius: 0px 0px 14px 14px !important;
+	-moz-border-radius: 0px 0px 14px 14px !important;
+	-webkit-border-radius: 0px 0px 14px 14px !important;
+}
+
+.h5-pie-cards {
+	font-size: 1rem;
+}
+
+.card-collapse-products {
+	border-left: transparent;
+	border-right: transparent;
+	border-top: transparent;
+	border-radius: 0px 0px 14px 14px;
+	-moz-border-radius: 0px 0px 14px 14px;
+	-webkit-border-radius: 0px 0px 14px 14px;
+}
+
+.collapsed-title {
+	padding: 1rem 1rem;
+	background: transparent;
+	border: 0px;
+}
+
+.product-name {
+	border-top: transparent !important;
+	padding: 0rem 0rem !important;
+	vertical-align: middle !important;
+	width: 60% !important;
+}
+
+.product-detile {
+	border-top: transparent !important;
+	text-align: right !important;
+	padding: 0rem 0rem !important;
+	vertical-align: middle !important;
+	width: 40% !important;
+}
+
+.title-nav {
+	color: #31353d;
+	/* margin-bottom: 3px; */
+	/* margin-top: 0.2rem; */
+	margin-bottom: 0rem;
+	padding: 1rem 0rem 1rem 0rem;
+}
+
+.div-nav {
+	display: inline-block;
+	margin-right: 0.1rem;
+	font-size: 1.7rem;
+	line-height: inherit;
+	white-space: nowrap;
+}
+
+.div-title-content {
+	position: absolute;
+	top: 70px;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: #ddd;
+}
+
+.img-fluid {
+	max-width: 60%;
+	height: auto;
+	border-radius: 50%;
+}
+
+.ratio {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	height: 0;
+	padding-bottom: 100%;
+	position: relative;
+	width: 100%;
+}
+
+.img-circle {
+	border-radius: 50%;
+}
+
+.img-responsive {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+
+.custom-file-input~.custom-file-label::after {
+	content: "Elegir";
+	border-radius: 2rem;
+	background-color: #ffff;
+	border: transparent;
+}
+
+.borders {
+	border-radius: 2rem;
+}
+
+.row-perfil {
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+.nav-navegacion {
+	background-color: white;
+	box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.15) !important;
+	margin-bottom: 1rem;
+	padding: 0rem 1rem;
+}
+
+.styleselectladas {
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-right: transparent;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.wrapper-tabs {
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 5px;
+	height: 40px;
+}
+
+.list {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	min-width: 3500px;
+	margin-top: 0px;
+}
+
+.list li {
+	display: table-cell;
+	position: relative;
+	text-align: center;
+	cursor: grab;
+	cursor: -webkit-grab;
+	color: #efefef;
+	vertical-align: middle;
+}
+
+.scroller {
+	text-align: center;
+	cursor: pointer;
+	display: none;
+	padding: 0px;
+	padding-top: 7.5px;
+	white-space: no-wrap;
+	vertical-align: middle;
+	/* background-color: #fff; */
+}
+
+.scroller-right {
+	float: right;
+}
+
+.scroller-left {
+	float: left;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+	color: #495057;
+	background-color: transparent;
+	border-color: transparent transparent #f3f3f3;
+	border-bottom: 2px solid !important;
+	font-weight: bold;
+	width: auto;
+	text-align: center;
+}
+
+.nav-tabs .nav-link {
+	border: transparent;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	width: auto;
+	text-align: center;
+}
+
+.scroller-arrows {
+	color: #007bff;
+	font-size: 22px;
+}
+
+/* estilos de bordes derechos para grupos de inputs de mas 3 elementos */
+.borders-right-group {
+	border-left: transparent !important;
+	border-radius: 0rem 2rem 2rem 0rem !important;
+	border: 1px solid #e7e8e9;
+	background: #fff;
+}
+
+/* estilos para bordes izquierdos para grupos de inputs de mas 3 elementos */
+.borders-left-group {
+	border: 1px solid #e7e8e9;
+	color: #495057;
+	border-right: transparent !important;
+	background: #fff;
+	padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	border-radius: 2rem 0rem 0rem 2rem;
+}
+
+/* estilos de span para grupos de inputs de mas 3 elementos */
+.span-middle {
+	background-color: #fff;
+	border-left: transparent;
+	border-right: transparent;
+	border-top: 1px solid #e7e8e9;
+	border-bottom: 1px solid #e7e8e9;
+}
+
+/* estilos de bordes derechos para grupos de inputs de mas 2 elementos */
+.borders-right {
+	border-top-right-radius: 2rem;
+	border-bottom-right-radius: 2rem;
+	background: #fff;
+	border-left: transparent !important;
+	border: 1px solid #e7e8e9;
+	padding: 0rem 0.9rem 0rem 0.75rem;
+}
+
+/* estilo del custom file adaptado al tamaño dado */
+.custom-file {
+	height: calc(1.9rem + 2px);
+	border-top-left-radius: 1rem;
+	border-bottom-left-radius: 1rem;
+}
+
+/* estilo de label de input tipo archivos al español */
+.custom-file-input~.custom-file-label::after {
+	content: "Seleccionar";
+	background-color: transparent;
+	border: transparent;
+	height: calc(1.9rem + 0px);
+	vertical-align: middle;
+	line-height: 1.3;
+	font-size: 14px;
+}
+
+/* estilo del placeholder el input tipo archivos */
+.file-placeholder {
+	color: #939ba2 !important;
+}
+
+/* estilo del tamaño del label de input tipo archivos */
+.custom-file-label-sm {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+	height: calc(1.9rem + 2px);
+	padding: 0.375rem 0.75rem;
+	line-height: 1.3;
+	color: #495057;
+	background-color: #fff;
+	border: 1px solid #e7e8e9;
+	border-right: transparent;
+	border-radius: 2rem;
+	font-size: 14px;
+}
+
+/* estilo del tamaño de input tipo archivos */
+.custom-file-input-sm {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	height: calc(1.9rem + 2px);
+	margin: 0;
+	opacity: 0;
+}
+
+/* estilo de tamaño para boton pequeño de input tipo archivo */
+.btn-sm {
+	height: calc(1.9rem + 2px);
+}

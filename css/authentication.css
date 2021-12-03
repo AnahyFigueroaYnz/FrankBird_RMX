@@ -1,0 +1,114 @@
+    /* .login-page {
+    	min-height: 100vh;
+    } */
+
+
+    .El-Futuro {
+    	color: #FFFFFF;
+    	font-size: 45px;
+    	line-height: 60px;
+    	font-weight: 300;
+    }
+
+    .El_Camino {
+    	font-family: "KommonGrotesk Normal";
+    	font-size: 15px;
+    	line-height: 25.5px;
+    	color: rgb(255, 255, 255);
+    }
+
+    .input-class {
+    	height: 52px;
+    	background: rgba(255, 255, 255, 1);
+    	border-style: Solid;
+    	border-color: #CBCBCB;
+    	border-width: 2px;
+    	border-radius: 34px;
+    	-moz-border-radius: 34px;
+    	-webkit-border-radius: 34px;
+    }
+
+    .form-text {
+    	font-family: "KommonGrotesk Regular";
+    	font-size: 16px;
+    	line-height: 25px;
+    	color: #5B6670;
+    }
+
+    .hint-text {
+    	font-family: "KommonGrotesk Regular";
+    	font-size: 14px;
+    	letter-spacing: 0.14px;
+    	color: #5B6670;
+    }
+
+    .btn-ingresar {
+    	background: #001A70;
+    	border-radius: 2rem;
+    	width: 140px;
+    	padding: 0.6rem;
+    	color: #FFFFFF;
+    	margin-bottom: 0.5rem;
+    }
+
+    .btn-crear {
+    	background: #68B145;
+    	border-radius: 2rem;
+    	width: 140px;
+    	padding: 0.8rem;
+    	color: #FFFFFF;
+    }
+
+    .btn-text {
+    	/* font-family: KommonGrotesk Heavy; */
+    	font-size: 16px;
+    	line-height: 58px;
+    	color: #FFFFFF;
+    }
+
+    .borders {
+    	border-radius: 2rem;
+    }
+
+    .boder-lad {
+    	border: 1px solid #ced4da !important;
+    	color: #495057 !important;
+    	background-color: white !important;
+    	border-right: transparent !important;
+    	background: transparent !important;
+    	padding: 0.25rem 0.25rem 0.25rem 0.5rem !important;
+    	font-size: 0.875rem !important;
+    	line-height: 1.5 !important;
+    	border-radius: 2rem 0rem 0rem 2rem !important;
+    }
+
+    .span-lada {
+    	background-color: transparent !important;
+    	border-left: transparent !important;
+    	border-right: transparent !important;
+    }
+
+    .inp-phone {
+    	border-left: transparent !important;
+    	border-radius: 0rem 2rem 2rem 0rem !important;
+    }
+
+    .form-control-sm {
+    	height: calc(1.5em + .5rem + 5px) !important;
+    }
+
+    .nav-pills .nav-link {
+        color: #007bff;
+    	border-radius: 0;
+    	padding: 0 .75rem;
+    }
+
+    .nav-pills .nav-link.active,
+    .nav-pills .show>.nav-link {
+        color: #6c757d;
+        background: transparent;
+        font-weight: 500;
+        border-bottom: 3px solid #6c757d;
+        border-radius: 0;
+        padding: 0 .75rem;
+    }

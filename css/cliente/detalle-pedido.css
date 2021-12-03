@@ -1,0 +1,497 @@
+/* estilo para ocultar iconos o botones */
+.hide-button {
+	display: none;
+}
+/* estilo de la imagen del producto */
+.img-prod {
+	object-fit: scale-down;
+	height: 10vh;
+	width: 100%;
+}
+
+/* estilo del titulo del producto */
+.titlePedido {
+	font-size: 20px;
+}
+
+/* estilo de link correo en pasos a seguir */
+.step-Alink {
+	color: #007bff !important;
+}
+
+/* estilo de link correo en pasos a seguir al pasar el cuersos sobre este*/
+.step-Alink:hover {
+	color: #0056b3 !important;
+}
+
+/* estilo del titulo de las card */
+.card-title {
+	font-size: 20px !important;
+	font-weight: 700 !important;
+	color: #000;
+}
+
+/* estilo del borde entre las cotizaciones */
+.card-cot {
+	vertical-align: middle !important;
+	border: 0px !important;
+	background-color: transparent !important;
+}
+
+/* estilo del primer elemento de las cotizaciones */
+.card-cot:first-child {
+	border-top-left-radius: 0rem !important;
+	border-top-right-radius: 0rem !important;
+}
+
+/* estilo del ultimo elemento de las cotizaciones */
+.card-cot:last-child {
+	border-bottom-right-radius: 0rem !important;
+	border-bottom-left-radius: 0rem !important;
+}
+
+/* estilo del borde entre los productos */
+.border-list-prod {
+	border-bottom: 2px solid #bababa !important;
+}
+
+/* estilo del primer elemento de la lista del producto*/
+.border-list-prod:first-child {
+	border-top-left-radius: 0rem !important;
+	border-top-right-radius: 0rem !important;
+}
+
+/* estilo del ultimo elemento de la lista del producto*/
+.border-list-prod:last-child {
+	border-bottom-right-radius: 0rem !important;
+	border-bottom-left-radius: 0rem !important;
+}
+
+/* estilo de la lita del producto */
+.list-Info {
+	padding: 0rem 0.4rem !important;
+	vertical-align: middle !important;
+	border: 0px !important;
+	background-color: transparent !important;
+	cursor: pointer !important;
+}
+
+/* estilo de la lita del producto */
+.list-Pedido {
+	padding: 0rem 0.4rem 0.3rem 0rem !important;
+	vertical-align: middle !important;
+	border: 0px !important;
+	background-color: transparent !important;
+	cursor: pointer !important;
+}
+
+/* estilo del primer elemento de la lista del pedido completo*/
+.list-Pedido:first-child {
+	border-top-left-radius: 1rem !important;
+	border-top-right-radius: 1rem !important;
+}
+
+/* estilo del ultimo elemento de la lista del pedido completo*/
+.list-Pedido:last-child {
+	border-bottom-right-radius: 1rem !important;
+	border-bottom-left-radius: 1rem !important;
+}
+
+/* estilo de la lita del producto */
+.list-productos {
+	padding: 0rem !important;
+	vertical-align: middle !important;
+	border-top: 0px !important;
+	border-left: 0px !important;
+	border-right: 0px !important;
+	background-color: transparent !important;
+}
+
+/* estilo de la lita del producto*/
+.list-prod-content {
+	padding: 0.5rem 0rem !important;
+	vertical-align: middle !important;
+	border-top: 1px solid rgba(0, 0, 0, .125) !important;
+	border-left: 0px !important;
+	border-right: 0px !important;
+	border-bottom: 0px !important;
+	background-color: transparent !important;
+}
+
+/* estilo de la lita del producto de la cotizacion aceptada*/
+.list-prod-title {
+	padding: 0.5rem 0rem !important;
+	vertical-align: middle !important;
+	border: 0px !important;
+	background-color: transparent !important;
+}
+
+/* estilo de la lita del producto de la cotizacion aceptada*/
+.list-prod-detalle {
+	padding: 0rem 0rem 0rem 0.3rem !important;
+	vertical-align: middle !important;
+	border: 0px !important;
+	background-color: transparent !important;
+}
+
+/* estilo del contenedor de la lista del producto */
+.list-content-prod {
+	font-size: 14.5px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+/* estilo del contenedor de los datos estaticos unicos */
+.list-extra {
+	font-size: 14.5px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+/* estilo del titulo de la lista del producto */
+.list-Title {
+	font-size: 15px;
+	font-weight: 400;
+	margin: 0px;
+}
+
+/* estilo del titulo de los pasos a seguir */
+.list-steps-title {
+	font-size: 14.5px;
+	color: #007bff;
+}
+
+/* estilo del contenido de los pasos a seguir */
+.list-steps {
+	font-size: 12px;
+	color: #808080;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+/* estilo del lista de las cotizaciones */
+.list-cot {
+	padding: 0.8rem 1rem !important;
+	vertical-align: middle !important;
+	border: 1px solid #bababa !important;
+	background-color: transparent !important;
+	border-radius: 1rem !important;
+	cursor: pointer !important;
+}
+
+/* estilo del titulo de la lista de cotizaciones */
+.list-cot-title {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+/* estilo titulo listas los productos de la cotizacion */
+.list-cotDet-prod {
+	border: 0 !important;
+	border-radius: 0 !important;
+	padding: 0.5rem 0rem !important;
+	background-color: transparent !important;
+}
+
+/* estilo listas los productos de las cotizaciones */
+.list-cotDet-prodTitle {
+	padding: 0.3rem !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	background-color: transparent !important;
+	cursor: pointer !important;
+}
+
+/* estilo listas los productos de las cotizaciones */
+.list-cotDet-prodCont {
+	padding: 0.3rem !important;
+	border-top: 1px solid rgba(0, 0, 0, .125) !important;
+	border-left: 0px !important;
+	border-right: 0px !important;
+	border-bottom: 0px !important;
+	border-radius: 0 !important;
+	background-color: transparent !important;
+}
+
+/* estilo listas de las tarjetas info */
+.list-cot-det {
+	border: 0 !important;
+	border-radius: 0 !important;
+	padding: 0.2rem 2.3rem 0.2rem 1.5rem !important;
+	background-color: transparent !important;
+}
+
+/* estilo del contenido de la cotizacion */
+.list-content-cot {
+	font-size: 13px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+/* estilo de totla del detallo de la cotizacion */
+.list-cot-total {
+    padding: 0.5rem 1rem 0.5rem 1rem !important;
+    border: 1px solid #b1b1b1 !important;
+    border-radius: 1rem !important;
+    margin: 0rem 0.5rem !important;
+}
+
+@media(max-width: 390px) {
+	.list-cot-det {
+		padding: 0.2rem 0.7rem !important;
+	}
+}
+
+@media(max-width: 370px) {
+	.list-cot-det {
+		padding: 0.2rem 0.7rem !important;
+	}
+}
+
+@media(max-width: 320px) {
+	.list-cot-det {
+		padding: 0.2rem 0.7rem !important;
+	}
+}
+
+/* estilo de boton recotizar cotizacion */
+.btnRecotCot {
+	border-radius: 1rem;
+	margin: 0rem 1rem;
+	padding: 0.2rem 1.5rem;
+}
+
+/* estilo de boton aceptar cotizacion */
+.btnAceptCot {
+	border-radius: 1rem;
+	margin: 0rem 0rem 0rem 1rem;
+	padding: 0.2rem 1.5rem;
+}
+
+/* estilo titulo del producto del pedido */
+.prod-title {
+	color: #808080 !important;
+	font-size: 15px !important;
+	font-weight: 400 !important;
+}
+
+/* estilo del boton de editar los elementos del pedido */
+.edits-btns {
+	font-size: 15px !important;
+	margin-left: 10px !important;
+}
+
+/* estilo del boton de edicion para el envio y comentario unicos del pedido */
+.edit-only-btn {
+	font-size: 15px;
+	margin-left: 10px;
+}
+
+/* estilo del grososr de la fuente de los elementos del pedido */
+.font-w {
+	font-weight: 400 !important;
+}
+
+/* estilo del boton eliminar */
+.btnEliminar {
+	color: #dc3545 !important;
+}
+
+/* estilo del boton eliminar cuando se pasa el cursos encima */
+.btnEliminar:hover {
+	color: #c83333 !important;
+}
+
+/* estilos de icono tipo titulo de cards */
+.icon-cardPedidos {
+	font-size: 2rem;
+	color: #000080;
+	margin-bottom: 1rem;
+}
+
+/* estilo de texto tipo titulo de cards */
+.text-cardPedidos {
+	color: #808080;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+/* estilo de los estatus de las cotizaciones */
+.badge-pill {
+	padding: 0.5rem 1rem !important;
+	border-radius: 0.3rem !important;
+}
+
+.img-icon {
+	vertical-align: middle !important;
+	margin-left: 5px !important;
+	font-size: 2rem !important;
+}
+
+.pdf-icon {
+	vertical-align: middle !important;
+	color: #cc0b0b !important;
+	margin-left: 5px !important;
+	font-size: 2rem !important;
+}
+
+.pdf-icon:hover {
+	vertical-align: middle !important;
+	color: #9C1616 !important;
+}
+
+.excel-icon {
+	vertical-align: middle !important;
+	color: #128E2F !important;
+	margin-left: 5px !important;
+	font-size: 2rem !important;
+}
+
+.excel-icon:hover {
+	vertical-align: middle !important;
+	color: #05611A !important;
+}
+
+.files-pedido {
+	object-fit: scale-down;
+	height: 50vh;
+	width: 100%;
+}
+
+.img-caroucel {
+	object-fit: scale-down;
+	height: 50vh;
+	width: 100%;
+}
+
+.img-caroucel-cot {
+	object-fit: scale-down;
+	height: 14vh;
+	width: 100%;
+}
+
+.img-cot {
+	object-fit: scale-down;
+	height: 16vh;
+	width: 100%;
+}
+
+.carousel-indicators .active {
+	color: #565454 !important;
+	background-color: #565454 !important;
+	border: 0 !important;
+}
+
+.carousel-indicators li {
+	background-color: rgb(0 0 0 / 50%) !important;
+	border: 0 !important;
+}
+
+.content-prod-cot {
+	padding: 0rem 0.4rem 0.3rem 0.4rem;
+}
+
+.content-prod {
+	padding: 0.3rem 0.4rem 2rem 0.4rem;
+}
+
+.img-prods {
+	object-fit: scale-down;
+	height: 9.5vh;
+	width: 100%;
+}
+
+@media (max-width: 2560px) {
+	.det-caroucel {
+		width: 84%;
+		margin-left: 1rem;
+		padding: 0rem 0rem 0.5rem 0rem;
+	}
+
+	.modal-caroucel {
+		width: 90%;
+		margin-left: 2.5rem;
+	}
+}
+
+@media (max-width: 1300px) {
+	.det-caroucel {
+		width: 89%;
+		margin-left: 1rem;
+		padding: 0rem 0rem 0.5rem 0rem;
+	}
+
+	.img-caroucel-cot {
+		height: 24vh;
+	}
+
+	.modal-caroucel {
+		width: 90%;
+		margin-left: 2.5rem;
+	}
+
+	.content-prod-cot {
+		padding: 0.3rem 0.4rem 2rem 0.4rem;
+	}
+
+	.img-prods {
+		height: 10vh;
+		margin: 1rem 0rem;
+	}
+}
+
+@media(max-width: 900px) {
+	.det-caroucel {
+		width: 89%;
+		margin-left: 1rem;
+		padding: 0rem 0rem 0.5rem 0rem;
+	}
+
+	.img-caroucel-cot {
+		height: 24vh;
+	}
+
+	.modal-caroucel {
+		width: 90%;
+		margin-left: 1.5rem;
+	}
+}
+
+@media(max-width: 500px) {
+	.det-caroucel {
+		width: 81%;
+		margin-left: 2rem;
+		padding: 0rem 0rem 0.5rem 0rem;
+	}
+
+	.modal-caroucel {
+		width: 87%;
+		margin-left: 1.5rem;
+	}
+}
+
+@media(max-width: 390px) {
+	.det-caroucel {
+		width: 88%;
+		margin-left: 1rem;
+		padding: 0rem 0rem 0.5rem 0rem;
+	}
+
+	.modal-caroucel {
+		width: 85%;
+		margin-left: 1.5rem;
+	}
+}
+
+@media(max-width: 320px) {
+	.det-caroucel {
+		width: 85%;
+		margin-left: 1rem;
+		padding: 0rem 0rem 0.5rem 0rem;
+	}
+
+	.modal-caroucel {
+		width: 83%;
+		margin-left: 1.5rem;
+	}
+}

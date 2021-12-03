@@ -1,0 +1,29 @@
+#tbl_clientes {
+	border-collapse: separate;
+	border-spacing: 0px 20px;
+}
+
+#tbl_clientes tbody td {
+	padding: 1rem 1rem;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+	top: 20px;
+	left: 2px;
+	height: 14px;
+	width: 14px;
+	display: block;
+	position: absolute;
+	color: white;
+	border: 2px solid white;
+	border-radius: 2rem;
+	box-shadow: 0 0 3px #444;
+	box-sizing: content-box;
+	text-align: center;
+	text-indent: 0 !important;
+	font-family: 'Courier New', Courier, monospace;
+	line-height: 14px;
+	content: '+';
+	background-color: #0275d8;
+}

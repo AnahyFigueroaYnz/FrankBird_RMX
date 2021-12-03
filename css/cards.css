@@ -1,0 +1,462 @@
+/* estilo listas de las tarjetas info */
+.card-list {
+	border: 0 !important;
+	border-radius: 0 !important;
+	padding: 0.2rem 1.5rem !important;
+	background-color: transparent !important;
+}
+
+@media(max-width: 390px) {
+	.card-list {
+		padding: 0.2rem 0.7rem !important;
+	}
+}
+
+@media(max-width: 370px) {
+	.card-list {
+		padding: 0.2rem 0.7rem !important;
+	}
+}
+
+@media(max-width: 320px) {
+	.card-list {
+		padding: 0.2rem 0.7rem !important;
+	}
+}
+
+
+
+.tarjeta {
+	border-radius: 1rem;
+	border: 1px solid #dfdfdf;
+	background: white;
+}
+
+.tarjeta-form {
+	border-radius: 1rem;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin-bottom: 0rem;
+}
+
+.tarjeta-products {
+	border-radius: 1rem;
+	border-right: transparent;
+	border-left: transparent;
+}
+
+.borders-card {
+	background: transparent;
+}
+
+.borders-card-prod {
+	margin-bottom: 0;
+	background-color: transparent;
+	border-bottom: 0px;
+}
+
+.img-card-product {
+	box-shadow: 0 0 0px rgba(0, 0, 0, .125), 0 0px 0px rgba(0, 0, 0, .2);
+	margin-bottom: 0rem;
+	border: transparent;
+}
+
+.prodcuts-cards {
+	margin-bottom: 0rem;
+	border: transparent;
+	box-shadow: 0 0 0px rgba(0, 0, 0, .125), 0 0px 0px rgba(0, 0, 0, .2);
+	border-top: 1px solid #d0d0d2;
+}
+
+.titulo-product {
+	background-color: #030786;
+	color: #ffff;
+	border-radius: 1rem 1rem 0rem 0rem !important;
+	padding: 0.5rem 1rem;
+	font-size: 15px;
+}
+
+.img-fluid-banderas {
+	max-width: 35%;
+	height: auto;
+	border: transparent;
+	border-radius: 50%;
+}
+
+.img-log {
+	max-width: 10%;
+	height: auto;
+	border-radius: 0%;
+	border: transparent;
+	margin-left: 4px;
+}
+
+.img-fluid-empresas {
+	max-width: 40%;
+	height: auto;
+	border-radius: 50%;
+}
+
+.card-margins-right {
+	border-top: transparent !important;
+	width: 45%;
+}
+
+.card-margins-left {
+	border-top: transparent !important;
+	width: 55%;
+}
+
+.lista-card {
+	border: transparent !important;
+	padding: 0.2rem !important;
+}
+
+.pie-costos {
+	color: #ffff;
+	background-color: #28a745;
+	border-radius: 0rem 0rem 1rem 1rem !important;
+}
+
+.card-collapse-products {
+	border-left: transparent;
+	border-right: transparent;
+	border-top: transparent;
+	border-radius: 0rem 0rem 1rem 1rem;
+}
+
+.collapsed-title {
+	padding: 1rem 1rem;
+	background: transparent;
+	border: 0px;
+}
+
+.collapsed-products {
+	background: transparent;
+	border: 0px;
+	padding: 0rem;
+}
+
+.prov-name {
+	border-top: transparent !important;
+	padding: 0rem 0rem !important;
+	vertical-align: middle !important;
+	width: 60% !important;
+}
+
+.cot-name {
+	border-top: transparent !important;
+	padding: 0rem 0rem !important;
+	vertical-align: middle !important;
+	width: 50% !important;
+}
+
+.prov-detile {
+	border-top: transparent !important;
+	text-align: right !important;
+	padding: 0rem 0rem !important;
+	vertical-align: middle !important;
+	width: 40% !important;
+}
+
+.cot-detile {
+	border-top: transparent !important;
+	text-align: right !important;
+	padding: 0rem 0rem !important;
+	vertical-align: middle !important;
+	width: 50% !important;
+}
+
+.prov-icon {
+	border-top: transparent !important;
+	text-align: center !important;
+	padding: 0rem 0rem !important;
+	vertical-align: middle !important;
+	width: 10% !important;
+}
+
+.prov-cont {
+	border-top: transparent !important;
+	padding: 0rem 0rem !important;
+	vertical-align: middle !important;
+	width: 50% !important;
+}
+
+.product-name {
+	border-top: transparent !important;
+	vertical-align: middle !important;
+	width: 60% !important;
+	padding: 0.75rem !important;
+}
+
+.product-detile {
+	border-top: transparent !important;
+	text-align: right !important;
+	vertical-align: middle !important;
+	width: 40% !important;
+	padding: 0.75rem !important;
+}
+
+.no-exist {
+	border-top: transparent !important;
+	vertical-align: middle !important;
+	text-align: center;
+}
+
+.cards-img {
+	border: transparent !important;
+	box-shadow: 0 0 0px rgba(0, 0, 0, .125), 0 0px 0px rgba(0, 0, 0, .2) !important;
+	margin-bottom: 0rem !important;
+}
+
+.oem-service {
+	margin-bottom: 0rem;
+	border: transparent;
+	box-shadow: 0 0 0px rgba(0, 0, 0, .125), 0 0px 0px rgba(0, 0, 0, .2);
+	border-top: 0px solid #d0d0d2;
+	margin-top: 0.5rem;
+}
+
+.coll-oem {
+	padding: 0rem;
+	background: transparent;
+	border: 0px;
+}
+
+.cotiza-card {
+	margin-bottom: 0rem !important;
+	border: transparent !important;
+	box-shadow: 0 0 0px rgba(0, 0, 0, .125), 0 0px 0px rgba(0, 0, 0, .2) !important;
+	border-top: 1px solid #d0d0d2 !important;
+}
+
+.cotiza-header {
+	padding: 1rem !important;
+	background: transparent !important;
+	border: 0px !important;
+}
+
+.costos-margins-right {
+	border-top: transparent !important;
+	width: 55%;
+	padding: 0rem !important;
+	vertical-align: middle !important;
+}
+
+.costos-margins-left {
+	border-top: transparent !important;
+	width: 45%;
+	padding: 0rem !important;
+	vertical-align: middle !important;
+}
+
+.btn-check-bf {
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	padding: 1px 0px;
+	line-height: 1.5;
+	margin-top: 0px;
+	font-size: 18px;
+	border-radius: 15px;
+}
+
+.btn-check-af {
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	padding: 2px 0px;
+	line-height: 1;
+	margin-top: 0px;
+	border-radius: 15px;
+	font-size: 13px;
+	color: #ffff !important;
+}
+
+.pedido-prov-name {
+	padding: 0.5rem;
+	vertical-align: middle;
+	border-top: 1px solid #d0d0d2;
+	width: 65%;
+}
+
+.pedido-prov-det {
+	padding: 0.5rem;
+	vertical-align: middle;
+	border-top: 1px solid #d0d0d2;
+	width: 30%;
+}
+
+.pedido-prov-icon {
+	padding: 0.5rem;
+	vertical-align: middle;
+	border-top: 1px solid #d0d0d2;
+	width: 5%;
+}
+
+.boder-lad {
+	border: 1px solid #ced4da;
+	color: #495057;
+	background-color: white;
+	border-right: transparent !important;
+	background: transparent !important;
+	padding: 0.25rem 0.25rem 0.25rem 0.5rem !important;
+	font-size: 0.875rem !important;
+	line-height: 1.5 !important;
+	border-radius: 2rem 0rem 0rem 2rem !important;
+}
+
+.span-lada {
+	background-color: transparent;
+	border-left: transparent;
+	border-right: transparent;
+}
+
+.inp-phone {
+	border-left: transparent;
+	border-radius: 0rem 2rem 2rem 0rem;
+}
+
+.infoArancel {
+	color: #ffc107 !important;
+}
+
+.infoArancel:hover {
+	color: #e0a800 !important;
+}
+
+.card-prod-title {
+	font-size: 22px;
+	font-weight: 500;
+}
+
+.card-prod-list {
+	background-color: transparent !important;
+	padding: 0rem !important;
+	border: 0rem !important;
+}
+
+.card-prod-btn {
+	color: #cfcfcf;
+}
+
+.card-prod-btn:hover {
+	color: #ffff;
+}
+
+.font-w {
+	font-weight: 400 !important;
+}
+
+.font-wt {
+	font-weight: 500 !important;
+}
+
+.list-card-title {
+	font-size: 22px;
+	font-weight: 500;
+	margin: 0;
+}
+
+.list-product {
+	padding: 0.3rem !important;
+	vertical-align: middle !important;
+	border-right: 0px !important;
+	border-left: 0px !important;
+	border: 1px solid #dfdfdf;
+	background-color: transparent !important;
+	cursor: default !important;
+}
+
+/* estilo del primer elemento de la lista*/
+.list-product:first-child  {
+	border-top-left-radius: 1rem !important;
+	border-top-right-radius: 1rem !important;
+	border-top: 0rem !important;
+}
+/* estilo del ultimo elemento de la lista*/
+.list-product:last-child  {
+	border-bottom-right-radius: 1rem !important;
+	border-bottom-left-radius: 1rem !important;
+	border-bottom: 0rem !important;
+}
+
+.list-desglose {
+	padding: 0.3rem !important;
+	vertical-align: middle !important;
+	border: 0px !important;
+	background-color: transparent !important;
+	cursor: default !important;
+}
+
+.list-gastos {
+	padding: 0.3rem !important;
+	vertical-align: middle !important;
+	border-right: 0px !important;
+	border-left: 0px !important;
+	border: 1px solid #dfdfdf;
+	background-color: transparent !important;
+	cursor: default !important;
+}
+
+/* estilo del primer elemento de la lista*/
+.list-gastos:first-child  {
+	border-top-left-radius: 1rem !important;
+	border-top-right-radius: 1rem !important;
+	border-top: 0rem !important;
+}
+/* estilo del ultimo elemento de la lista*/
+.list-gastos:last-child  {
+	border-bottom-right-radius: 1rem !important;
+	border-bottom-left-radius: 1rem !important;
+	border-bottom: 0rem !important;
+}
+
+.list-more {
+	font-size: 14px !important;
+	color: #808080 !important;
+	margin-bottom: 0px !important;
+	margin-left: 0px !important;
+}
+
+.list-Content {
+	font-size: 14.5px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.list-content-pago {
+	padding: 0 !important;
+	background-color: transparent !important;
+	border: 0 !important;
+	background: #28a745;
+}
+
+.list-title {
+	font-size: 1.2rem;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.list-subtitle {
+	font-size: 0.8rem;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.btn-pago {
+	border: 1px solid #ffffff;
+	border-radius: 3rem;
+	padding: 0.4rem 0.7rem;
+	color: #ffff;
+	background: #28a745;
+}
+
+.btn-pago:hover {
+	border: 1px solid #ffffff;
+	border-radius: 3rem;
+	padding: 0.4rem 0.7rem;
+	color: #28a745;
+	background: #ffff;
+}
