@@ -1,0 +1,26 @@
+.banner-box {
+    width: inherit;
+    padding-top: 0rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 0rem;
+}
+.banner-box h1 {
+    font-size: 50px;
+    font-weight: inherit;
+    font-family: 'Segoe UI';
+}
+
+.banner-box .list-group .list-group-item {
+    position: relative;
+    display: block;
+    font-size: 18px;
+    padding: 20px 0px 10px;
+    background-color: transparent;
+    border: 0px;
+    font-family: 'Segoe UI';
+}
+
+.banner-box .list-group .list-group-item i{
+    margin-right: 10px;
+}

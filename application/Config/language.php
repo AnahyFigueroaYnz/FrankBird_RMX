@@ -19,5 +19,5 @@ if (!isset($_SESSION['lang'])) {
 }
 
 
-require_once "$_SERVER[DOCUMENT_ROOT]/Plataforma_RMX/application/language/" . $_SESSION['lang'] . ".php";
+require_once "$_SERVER[DOCUMENT_ROOT]/FrankBird_RMX/application/language/" . $_SESSION['lang'] . ".php";
 ?>

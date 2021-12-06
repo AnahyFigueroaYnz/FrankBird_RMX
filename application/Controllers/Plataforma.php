@@ -148,6 +148,36 @@ class Plataforma extends CI_Controller
 		}
 	}
 
+	public function Dashboard()
+	{
+		if ($this->mantenimiento() == FALSE) {
+			$nivel = 2;
+			$id_usuario = 2;
+			$data = array(
+				'Data_Proveedores' => $this->Plataforma_model->noProveedores(),
+				'Data_Productos' => $this->Plataforma_model->noProductos(),
+				'Data_Clientes' => $this->Plataforma_model->noClientes(),
+				'Data_Proyectos' => $this->Plataforma_model->noProyectos(),
+				'Data_Agencias' => $this->Plataforma_model->noAgencias(),
+				'Data_Agentes' => $this->Plataforma_model->noAgentes(),
+				'Data_UltCotizaciones' => $this->Plataforma_model->lastCotizaciones(),
+				'Data_UltProyectos' => $this->Plataforma_model->lastProyectos(),
+				'Data_UltProductos' => $this->Plataforma_model->lastProductos(),
+				'Data_SourcingProy' => $this->Plataforma_model->sourcingProy(),
+				'Data_Ganancias' => $this->Plataforma_model->ganancias(),
+				'Data_Pendientes' => $this->Plataforma_model->pendientesTasks($id_usuario),
+			);
+			$this->load->view('headers/header');
+			$this->load->view('headers/navBar_plataforma');
+			$this->load->view('plataforma/dashboard', $data);
+			$this->load->view('footers/footer_cierre');
+			$this->load->view('footers/footer-script');
+			$this->load->view('footers/cargar_js');
+		} else {
+			$this->load->view('mantenimiento/mantenimiento');
+		}
+	}
+
 	public function DashboardAdministrador()
 	{
 		if ($this->mantenimiento() == FALSE) {

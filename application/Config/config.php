@@ -30,7 +30,7 @@ if ($_SERVER['HTTP_HOST'] == 'https://www.reachmx.com') {
 } else if ($_SERVER['HTTP_HOST'] == 'online.reachmx.com') { 
     $config['base_url'] = 'https://online.reachmx.com';
 } else {
-    $config['base_url'] = 'https://localhost/Plataforma_RMX';
+    $config['base_url'] = 'https://localhost/FrankBird_RMX';
 }
 
 /*	

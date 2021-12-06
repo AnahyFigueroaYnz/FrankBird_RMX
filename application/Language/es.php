@@ -47,12 +47,11 @@
             "inicioCirculo3"=> "Ahorro para nuestros clientes",
             "inicioCirculo4"=> "Fábricas verificadas en Asia",
 
-            "inicioTituloBannerFinal":"¡Toda aventura empieza con el primer paso!",
+            "inicioTituloBannerFinal"=>"¡Toda aventura empieza con el primer paso!",
             "iniciobtnCrearCuenta"=> "Crear cuenta",
 
         "serviciosTitulo"=> "Monitorea todos tus proyectos en un solo lugar.",
             "serviciosSubtitulo1"=> "Nosotros nos hacemos cargo de toda<br>la operación, queremos que te enfoques<br>en hacer crecer tu negocio.",
-
             "serviciosSubtitulo2"=> "Nuestras soluciones en importación y<br>exportación se adaptan a lo que necesites!",
             "home_tab"=> "Importación",
                 "serviciosImportacionSubtitulo1"=> "Calidad",
