@@ -40,7 +40,7 @@ $version = $data_ver->version;
             </li>
           <?php } else if ($level == 2) { ?>
             <li class="breadcrumb-item">
-              <a href="<?= base_url() ?>Plataforma/DashboardAdministrador"><i class="nav-icon fas fa-home"></i> Home</a>
+              <a href="<?= base_url() ?>Dashboard"><i class="nav-icon fas fa-home"></i> Home</a>
             </li>
           <?php } ?>
           <li class="breadcrumb-item active">Proyectos activos</li>
@@ -58,13 +58,11 @@ $version = $data_ver->version;
           <thead>
             <tr>
               <th>#Folio</th>
-              <th>Cliente</th>
               <th>Estatus</th>
               <th>Nombre proy</th>
               <th>Fecha Orden</th>
               <th>Fecha Salida</th>
               <th>Fecha Llegada</th>
-              <th>Asesor</th>
               <th></th>
               <th></th>
             </tr>
@@ -85,9 +83,6 @@ $version = $data_ver->version;
                     <a id="btnDetallePy" href="<?= base_url("Plataforma/DetalleProyectos/$id_proyecto") ?>" style="margin-left: 0.5rem;">
                       <span class="td-text"><?= $row->a_registro ?>-<?= $row->folio; ?></span>
                     </a>
-                  </td>
-                  <td style="vertical-align: middle">
-                    <span class="td-text"><?= $row->Cliente; ?></span>
                   </td>
                   <td style="vertical-align: middle">
                     <?php if ($row->id_estadoproyectos >= 1 && $row->id_estadoproyectos <= 5) { ?>
@@ -131,13 +126,6 @@ $version = $data_ver->version;
                     <?php } ?>
                   </td>
                   <td style="vertical-align: middle">
-                    <?php if ($row->Asesor === '' || $row->Asesor === null) { ?>
-                      <span class="td-text">Por definir</span>
-                    <?php } else { ?>
-                      <span class="td-text"><?= $row->Asesor; ?></span>
-                    <?php } ?>
-                  </td>
-                  <td style="vertical-align: middle">
                     <a type="button" href="#" data-id="<?= $row->id_proyecto; ?>" class="editar_todos_proyectos" data-toggle="modal">
                       <i class="far fa-edit"></i>
                     </a>
@@ -152,7 +140,7 @@ $version = $data_ver->version;
         </table>
       </div>
 
-    <!-- Modal para asignar y modificar agente -->
+    <!-- Modal para asignar y modificar nombre del proyecto y status -->
     <div class="modal fade" id="modal_editar_proyeco" tabindex="-1" role="dialog" aria-labelledby="asignar_asesorModalLabel" aria-hidden="true">
       <?php $this->load->view('plataforma/administrador/modals/modal-asignar-asesor'); ?>
     </div>

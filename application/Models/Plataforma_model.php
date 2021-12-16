@@ -39,7 +39,7 @@ class Plataforma_model extends CI_Model
         }
     }
     //funcion para obtener todos los proyectos en la vista del administrador
-    public function get_allproyectos()
+    public function get_allproyectos($id)
     {
         $this->db->select('*,
             (SELECT nombre from usuarios where id_usuario = proyecto.id_cliente) as Cliente,
@@ -49,6 +49,7 @@ class Plataforma_model extends CI_Model
         $this->db->join('usuarios', 'usuarios.id_usuario = proyecto.id_cliente');
         $this->db->join('estados_proyectos', 'estados_proyectos.id_estadoproyectos = proyecto.id_estadoproyectos');
         $this->db->where('proyecto.activo != 0');
+        $this->db->where('proyecto.id_cliente', $id);
         $this->db->order_by('proyecto.id_proyecto', 'DESC');
 
         $query = $this->db->get();
@@ -60,7 +61,7 @@ class Plataforma_model extends CI_Model
         }
     }
     //funcion para obtener todos los proyectos activos en la vista del administrador
-    public function get_allactivos()
+    public function get_allactivos($id)
     {
         $this->db->select('*,
             (SELECT nombre from usuarios where id_usuario = proyecto.id_cliente) as Cliente,
@@ -70,6 +71,7 @@ class Plataforma_model extends CI_Model
         $this->db->join('usuarios', 'usuarios.id_usuario = proyecto.id_cliente');
         $this->db->join('estados_proyectos', 'estados_proyectos.id_estadoproyectos = proyecto.id_estadoproyectos');
         $this->db->where('proyecto.activo = 1 AND (proyecto.id_estadoproyectos >= 1 AND proyecto.id_estadoproyectos != 24)');
+        $this->db->where('id_cliente', $id);
         $this->db->order_by('proyecto.id_proyecto', 'DESC');
 
         $query = $this->db->get();
@@ -81,7 +83,7 @@ class Plataforma_model extends CI_Model
         }
     }
     //funcion para obtener todos los proyectos concluidos en la vista del administrador
-    public function get_allconcluidos()
+    public function get_allconcluidos($id)
     {
         $this->db->select('*,
             (SELECT nombre from usuarios where id_usuario = proyecto.id_cliente) as Cliente,
@@ -90,6 +92,7 @@ class Plataforma_model extends CI_Model
         $this->db->from('proyecto');
         $this->db->join('usuarios', 'usuarios.id_usuario = proyecto.id_cliente', 'left');
         $this->db->join('estados_proyectos', 'estados_proyectos.id_estadoproyectos = proyecto.id_estadoproyectos', 'left');
+        $this->db->where('id_cliente', $id);
         $this->db->where('proyecto.id_estadoproyectos = 24 AND proyecto.activo = 2');
 
         $query = $this->db->get();
@@ -386,6 +389,7 @@ class Plataforma_model extends CI_Model
         $this->db->where('id_agencia', $id_agencia);
         $this->db->update('agencias_aduanales', $data);
     }
+    
     //funcion para cargar la lista de asesores y admin para asignar a un proyecto, vista del administrador
     public function get_asesores()
     {
@@ -404,6 +408,7 @@ class Plataforma_model extends CI_Model
             return FALSE;
         }
     }
+
     public function get_datos_transporte($id_transporte)
     {
         $this->db->select('id_transporte, transporte, clave');
@@ -1368,9 +1373,10 @@ class Plataforma_model extends CI_Model
         }
     }
     // funcion para tener la cantidad de los proyectos
-    public function noProyectos()
+    public function noProyectos($id)
     {
         $this->db->from('noProyectos_platform');
+        $this->db->where('id_cliente', $id);
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
@@ -1472,46 +1478,9 @@ class Plataforma_model extends CI_Model
             return FALSE;
         }
     }
-    // funcion para tener la cantidad de los agencias
-    public function noAgencias()
-    {
-        $this->db->select('COUNT(*) AS NoAgencias');
-        $this->db->from('agencias_aduanales');
+    
 
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query->row();
-        } else {
-            return FALSE;
-        }
-    }
-    // funcion para tener la cantidad de los agentes
-    public function noAgentes()
-    {
-        $this->db->select('COUNT(*) AS NoAgentes');
-        $this->db->from('usuarios');
-        $this->db->where('id_nivelusuario', 5);
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query->row();
-        } else {
-            return FALSE;
-        }
-    }
-    // funcion para tener la cantidad de los proveedores
-    public function noProveedores()
-    {
-        $this->db->select('COUNT(*) AS NoProveedores');
-        $this->db->from('proveedores');
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query->row();
-        } else {
-            return FALSE;
-        }
-    }
+    
     // funcion para tener la cantidad de los productos
     public function noProductos()
     {
@@ -1525,36 +1494,8 @@ class Plataforma_model extends CI_Model
             return FALSE;
         }
     }
-    // funcion para tener la cantidad de los clientes
-    public function noClientes()
-    {
-        $this->db->select('COUNT(*) AS NoClientes');
-        $this->db->from('usuarios');
-        $this->db->where('id_nivelusuario', 4);
 
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query->row();
-        } else {
-            return FALSE;
-        }
-    }
-    // funcion para tener las ultimas cotizaciones
-    public function lastCotizaciones()
-    {
-        $this->db->select('*');
-        $this->db->from('cotizaciones');
-        $this->db->join('proyecto', 'proyecto.id_proyecto = cotizaciones.id_proyecto', 'left');
-        $this->db->order_by('id_cotizacion', 'DESC');
-        $this->db->LIMIT(5);
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query;
-        } else {
-            return FALSE;
-        }
-    }
+    
     // funcion para tener las ultimas cotizaciones del asesor
     public function lastMyCotizaciones($id_usuario)
     {
@@ -1572,105 +1513,7 @@ class Plataforma_model extends CI_Model
             return FALSE;
         }
     }
-    // funcion para tener los ultimos proyectos
-    public function lastProyectos()
-    {
-        $this->db->from('proyecto');
-        $this->db->where('activo', 1);
-        $this->db->order_by('id_proyecto', 'DESC');
-        $this->db->LIMIT(4);
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query;
-        } else {
-            return FALSE;
-        }
-    }
-    // funcion para tener ultimos productos cotizados
-    public function lastProductos()
-    {
-        $this->db->from('producto_cotizacion');
-        $this->db->join('proveedores', 'proveedores.id_proveedor = producto_cotizacion.id_proveedor', 'left');
-        $this->db->order_by('id_producto_cot', 'DESC');
-        $this->db->LIMIT(4);
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query;
-        } else {
-            return FALSE;
-        }
-    }
-    // funcion para tener las ganacias al estar el proyecto en anticipo pagado
-    public function ganancias()
-    {
-        $this->db->from('ganancias');
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query->row();
-        } else {
-            return FALSE;
-        }
-    }
-    // funcion para tener los proyectos en sourcing dentro de 24 hrs
-    public function sourcingProy()
-    {
-        $this->db->from('sourcingProy');
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query;
-        } else {
-            return FALSE;
-        }
-    }
-    // funcion para tener los proyectos del asesor en sourcing dentro de 24 hrs
-    public function sourcingMisProy($id_usuario)
-    {
-        $this->db->from('sourcingMisProy_asesor');
-        $this->db->where('id_asesor', $id_usuario);
-        $this->db->order_by('folio', 'DESC');
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query;
-        } else {
-            return FALSE;
-        }
-    }
-    // funcion para tener los proyectos del agente con mas de 3 dias en despacho aduanal
-    public function desAduanProy($id_agencia)
-    {
-        $this->db->from('desAduanProy');
-        $this->db->where('id_agencia', $id_agencia);
-        $this->db->order_by('folio', 'DESC');
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query;
-        } else {
-            return FALSE;
-        }
-    }
-
-    // funcion para tener los pendientes/tasks 
-    public function pendientesTasks($id_usuario)
-    {
-        $this->db->from('task_dashboard');
-        $this->db->where('activo', 1);
-        $this->db->where('id_usuario', $id_usuario);
-        $this->db->order_by('id_task_dash', 'DESC');
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query;
-        } else {
-            return FALSE;
-        }
-    }
-
+    
     // funcion para obtener la informacion del pendiente/task
     public function taskData($id_task_dash)
     {

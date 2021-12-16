@@ -57,13 +57,11 @@ function encrypted_id($id_proyecto)
           <thead>
             <tr>
               <th>#Folio</th>
-              <th>Cliente</th>
               <th>Estatus</th>
               <th>Nombre proy</th>
               <th>Fecha Orden</th>
               <th>Fecha Salida</th>
               <th>Fecha Llegada</th>
-              <th>Asesor</th>
               <th></th>
               <th></th>
             </tr>
@@ -85,7 +83,6 @@ function encrypted_id($id_proyecto)
                       <span class="td-text"><?= $row->a_registro ?>-<?= $row->folio; ?></span>
                     </a>
                   </td>
-                  <td><span class="td-text"><?= $row->Cliente; ?></span></td>
                   <td>
                       <?php if ($row->id_estadoproyectos >= 1 && $row->id_estadoproyectos <= 5) { ?>
                           <span class="badge badge-celeste"><?= $row->estado; ?></span>
@@ -125,13 +122,6 @@ function encrypted_id($id_proyecto)
                       <span class="td-text">Por definir</span>
                     <?php } else { ?>
                       <span class="td-text"><?= $ETA; ?></span>
-                    <?php } ?>
-                  </td>
-                  <td>
-                    <?php if ($row->Asesor === '' || $row->Asesor === null) { ?>
-                      <span class="td-text">Por definir</span>
-                    <?php } else { ?>
-                      <span class="td-text"><?= $row->Asesor; ?></span>
                     <?php } ?>
                   </td>
                   <td>
