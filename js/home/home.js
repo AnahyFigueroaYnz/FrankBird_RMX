@@ -164,7 +164,7 @@ var home = {
                             } else {
                                 toastr.options.onHidden = function () {
                                     // this will be executed after fadeout, i.e. 2secs after notification has been show
-                                    window.location.assign(base_url + 'Home/Ingresar');
+                                    window.location.assign(base_url + 'Home');
                                 };
 
                                 toastr.success("Registro exitoso", "Actualización Correcta");
@@ -214,7 +214,7 @@ var home = {
                     if (nivel == 1) {
                         window.location.assign(base_url + 'Mantenimiento/DashboardRoot');
                     } else if (nivel == 2) {
-                        window.location.assign(base_url + 'Plataforma/DashboardAdministrador');
+                        window.location.assign(base_url + 'Dashboard');
                     } else if (nivel == 3) {
                         window.location.assign(base_url + 'Plataforma/DashboardAsesor');
                     } else if (nivel == 4) {
@@ -253,7 +253,7 @@ var home = {
                     if (nivel == 1) {
                         window.location.assign(base_url + 'Mantenimiento/DashboardRoot');
                     } else if (nivel == 2) {
-                        window.location.assign(base_url + 'Plataforma/DashboardAdministrador');
+                        window.location.assign(base_url + 'Dashboard');
                     } else if (nivel == 3) {
                         window.location.assign(base_url + 'Plataforma/DashboardAsesor');
                     } else if (nivel == 4) {
@@ -283,7 +283,7 @@ var home = {
                     showConfirmButton: false,
                     timerProgressBar: true,
                     onClose: () => {
-                        window.location.assign(base_url + 'Home/Ingresar')
+                        window.location.assign(base_url + 'Home')
                     },
                 });
             } else if (response.error == 'formulario no enviado') {
@@ -295,7 +295,7 @@ var home = {
                     showConfirmButton: false,
                     timerProgressBar: true,
                     onClose: () => {
-                        window.location.assign(base_url + 'Home/Ingresar')
+                        window.location.assign(base_url + 'Home')
                     },
                 });
             } else if (response.error == 'Enviado correctamente') {
@@ -307,59 +307,17 @@ var home = {
                     showConfirmButton: false,
                     timerProgressBar: true,
                     onClose: () => {
-                        window.location.assign(base_url + 'Home/Ingresar')
+                        window.location.assign(base_url + 'Home')
                     },
                 });
             }
         });
     },
 
-    contacto: function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            var forms = document.getElementsByClassName('needs-validation');
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-
-        $('#contactForm').on('submit', function (form) {
-            form.preventDefault();
-            if ($("#contactForm").valid()) {
-                base_url = $('#baseURL').html();
-                var data = {
-                    u_name: $('#u_name').val(),
-                    u_email: $('#u_email').val(),
-                    u_subject: $('#u_subject').val(),
-                    u_content: $('#u_content').val(),
-                    u_phone: $('#u_phone').val(),
-                }
-
-                cargar_ajax.run_server_ajax('Home/EnviandoCorreo', data);
-                swal.fire({
-                    title: "Correcto",
-                    text: "Mensaje enviado",
-                    icon: "success",
-                    timer: 2000,
-                    showConfirmButton: false,
-                    timerProgressBar: true,
-                }).then(function () {
-                    window.location.assign(base_url + 'Home');
-                });
-            }
-        })
-    }
 }
 jQuery(document).ready(function () {
     home.inicio(this);
     home.singin(this);
     home.login(this);
-    home.contacto(this);
     home.recover(this);
 });

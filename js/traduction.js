@@ -123,8 +123,8 @@ $(document).ready(function () {
 			$('#navCotizador').prop('href', '' + baseUrl + 'Home/Cotizador' + esen);
 			$('#navFAQ').prop('href', '' + baseUrl + 'Home/FAQ' + esen);
 			$('#navContacto').prop('href', '' + baseUrl + 'Home/Contactanos' + esen);
-			$('#navbtnIngresar').prop('href', '' + baseUrl + 'Home/Ingresar' + esen);
-			$('#iniciobtnIniciar').prop('href', '' + baseUrl + 'Home/Ingresar' + esen);
+			$('#navbtnIngresar').prop('href', '' + baseUrl + 'Home' + esen);
+			$('#iniciobtnIniciar').prop('href', '' + baseUrl + 'Home' + esen);
 			$('#iniciobtnCrearCuenta').prop('href', '' + baseUrl + 'Home/Crear_Cuenta' + esen);
 			$('#ingresarbtnCrear').prop('href', '' + baseUrl + 'Home/Crear_Cuenta' + esen);
 			$('#ingresarTexto6').prop('href', '' + baseUrl + 'Home/Recuperar_Cuenta' + esen);

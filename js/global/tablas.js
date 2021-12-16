@@ -862,14 +862,14 @@ var tablas = {
                 responsive: true,
                 autoWidth: true,
                 pageLength: 5,
-                order: [[9, "desc"]],
+                order: [[7, "desc"]],
                 columnDefs: [{
-                    targets: [8],
+                    targets: [6],
                     orderable: false,
                     className: 'noVisible'
                 },
                 {
-                    targets: [9],
+                    targets: [7],
                     orderable: false,
                     visible: false,
                     className: 'noVisible'
@@ -895,31 +895,31 @@ var tablas = {
                     buttons: [{
                         extend: 'copy',
                         exportOptions: {
-                            columns: [0, 2, 3, 4, 5, 6, 7, 8]
+                            columns: [0, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'excel',
                         exportOptions: {
-                            columns: [0, 2, 3, 4, 5, 6, 7, 8]
+                            columns: [0, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'csv',
                         exportOptions: {
-                            columns: [0, 2, 3, 4, 5, 6, 7, 8]
+                            columns: [0, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'pdf',
                         exportOptions: {
-                            columns: [0, 2, 3, 4, 5, 6, 7, 8]
+                            columns: [0, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'print',
                         exportOptions: {
-                            columns: [0, 2, 3, 4, 5, 6, 7, 8]
+                            columns: [0, 2, 3, 4, 5]
                         }
                     }
                     ]
@@ -1080,9 +1080,9 @@ var tablas = {
                 responsive: true,
                 autoWidth: true,
                 pageLength: 5,
-                order: [[8, "desc"]],
+                order: [[6, 'desc']],
                 columnDefs: [{
-                    targets: [8],
+                    targets: [6],
                     orderable: false,
                     visible: false,
                     className: 'noVisible'
@@ -1108,31 +1108,31 @@ var tablas = {
                     buttons: [{
                         extend: 'copy',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'excel',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'csv',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'pdf',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'print',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5]
                         }
                     }
                     ]
@@ -1182,9 +1182,9 @@ var tablas = {
                 responsive: true,
                 autoWidth: true,
                 pageLength: 5,
-                order: [[8, "desc"]],
+                order: [[6, "desc"]],
                 columnDefs: [{
-                    targets: [8],
+                    targets: [6],
                     orderable: false,
                     visible: false,
                     className: 'noVisible'
@@ -1210,31 +1210,31 @@ var tablas = {
                     buttons: [{
                         extend: 'copy',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'excel',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'csv',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'pdf',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5]
                         }
                     },
                     {
                         extend: 'print',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5]
                         }
                     }
                     ]

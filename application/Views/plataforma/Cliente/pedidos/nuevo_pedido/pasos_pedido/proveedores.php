@@ -5,10 +5,6 @@
             <input type="radio" id="radioProvSi" name="r2" value="false" onclick="flechasOnCLick()">
             <label for="radioProvSi" id="lblProvSi" style="color: #5b6670;font-weight: 500;"> Si</label>
         </div>
-        <div class="icheck-primary d-inline">
-            <input type="radio" id="radioProvNo" name="r2" value="false">
-            <label for="radioProvNo" id="lblProvNo" style="color: #5b6670;font-weight: 500;"> No</label>
-        </div>
     </div>
     <span id="div_val_radio_proveedor" class="invalid-msj">Favor de una elegir opcion</span>
 </div>

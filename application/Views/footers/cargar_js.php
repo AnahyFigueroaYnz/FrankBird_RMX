@@ -7,10 +7,6 @@
 		
 		switch ($_curController) {
 
-		    case 'Usuarios':
-			    echo '<script src="'.base_url().'js/usuarios/usuarios.js?v='.$version.'"></script>';
-		    break;
-
 		    case 'Mantenimiento':
 			    echo '<script src="'.base_url().'js/mantenimiento/mantenimiento.js?v='.$version.'"></script>';
 		    break;
@@ -19,10 +15,6 @@
 			    echo '<script src="'.base_url().'js/plataforma/plataforma.js?v='.$version.'"></script>';
 			    echo '<script src="'.base_url().'js/plataforma/dashboard.js?v='.$version.'"></script>';
 			    echo '<script src="'.base_url().'js/plataforma/documentos.js?v='.$version.'"></script>';
-		    break;
-
-		    case 'Administrador':
-			    echo '<script src="'.base_url().'js/administrador/administrador.js?v='.$version.'"></script>';
 		    break;
 
 		    case 'Home':

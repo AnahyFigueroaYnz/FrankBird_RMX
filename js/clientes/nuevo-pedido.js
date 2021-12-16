@@ -97,7 +97,6 @@
     var lblFileOEM = "";
     var filePathOEM = "";
     var inpColor = "";
-    var radProv = "";
     var inpProv = "";
     var inpContacto = "";
     var inpCorreo = "";
@@ -565,9 +564,7 @@
             } else {
                 val_proveedor = false;
             }
-        } else if (rad_provNo == "false") {
-            rad_prov = "No";
-        } else if (rad_provSi == "false" && rad_provNo == "false") {
+        }  else if (rad_provSi == "false") {
             val_proveedor = false;
             $("#div_val_radio_proveedor").css("display", "block");
             $("#lblProvSi").css("color", "#dc3545");
@@ -1196,7 +1193,7 @@
     function nuevoProveedor() {
         if (bool_prov_selected == true) {
             bool_prov_selected = false;
-
+            console.log('entras')
             $("#editar_proveedor").css('display', 'none');
             $("#guardar_cambio_prov").css('display', 'none');
             $("#cancelar_cambio_prov").css('display', 'none');
@@ -1587,7 +1584,7 @@ var inicio = {
             if (bool_insertadoPrevio == true) {
                 for (var i = 0; i < longDajax; i++) {
                     if (dataAjax_Proveedores[i].id_proveedor_c == (name_text_val.slice(1))) {
-                        //bool_prov_selected = true;
+                        bool_prov_selected = true;
                         id_provisional_prov_i = 'a'+dataAjax_Proveedores[i].id_proveedor_c; //se iguala el id para guardar el nuevo producto con el proveedor
                         var direccion = dataAjax_Proveedores[i].direccion;
                         var telefono = dataAjax_Proveedores[i].telefono;
@@ -2725,7 +2722,6 @@ var inicio = {
             if ($(this).is(":checked")) {
                 $("#radioProvSi").attr("value", "true");
                 $("#radioProvNo").attr("value", "false");
-                radProv = "Si";
                 rad_prov = 'Si';
                 provEdicion = true;
                 idProd_Edit = idProducto;
@@ -2745,100 +2741,7 @@ var inicio = {
                 $("#pNoProveedor" + id_producto + "").css("display", "none");
             }
         });
-        // opcion NO de si se tiene proveedor del producto
-        $("#radioProvNo").on("change", function (e) {
-            e.preventDefault();
-            if ($(this).is(":checked")) {
-                $("#radioProvSi").attr("value", "false");
-                $("#radioProvNo").attr("value", "true");
-                radProv = "No";
-                rad_prov = 'No';
-                val_proveedor = true;
-                provEdicion = false;
-                proveedorCompleto = true;
-                
-                idProd_Edit = idProducto;
-                if (idProd_Edit_p != null) {
-                    id_producto = idProd_Edit_p;
-                }
-                $("#valRadioProv").val(false);
-                $("#div_val_radio_proveedor").css("display", "none");
-                $("#lblProdSi").css("color", "#5b6670");
-                $("#lblProdNo").css("color", "#5b6670");
-                $("#listProveedor" + id_producto + "").css("display", "");
-                $("#pNoProveedor" + id_producto + "").css("display", "");
-                $("#pProveedor" + id_producto + "").css("display", "none");
-                $("#pPersona" + id_producto + "").css("display", "none");
-                $("#pCorreo" + id_producto + "").css("display", "none");
-                $("#pTelefono" + id_producto + "").css("display", "none");
-                $("#pDireccion" + id_producto + "").css("display", "none");
-                $("#pFactura" + id_producto + "").css("display", "none");
-                $("#btnEditProv").css("display", "");
-                $("#btnAgregarProv").css("display", "none");
-                $("#mnjEdicion").css("display", "none");
-                $("#container-prov").css("display", "none");
-                
-                $("#txtProveedor" + id_producto + "").html("");
-                $("#txtContacto" + id_producto + "").html("");
-                $("#txtCorreo" + id_producto + "").html("");
-                $("#txtLada" + id_producto + "").html("");
-                $("#txtTelefono" + id_producto + "").html("");
-                $("#txtLadaVal" + id_producto + "").html("");
-                $("#txtDireccion" + id_producto + "").html("");
-                $("#fileNameProv" + id_producto + "").html("");
-
-                selProv.val(null).trigger("change");
-                bool_prov_selected = true;
-                nuevoProveedor();
-
-                if (edicion_cambio_proveedor == true) {
-                    guardar_cambio_producto_prov_sin(id_producto);
-                    pasoActual();
-                }else{
-                    Validacion_personalizar_f2();
-                    var Step = $("#txtStepActivo").val();
-                    if (envComplete == false && comComplete == false) {
-                        funcSetp4();
-                        if (Step == "3") {
-                            var step = 4;
-                            $("#txtStepActivo").val(step);
-                            $("#txtStepForm").val(step);
-                        } else {
-                            var step = parseInt(Step);
-                            $("#txtStepForm").val(step);
-                        }
-                    } else if (envComplete == true && comComplete == false) {
-                        funcSetp5();
-                        if (Step == "3") {
-                            var step = 5;
-                            $("#txtStepActivo").val(step);
-                            $("#txtStepForm").val(step);
-                        } else if (Step == "4") {
-                            var step = 5;
-                            $("#txtStepActivo").val(step);
-                            $("#txtStepForm").val(step);
-                        } else {
-                            var step = parseInt(Step);
-                            $("#txtStepForm").val(step);
-                        }
-                    } else if (envComplete == true && comComplete == true) {
-                        funcSetp6();
-                        if (Step == "3") {
-                            var step = 6;
-                            $("#txtStepActivo").val(step);
-                            $("#txtStepForm").val(step);
-                        } else if (Step == "5") {
-                            var step = 6;
-                            $("#txtStepActivo").val(step);
-                            $("#txtStepForm").val(step);
-                        } else {
-                            var step = parseInt(Step);
-                            $("#txtStepForm").val(step);
-                        }
-                    }
-                }
-            }
-        });
+        
         // opcion de si el envio es maritimo
         $("#rad_maritimo").on("change", function () {
             if ($(this).is(":checked")) {
@@ -3202,33 +3105,6 @@ var inicio = {
                 }
 
                 i_interno_prod++;
-            } else if (rad_prov == 'No') {
-                //Si existe imagen en el producto
-                if (file_Files != " ") {
-                    var filename = file_Files.name;
-                    var data_img = {
-                        id: countimagen,
-                        nombre_original: filename,
-                        ruta: 'files/productos_sp/',
-                    }
-                    arreglo_imagenes.push(data_img);
-                    frmData.append('' + countimagen + '', file_Files);
-                    path_temporal = countimagen + "_" + filename;
-                } else {
-                    path_temporal = null;
-                }
-                var data_producto_sp_cliente = {
-                    id: countimagen,
-                    tipo_data: 'productos_sp_cliente',
-                    producto: $('#inpt_form_producto').val(),
-                    cantidad: cantidad,
-                    unidades: $('#selUnidades_prod_sp').val(),
-                    color_oem: $('#inpt_form_colores').val(),
-                    especificaciones: $('#inpt_form_especificaciones').val(),
-                    img_path: path_temporal,
-                }
-                countimagen++;
-                pedido.push(data_producto_sp_cliente);
             }
 
             if (file_Files_oem != " ") {
@@ -3251,8 +3127,8 @@ var inicio = {
                 'data_proyecto_base': data_proyecto_base,
                 'pedido': pedido,
             }
-            console.log(pedido)
-            var response = cargar_ajax.run_server_ajax('Clientes/agregar_proyecto_base', data_pedido_final);
+
+            var response = cargar_ajax.run_server_ajax('NuevoProyecto/agregar_proyecto_base', data_pedido_final);
             toastr.options = {
                 "closeButton": false,
                 "debug": false,
@@ -3292,24 +3168,6 @@ var inicio = {
                         } else if (resp.info == 'carga') {
                             toastr.error("No se pudo subir la imagen, error al subir", "Error!");
                         } else if (resp.info == 'extension') {
-                            toastr.error("No se pudo subir la imagen, extension invalida", "Error!");
-                        }
-                    } else {
-                        toastr.success("Se actualizo correctamente la imagen", "Actualización Correcta");
-                    }
-                }
-
-                //Envio de imagenes productos sp
-                if (arreglo_imagenes_prov != 0) {
-                    frmData_prov.append('imgs', JSON.stringify(arreglo_imagenes_prov));
-                    frmData_prov.append('id_cliente', id_cliente);
-                    resp_prod_prov = cargar_ajax2.run_server_ajax2('Clientes/enviar_img_prod_prov', frmData_prov);
-                    if (resp_prod_prov == undefined || resp_prod_prov.status == 'false') {
-                        if (resp_prod_prov == undefined) {
-                            toastr.error("No se pudo subir la imagen, error desconocido", "Error!");
-                        } else if (resp_prod_prov.info == 'carga') {
-                            toastr.error("No se pudo subir la imagen, error al subir", "Error!");
-                        } else if (resp_prod_prov.info == 'extension') {
                             toastr.error("No se pudo subir la imagen, extension invalida", "Error!");
                         }
                     } else {
@@ -3472,40 +3330,6 @@ var inicio = {
                     productos_prov.push(data);
                 }
                 i_interno_prod++;
-            } else if (rad_prov == 'No') {
-                //Si existe imagen en el producto
-                if (file_Files != " ") {
-                    var filename = file_Files.name;
-
-                    var data_img = {
-                        id: countimagen,
-                        nombre_original: filename,
-                        ruta: 'files/productos_sp/',
-                    }
-
-                    arreglo_imagenes.push(data_img);
-                    frmData.append('' + countimagen + '', file_Files);
-                    console.log(frmData.get('' + countimagen + ''));
-
-                    path_temporal = countimagen + "_" + filename;
-                }
-                else {
-                    path_temporal = null;
-                }
-
-                var data_producto_sp_cliente = {
-                    id: countimagen,
-                    tipo_data: 'productos_sp_cliente',
-                    producto: $('#inpt_form_producto').val(),
-                    cantidad: cantidad,
-                    unidades: $('#selUnidades_prod_sp').val(),
-                    color_oem: $('#inpt_form_colores').val(),
-                    especificaciones: $('#inpt_form_especificaciones').val(),
-                    img_path: path_temporal,
-                }
-                countimagen++;
-                pedido.push(data_producto_sp_cliente);
-
             }
             reset_formulario();
             funcSetp1();
