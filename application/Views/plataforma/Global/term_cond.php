@@ -13,7 +13,7 @@ $level = $this->session->userdata('nivel');
                         <?php if ($level == 1) { ?>
                             <a href="<?= base_url() ?>Mantenimiento/DashboardRoot"><i class="nav-icon fas fa-home"></i> Home</a>
                         <?php } else if ($level == 2) { ?>
-                            <a href="<?= base_url() ?>Plataforma/DashboardAdministrador"><i class="nav-icon fas fa-home"></i> Home</a>
+                            <a href="<?= base_url() ?>Dashboard"><i class="nav-icon fas fa-home"></i> Home</a>
                         <?php } else if ($level == 3) { ?>
                             <a href="<?= base_url() ?>Plataforma/DashboardAsesor"><i class="nav-icon fas fa-home"></i> Home</a>
                         <?php } else if ($level == 4) { ?>
