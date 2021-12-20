@@ -20,7 +20,7 @@ $version = $data_ver->version;
                         </li>
                     <?php } else if ($level == 2) { ?>
                         <li class="breadcrumb-item">
-                            <a href="<?= base_url() ?>Plataforma/DashboardAdministrador"><i class="nav-icon fas fa-home"></i> Home</a>
+                            <a href="<?= base_url() ?>Dashboard"><i class="nav-icon fas fa-home"></i> Home</a>
                         </li>
                     <?php } else if ($level == 3) { ?>
                         <li class="breadcrumb-item">

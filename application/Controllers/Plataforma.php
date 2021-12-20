@@ -195,13 +195,14 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->seguridad() == TRUE) {
 			if ($this->input->is_ajax_request()) {
-				$data = $this->Plataforma_model->noProyectos();
+				$id_usuario = $this->session->userdata('id_usuario');
+				$data = $this->Plataforma_model->noProyectos($id_usuario);
 				echo json_encode($data);
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	// estatus de proyectos del asesor
@@ -216,18 +217,19 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
 	/*	VISTA TODOS LOS PROYECTOS ADMIN */
-	public function vista_admin_proyectos()
+	public function Proyectos()
 	{
 		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
+			if ($this->seguridad() == TRUE) {
+				$id_usuario = $this->session->userdata('id_usuario');
 				$data = array(
-					'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allproyectos(),
-					'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
+					'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allproyectos($id_usuario),
+					//'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
 					'DATA_STATUS' => $this->Plataforma_model->get_status(),
 				);
 				$this->load->view('headers/header');
@@ -246,9 +248,9 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
+				$id_usuario = $this->session->userdata('id_usuario');
 				$data = array(
-					'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allactivos(),
-					'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
+					'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allactivos($id_usuario),
 					'DATA_STATUS' => $this->Plataforma_model->get_status(),
 				);
 
@@ -268,9 +270,9 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
+				$id_usuario = $this->session->userdata('id_usuario');
 				$data = array(
-					'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allconcluidos(),
-					'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
+					'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allconcluidos($id_usuario),
 					'DATA_STATUS' => $this->Plataforma_model->get_status(),
 				);
 
@@ -369,54 +371,50 @@ class Plataforma extends CI_Controller
 	/*	VISTA DETALLE PROYECTOS AD Y AS*/
 	public function DetalleProyectos()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				// $id_proyecto = $this->uri->segment(3);
+		if ($this->seguridad() == TRUE) {
 
-				$this->load->library('cript');
-				$id_proyecto_uri = $this->uri->segment(3);
-				$id_proyecto = $this->cript->decrypted_id($id_proyecto_uri);
+			$this->load->library('cript');
+			$id_proyecto_uri = $this->uri->segment(3);
+			$id_proyecto = $this->cript->decrypted_id($id_proyecto_uri);
 
-				$data = array(
-					'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
-					'Data_Puertos_Salida' => $this->Plataforma_model->puertos_salida(),
-					'Data_Agencias' => $this->Plataforma_model->agencias_aduanales(),
-					'Data_Proveedores' => $this->Plataforma_model->get_proveedores(),
-					'Data_Puertos_Llegada' => $this->Plataforma_model->puertos_llegada(),
-					'Data_Proyecto' => $this->Plataforma_model->get_all_data_proyecto($id_proyecto),
-					'Data_Productos_C' => $this->Plataforma_model->get_productos_c($id_proyecto),
-					'Data_Productos_SP_C' => $this->Plataforma_model->get_productos_sp_c($id_proyecto),
-					'DATA_STATUS' => $this->Plataforma_model->get_status(),
-					'Data_Poyecto_Edit' => $this->Plataforma_model->get_proyecto_edit($id_proyecto),
-					'data_unidades' => $this->Plataforma_model->get_unidades(),
-					'Data_sourcing' => $this->Plataforma_model->get_sourcing($id_proyecto),
-					'Data_production' => $this->Plataforma_model->get_production($id_proyecto),
-					'Data_freight' => $this->Plataforma_model->get_freight($id_proyecto),
-					'Data_customs' => $this->Plataforma_model->get_customs($id_proyecto),
-					'Data_quoted' => $this->Plataforma_model->get_quoted($id_proyecto),
-					'Data_done' => $this->Plataforma_model->get_done($id_proyecto),
-					'Data_Cotizacion' => $this->Plataforma_model->detalleCotizacion($id_proyecto),
-					'Data_ProdCotiza' => $this->Plataforma_model->productosCot($id_proyecto),
-					'Data_MedProdCot' => $this->Plataforma_model->mediProdCot($id_proyecto),
-					'Data_cot_acep' => $this->Plataforma_model->detalleCotAceptada($id_proyecto),
-					'Data_productos_cot' => $this->Plataforma_model->prodCotAcep($id_proyecto),
-					'Data_medi_prod_cot' => $this->Plataforma_model->mediProdCotAcep($id_proyecto),
-					'Data_prov_cliente' => $this->Plataforma_model->provCotCliente($id_proyecto),
-					'Data_tipo_documentos' => $this->Plataforma_model->get_tipo_documentos(),
-					'comprobar_coordenadas' => $this->Plataforma_model->comprobar_coordenadas($id_proyecto),
-					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
-					'data_get_pdfCotizacion' => $this->Plataforma_model->get_pdfCotizacion($id_proyecto),
-					'Data_ShipsGo' => 'af8ee0a00fdb427cbf3d8b09352c2b0f',
-				);
+			$data = array(
+				'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
+				'Data_Puertos_Salida' => $this->Plataforma_model->puertos_salida(),
+				'Data_Agencias' => $this->Plataforma_model->agencias_aduanales(),
+				'Data_Proveedores' => $this->Plataforma_model->get_proveedores(),
+				'Data_Puertos_Llegada' => $this->Plataforma_model->puertos_llegada(),
+				'Data_Proyecto' => $this->Plataforma_model->get_all_data_proyecto($id_proyecto),
+				'Data_Productos_C' => $this->Plataforma_model->get_productos_c($id_proyecto),
+				'Data_Productos_SP_C' => FALSE,//$this->Plataforma_model->get_productos_sp_c($id_proyecto),
+				'DATA_STATUS' => $this->Plataforma_model->get_status(),
+				'Data_Poyecto_Edit' => $this->Plataforma_model->get_proyecto_edit($id_proyecto),
+				'data_unidades' => $this->Plataforma_model->get_unidades(),
+				'Data_sourcing' => $this->Plataforma_model->get_sourcing($id_proyecto),
+				'Data_production' => $this->Plataforma_model->get_production($id_proyecto),
+				'Data_freight' => $this->Plataforma_model->get_freight($id_proyecto),
+				'Data_customs' => $this->Plataforma_model->get_customs($id_proyecto),
+				'Data_quoted' => $this->Plataforma_model->get_quoted($id_proyecto),
+				'Data_done' => $this->Plataforma_model->get_done($id_proyecto),
+				'Data_Cotizacion' => $this->Plataforma_model->detalleCotizacion($id_proyecto),
+				'Data_ProdCotiza' => $this->Plataforma_model->productosCot($id_proyecto),
+				'Data_MedProdCot' => $this->Plataforma_model->mediProdCot($id_proyecto),
+				'Data_cot_acep' => $this->Plataforma_model->detalleCotAceptada($id_proyecto),
+				'Data_productos_cot' => $this->Plataforma_model->prodCotAcep($id_proyecto),
+				'Data_medi_prod_cot' => $this->Plataforma_model->mediProdCotAcep($id_proyecto),
+				'Data_prov_cliente' => $this->Plataforma_model->provCotCliente($id_proyecto),
+				'Data_tipo_documentos' => $this->Plataforma_model->get_tipo_documentos(),
+				'comprobar_coordenadas' => $this->Plataforma_model->comprobar_coordenadas($id_proyecto),
+				'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
+				'data_get_pdfCotizacion' => $this->Plataforma_model->get_pdfCotizacion($id_proyecto),
+				'Data_ShipsGo' => 'af8ee0a00fdb427cbf3d8b09352c2b0f',
+			);
 
-				$this->load->view('headers/header');
-				$this->load->view('footers/footer');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/asesor/proyectos/detalle', $data);
+			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -435,14 +433,11 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->update_proyecto($data, $id_proyecto);
 				echo json_encode($data);
-				//Update a bitacora
-				$tabla = "proyecto";
-				$tipo_accion = "Update";
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -487,7 +482,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -501,28 +496,11 @@ class Plataforma extends CI_Controller
 				);
 				$this->Plataforma_model->update_proyecto($data, $id_proyecto);
 				echo json_encode($data);
-
-				//Envio de notificacion
-				$data_proy = $this->Plataforma_model->get_pb($id_proyecto);
-				$folio = $data_proy->folio;
-				$a_registro = $data_proy->a_registro;
-
-				$consulta_admins = $this->Plataforma_model->get_admins();
-				$date = new DateTime();
-				$fecha = $date->format('Y/m/d');
-				foreach ($consulta_admins->result() as $row) {
-					$data_notificacion = array(
-						'id_get' => $row->id_usuario,
-						'mensaje' => 'Se ha concluido el proyecto ' . $a_registro . '-' . $folio,
-						'fecha' => $fecha,
-					);
-					$this->Plataforma_model->insert_notificacion($data_notificacion);
-				}
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -534,6 +512,7 @@ class Plataforma extends CI_Controller
 					'Data_todos_productos' => $this->Plataforma_model->get_all_productos(),
 				);
 				$this->load->view('headers/header');
+				$this->load->view('headers/navBar_plataforma');
 				$this->load->view('plataforma/search_all_products', $data);
 				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
@@ -556,7 +535,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -576,7 +555,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -591,7 +570,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -606,7 +585,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -634,24 +613,20 @@ class Plataforma extends CI_Controller
 
 	public function DetalleAgenciaAduanal()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$id_agencia = $this->uri->segment(3);
-				$data = array(
-					'Data_detalle_agencia' => $this->Plataforma_model->get_detalle_agencias_aduanales($id_agencia),
-					'Data_puertos' => $this->Plataforma_model->get_puertos($id_agencia),
-					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
-					'Data_agentes' => $this->Plataforma_model->get_agentes($id_agencia),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/detalleAgencia', $data);
-				$this->load->view('footers/footer');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
+		if ($this->seguridad() == TRUE) {
+			$id_agencia = $this->uri->segment(3);
+			$data = array(
+				'Data_detalle_agencia' => $this->Plataforma_model->get_detalle_agencias_aduanales($id_agencia),
+				'Data_puertos' => $this->Plataforma_model->get_puertos($id_agencia),
+				'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
+				'Data_agentes' => $this->Plataforma_model->get_agentes($id_agencia),
+			);
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/detalleAgencia', $data);
+			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -667,17 +642,11 @@ class Plataforma extends CI_Controller
 				);
 				$this->Plataforma_model->insert_transporte($data);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "transporte";
-				$tipo_accion = "Insert";
-				$id_name = "id_transporte";
-				
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -692,7 +661,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -708,7 +677,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -724,15 +693,11 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->update_transporte($data, $id_transporte);
 				echo json_encode($data);
-				//Update a bitacora
-				$tabla = "transporte";
-				$tipo_accion = "Update";
-				
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -747,16 +712,11 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->update_transporte($data, $id_transporte);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "transporte";
-				$tipo_accion = "Update";
-				
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -780,17 +740,11 @@ class Plataforma extends CI_Controller
 				var_dump($data);
 				$this->Plataforma_model->insert_aa($data);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "agencias_aduanales";
-				$tipo_accion = "Insert";
-				$id_name = "id_agencia";
-				
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -816,16 +770,11 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->update_aa($data, $id_agencia);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "agencias_aduanales";
-				$tipo_accion = "Update";
-				
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -839,37 +788,28 @@ class Plataforma extends CI_Controller
 				);
 				$this->Plataforma_model->update_aa($data, $id_agencia);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "agencias_aduanales";
-				$tipo_accion = "Update";
-				
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
 	/*	VISTA PROVEEDORES AD Y AS */
 	public function Proveedores()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$data = array(
-					'data_proveedores_asesor' => $this->Plataforma_model->get_proveedores(),
-					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/proveedores', $data);
-				$this->load->view('footers/footer');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
+		if ($this->seguridad() == TRUE) {
+			$data = array(
+				'data_proveedores_asesor' => $this->Plataforma_model->get_proveedores(),
+				'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
+			);
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/proveedores', $data);
+			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -883,7 +823,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -906,30 +846,11 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->insert_prov($data);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "proveedores";
-				$tipo_accion = "Insert";
-				$id_name = "id_proveedor";
-				
-
-				//Envio notificacion
-				$consulta_admins = $this->Plataforma_model->get_admins();
-				$date = new DateTime();
-				$fecha = $date->format('Y/m/d');
-				foreach ($consulta_admins->result() as $row) {
-					$data_notificacion = array(
-						'id_get' => $row->id_usuario,
-						'mensaje' => 'Se ha registrado un nuevo proveedor',
-						'fecha' => $fecha,
-					);
-					$this->Plataforma_model->insert_notificacion($data_notificacion);
-				}
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	public function crear_proveedor_cotiza()
@@ -940,23 +861,16 @@ class Plataforma extends CI_Controller
 					'proveedor' => trim($this->input->post('proveedor')),
 					'contacto' => trim($this->input->post('contacto')),
 					'email' => trim($this->input->post('email')),
-					//'id_lada' => trim($this->input->post('id_lada')),
 					'telefono' => trim($this->input->post('telefono')),
 				);
 
 				$this->Plataforma_model->insert_prov($data);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "proveedores";
-				$tipo_accion = "Insert";
-				$id_name = "id_proveedor";
-				
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	public function ultimo_prov()
@@ -970,7 +884,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -985,7 +899,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -999,35 +913,29 @@ class Plataforma extends CI_Controller
 				);
 				$this->Plataforma_model->update_prov($data, $id_proveedor);
 				echo json_encode($data);
-
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
 	public function detalleProveedor()
 	{
-
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$id_proveedor = $this->uri->segment(3);
-				$data = array(
-					'Data_detalle_proveedor' => $this->Plataforma_model->get_detalle_prov($id_proveedor),
-					'Data_productos_prov' => $this->Plataforma_model->get_prod_proveedor($id_proveedor),
-					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/detalleProveedores', $data);
-				$this->load->view('footers/footer');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
+		if ($this->seguridad() == TRUE) {
+			$id_proveedor = $this->uri->segment(3);
+			$data = array(
+				'Data_detalle_proveedor' => $this->Plataforma_model->get_detalle_prov($id_proveedor),
+				'Data_productos_prov' => $this->Plataforma_model->get_prod_proveedor($id_proveedor),
+				'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
+			);
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/detalleProveedores', $data);
+			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	// mari no
@@ -1044,7 +952,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	// 
@@ -1065,12 +973,11 @@ class Plataforma extends CI_Controller
 				);
 				$this->Plataforma_model->update_prov($data, $id_proveedor);
 				echo json_encode($data);
-
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	public function get_proveedores_tabla()
@@ -1084,23 +991,19 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
 	/*	VISTA PRODUCTOS AS Y AD */
 	public function productos()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/administrador/productos');
-				$this->load->view('footers/footer');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
+		if ($this->seguridad() == TRUE) {
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/administrador/productos');
+			$this->load->view('footers/footer');
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1116,17 +1019,11 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->insert_prod($data);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "productos";
-				$tipo_accion = "Insert";
-				$id_name = "id_producto";
-				
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1143,7 +1040,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1163,7 +1060,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1177,13 +1074,11 @@ class Plataforma extends CI_Controller
 				);
 				$this->Plataforma_model->update_producto($data, $id_producto);
 				echo json_encode($data);
-
-
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1200,7 +1095,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1215,7 +1110,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1230,7 +1125,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1245,7 +1140,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1260,7 +1155,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1275,7 +1170,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1290,7 +1185,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1300,68 +1195,27 @@ class Plataforma extends CI_Controller
 			if ($this->input->is_ajax_request()) {
 				$id_proyecto = $this->input->post('id_proyecto');
 				$id_estadoproyecto = $this->input->post('id_estadoproyecto');
-				echo ($id_proyecto);
 				if ($id_estadoproyecto == null) {
 					//echo "id_estadoproyecto vacio";
 					$data = array(
-						'id_asesor' => trim($this->input->post('id_asesor')),
 						'Nombre_proyecto' => trim($this->input->post('Nombre_proyecto')),
 					);
 				} else {
 					//echo "id_estadoproyecto no vacio";
 					$data = array(
-						'id_asesor' => trim($this->input->post('id_asesor')),
 						'Nombre_proyecto' => trim($this->input->post('Nombre_proyecto')),
 						'id_estadoproyectos' => trim($this->input->post('id_estadoproyecto')),
 					);
 				}
 
-				//obtiene el id actual de asesor en la bd para comprobar si se requiere enviar notificacion
-				$get_info = $this->Plataforma_model->get_pb($id_proyecto);
-				$id_old_asesor = $get_info->id_asesor;
-
-				if ($this->input->post('id_asesor') != $id_old_asesor) {
-					//Envio notificacion
-					//Obtener folio
-					$data_proy = $this->Plataforma_model->get_pb($id_proyecto);
-					$folio = $data_proy->folio;
-					$a_registro = $data_proy->a_registro;
-
-					$date = new DateTime();
-					$fecha = $date->format('Y/m/d');
-					$data_notificacion = array(
-						'id_get' => $this->input->post('id_asesor'),
-						'mensaje' => 'Se te ha asignado el proyecto ' . $a_registro . '-' . $folio,
-						'fecha' => $fecha,
-					);
-					$this->Plataforma_model->insert_notificacion($data_notificacion);
-				}
+				
 				$this->Plataforma_model->update_proyecto($data, $id_proyecto);
 				echo json_encode($data);
-
-				//Envio de notificacion
-				if (trim($this->input->post('id_estadoproyecto')) == 23) {
-					$consulta_uno = $this->Plataforma_model->get_pb($id_proyecto);
-					$id_pb = $consulta_uno->id_proyecto;
-					$folio = $consulta_uno->folio;
-					$a_registro = $consulta_uno->a_registro;
-					$id_usuario = $consulta_uno->id_cliente;
-
-					$date = new DateTime();
-					$fecha = $date->format('Y/m/d');
-					$data_notificacion = array(
-						'id_get' => $id_usuario,
-						'mensaje' => 'Su proyecto ' . $a_registro . '-' . $folio . ' ha concluido',
-						'fecha' => $fecha,
-					);
-					$this->Plataforma_model->insert_notificacion($data_notificacion);
-				}
-
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1380,7 +1234,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1396,7 +1250,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1414,7 +1268,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1504,27 +1358,9 @@ class Plataforma extends CI_Controller
 
 							// insertar en media productos cotización
 							$this->Plataforma_model->agregar_media_producto($data_ImgProdCot);
-							//Update a bitacora
-							$tabla = "media_productos_cot";
-							$tipo_accion = "Insert";
-							$id_name = "id_media_prod_cot";
-							
 						}
 					}
 				}
-			}
-
-			//Envio de notificacion
-			$consulta_admins = $this->Plataforma_model->get_admins();
-			$date = new DateTime();
-			$fecha = $date->format('Y/m/d');
-			foreach ($consulta_admins->result() as $row) {
-				$data_notificacion = array(
-					'id_get' => $row->id_usuario,
-					'mensaje' => 'Se ha agregado una nueva cotización',
-					'fecha' => $fecha,
-				);
-				$this->Plataforma_model->insert_notificacion($data_notificacion);
 			}
 		} else {
 			show_404();
@@ -1568,7 +1404,6 @@ class Plataforma extends CI_Controller
 				// actualizar path en la BD
 				$data_ImgProdCot = array('path_prod_cot' => $ruta_guardar_archivo,);
 				$this->Plataforma_model->update_media_producto($data_ImgProdCot, $IdMediaProdCot);
-
 			} else {
 				echo "imagen no cargada";
 			}
@@ -1587,7 +1422,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1603,7 +1438,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1618,7 +1453,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1634,7 +1469,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1649,7 +1484,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1664,7 +1499,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1679,7 +1514,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1694,7 +1529,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1709,7 +1544,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -1856,74 +1691,27 @@ class Plataforma extends CI_Controller
                             </table>
                         </div>';
 
-					$this->mail->enviar_correo($email_from, $email_subject, $mensaje, $headers, $email_to);
+					//$this->mail->enviar_correo($email_from, $email_subject, $mensaje, $headers, $email_to);
 
-					//Envio de notificacion
-					//CLIENTE
-					$data_notificacion = array(
-						'id_get' => $id_usuario,
-						'mensaje' => 'Su proyecto tiene una cotizacion nueva!',
-						'fecha' => $fecha,
-					);
-					$this->Plataforma_model->insert_notificacion($data_notificacion);
 
-					$data_notificacion_asesor = array(
-						'id_get' => $id_asesor,
-						'mensaje' => 'Tu cotización fue aceptada por el administrador',
-						'fecha' => $fecha,
-					);
-					$this->Plataforma_model->insert_notificacion($data_notificacion_asesor);
 				} else if (trim($this->input->post('activo')) == 3) {
 					//Actualiza el id_estadoproyectos del proyecto
 					$data_status = array('id_estadoproyectos' => 4,);
 					$this->Plataforma_model->update_proyecto($data_status, $id_proyecto);
-
-					//aceptada por cliente
-					$data_notificacion_asesor = array(
-						'id_get' => $id_asesor,
-						'mensaje' => 'Tu cotización fue aceptada por el cliente',
-						'fecha' => $fecha,
-					);
-					$this->Plataforma_model->insert_notificacion($data_notificacion_asesor);
-					//	agente aduanal
-					$get_agente = $this->Plataforma_model->obtencion_agentes($id_agencia);
-					$id_agente = $get_agente->id_usuario;
-					$data_notificacion_agente = array(
-						'id_get' => $id_agente,
-						'mensaje' => 'Se le ha asignado un proyecto',
-						'fecha' => $fecha,
-					);
-					$this->Plataforma_model->insert_notificacion($data_notificacion_agente);
 				} else if (trim($this->input->post('activo')) == 4) {
 					//Actualiza el id_estadoproyectos del proyecto
 					$data_status = array('id_estadoproyectos' => 3,);
 					$this->Plataforma_model->update_proyecto($data_status, $id_proyecto);
-
-					//recotizar cliente
-					$data_notificacion_asesor = array(
-						'id_get' => $id_asesor,
-						'mensaje' => 'El cliente solicita recotizar',
-						'fecha' => $fecha,
-					);
-					$this->Plataforma_model->insert_notificacion($data_notificacion_asesor);
 				} else if (trim($this->input->post('activo')) == 5) {
 					//Actualiza el id_estadoproyectos del proyecto
 					$data_status = array('id_estadoproyectos' => 1,);
 					$this->Plataforma_model->update_proyecto($data_status, $id_proyecto);
-
-					//recotizar admin
-					$data_notificacion_asesor = array(
-						'id_get' => $id_asesor,
-						'mensaje' => 'Tu cotización fue rechazada por el administrador',
-						'fecha' => $fecha,
-					);
-					$this->Plataforma_model->insert_notificacion($data_notificacion_asesor);
 				}
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	// funcion para obtener media del producto con proveedor del pedido
@@ -1938,7 +1726,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	// funcion para obtener media del producto sin proveedor del pedido
@@ -1953,7 +1741,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	// funcion para obtener media de la perzonalizacion del producto del pedido
@@ -1968,7 +1756,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	// funcion para obtenr la media del producto de la cotizacion
@@ -1983,7 +1771,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2011,12 +1799,11 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->update_perfil($data, $id_usuario);
 				echo json_encode($data);
-
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2036,7 +1823,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2056,7 +1843,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2076,7 +1863,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2096,7 +1883,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2116,7 +1903,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2136,7 +1923,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2150,7 +1937,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2166,7 +1953,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2183,12 +1970,11 @@ class Plataforma extends CI_Controller
 
 				$path = $this->input->post('archivo_path'); //obtencion del path
 				unlink($path); //eliminacion del archivo
-
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2206,17 +1992,11 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->insert_documento($data);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "documentos";
-				$tipo_accion = "Insert";
-				$id_name = "id_documento";
-				
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2232,7 +2012,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2247,7 +2027,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2273,22 +2053,12 @@ class Plataforma extends CI_Controller
 		if ($id_doc_res_consulta == NULL) {
 			//insert datos documento
 			$this->Plataforma_model->insert_documento($data);
-			//Update a bitacora
-			$tabla = "documentos";
-			$tipo_accion = "Insert";
-			$id_name = "id_documento";
-			
 		} else {
 			$datacambio = array('activo' => 0,);
 			//cambiar el status de activo a 0
 			$this->Plataforma_model->update_documento($datacambio, $id_doc_res_consulta);
 
 			$this->Plataforma_model->insert_documento($data);
-			//Update a bitacora
-			$tabla = "documentos";
-			$tipo_accion = "Insert";
-			$id_name = "id_documento";
-			
 		}
 
 		//Consulta para obtener el ultimo id_documento que ha insertado 
@@ -2315,7 +2085,6 @@ class Plataforma extends CI_Controller
 				'archivo_path' => $ruta_guardar_archivo,
 			);
 			$this->Plataforma_model->update_documento($data2, $id_doc);
-
 		} else {
 			echo "imagen no cargada";
 		}
@@ -2341,7 +2110,6 @@ class Plataforma extends CI_Controller
 				'comentario' => $ruta_guardar_archivo,
 			);
 			$this->Plataforma_model->updateDonde($data, $id_done);
-
 		} else {
 			echo "imagen no cargada";
 		}
@@ -2358,7 +2126,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2375,7 +2143,7 @@ class Plataforma extends CI_Controller
 				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url());
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -2396,103 +2164,10 @@ class Plataforma extends CI_Controller
 				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url());
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-
-	public function Proyectos_agencia()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				//consulta id
-				$id_usuario = $this->session->userdata('id_usuario');
-				$consulta = $this->Plataforma_model->get_agencia_agent($id_usuario);
-				$id_agencia = $consulta->id_agencia;
-
-				$data = array(
-					'data_proy_agente' => $this->Plataforma_model->get_proy_agente($id_agencia),
-					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/agentes_aduanales/proyectos_agente', $data);
-				$this->load->view('footers/footer');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url());
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-
-	public function crear_agente()
-	{
-		if ($this->seguridad() == TRUE) {
-			if ($this->input->is_ajax_request()) {
-				$data = array(
-					'email' => trim($this->input->post('email')),
-					'nombre' => trim($this->input->post('nombre')),
-					'contrasena' => trim($this->input->post('contrasena')),
-					'id_nivelusuario' => trim($this->input->post('id_nivelusuario')),
-					'telefono' => trim($this->input->post('telefono')),
-					'id_lada' => trim($this->input->post('lada')),
-				);
-
-				$this->Plataforma_model->insert_usuarios($data);
-				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "usuarios";
-				$tipo_accion = "Insert";
-				$id_name = "id_usuario";
-				
-			} else {
-				show_404();
-			}
-		} else {
-			redirect(base_url());
-		}
-	}
-
-	public function last_id_agente()
-	{
-		if ($this->seguridad() == TRUE) {
-			if ($this->input->is_ajax_request()) {
-				$get_data = $this->Plataforma_model->get_last_agente();
-				echo json_encode($get_data);
-			} else {
-				show_404();
-			}
-		} else {
-			redirect(base_url());
-		}
-	}
-
-	public function insert_relacion()
-	{
-		if ($this->seguridad() == TRUE) {
-			if ($this->input->is_ajax_request()) {
-				$data = array(
-					'id_usuario' => trim($this->input->post('id_usuario')),
-					'id_agencia' => trim($this->input->post('id_agencia')),
-				);
-
-				$this->Plataforma_model->insert_relacion($data);
-				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "relacion_agente_aduanal";
-				$tipo_accion = "Insert";
-				$id_name = "id_relacion_aa";
-				
-			} else {
-				show_404();
-			}
-		} else {
-			redirect(base_url());
 		}
 	}
 
@@ -2737,12 +2412,12 @@ class Plataforma extends CI_Controller
 
 				$this->load->library('mail');
 
-				$this->mail->enviar_correo($email_from, $email_subject, $mensaje, $headers, $email_to);
+				//$this->mail->enviar_correo($email_from, $email_subject, $mensaje, $headers, $email_to);
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 	// funcion del correo para aviso de la fecha limite del pendiente
@@ -2900,12 +2575,11 @@ class Plataforma extends CI_Controller
 				$this->load->library('mail');
 
 				$this->mail->enviar_correo($email_from, $email_subject, $mensaje, $headers, $email_to);
-				// var_dump ($id_task_dash, $id_usuario, $fechaLimite, $task, $email_to);
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2924,7 +2598,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2939,7 +2613,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2955,7 +2629,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2975,7 +2649,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -2995,7 +2669,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -3013,7 +2687,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -3031,7 +2705,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -3047,29 +2721,11 @@ class Plataforma extends CI_Controller
 				);
 				$this->Plataforma_model->update_coord($data, $id_proyecto);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "coordenadas";
-				$tipo_accion = "Update";
-				
-
-				//Envio de notificacion
-				$consulta_uno = $this->Plataforma_model->get_pb($id_proyecto);
-				$id_usuario = $consulta_uno->id_cliente;
-
-				$date = new DateTime();
-				$fecha = $date->format('Y/m/d');
-				$data_notificacion = array(
-					'id_get' => $id_usuario, //client
-					'mensaje' => 'Se ha actualizado la ubicacion del pedido',
-					'fecha' => $fecha,
-				);
-				$this->Plataforma_model->insert_notificacion($data_notificacion);
 			} else {
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -3083,7 +2739,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -3112,53 +2768,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
-		}
-	}
-
-	public function ProyectosActivosAgencia()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				//consulta id
-				$id_usuario = $this->session->userdata('id_usuario');
-				$consulta = $this->Plataforma_model->get_agencia_agent($id_usuario);
-				$id_agencia = $consulta->id_agencia;
-
-				$data = array(
-					'data_proy_agente' => $this->Plataforma_model->get_proy_agente_activos($id_agencia),
-					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/agentes_aduanales/proyectos_activos_agente', $data);
-				$this->load->view('footers/footer');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url());
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-
-	public function ProyectosConcluidosAgencia()
-	{
-		if ($this->seguridad() == TRUE) {
-			//consulta id
-			$id_usuario = $this->session->userdata('id_usuario');
-			$consulta = $this->Plataforma_model->get_agencia_agent($id_usuario);
-			$id_agencia = $consulta->id_agencia;
-
-			$data = array(
-				'data_proy_agente' => $this->Plataforma_model->get_proy_agente_concluidos($id_agencia),
-				'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
-			);
-			$this->load->view('headers/header');
-			$this->load->view('plataforma/agentes_aduanales/proyectos_concluidos_agente', $data);
-			$this->load->view('footers/footer');
-			$this->load->view('footers/cargar_js');
-		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -3173,7 +2783,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -3188,7 +2798,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 
@@ -3221,7 +2831,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url());
+			redirect(base_url() . 'plataforma/Login');
 		}
 	}
 

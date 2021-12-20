@@ -10,10 +10,6 @@
   $itOpen = ' class="nav-item"';
   $detProy = 'style="display: none;"';
   $navLinkOpen = 'class="nav-link"';
-  $stOpencotiza = ' style="display: none;"';
-  $itOpencotiza = ' class="nav-item"';
-  $detcotiza = 'style="display: none;"';
-  $navLinkOpencotiza = 'class="nav-link"';
   $navLinkDash = 'class="nav-link"';
   $navLinkDetalle = 'class="nav-link"';
   $navLinkPoyAll = 'class="nav-link"';
@@ -22,28 +18,26 @@
   $navLinkPoyClose = 'class="nav-link"';
   $navLinkPoyMClose = 'class="nav-link"';
   $navLinkPoyDel = 'class="nav-link"';
-  $navLinkAses = 'class="nav-link"';
   $navLinkAgent = 'class="nav-link"';
   $navLinkProv = 'class="nav-link"';
   $navLinkProds = 'class="nav-link"';
-  $navLinkClien = 'class="nav-link"';
   $navLinkCotiza = 'class="nav-link"';
   $navLinkDatosCotiza = 'class="nav-link"';
   $navLinkDestinos = 'class="nav-link"';
+  $navLinkNuevoP = 'class="nav-link"';
     
   if ($segmento == 'DashboardRoot' || $segmento == 'DashboardAdministrador') {
     $navLinkDash = 'class="nav-link active"';
-  } else if ($segmento == 'lista_asesores') {
-    $navLinkAses = 'class="nav-link active"';
-  } else if ($segmento == 'agencias_aduanales' || $segmento == 'DetalleAgenciaAduanal') {
+  } else if ($segmento == 'NuevoProyecto') {
+    $navLinkNuevoP = 'class="nav-link active"';
+  }
+  else if ($segmento == 'agencias_aduanales' || $segmento == 'DetalleAgenciaAduanal') {
     $navLinkAgent = 'class="nav-link active"';
   } else if ($segmento == 'Proveedores' || $segmento == 'detalleProveedor') {
     $navLinkProv = 'class="nav-link active"';
   } else if ($segmento == 'Busqueda_productos') {
     $navLinkProds = 'class="nav-link active"';
-  } else if ($segmento == 'vista_clientes' || $segmento == 'DetalleUsuario') {
-    $navLinkClien = 'class="nav-link active"';
-  }else if ($segmento == 'ListaTarifas' ) {
+  } else if ($segmento == 'ListaTarifas' ) {
     $navLinkCotiza = 'class="nav-link active"';
   }else if ($segmento == 'ListaCotizaciones' ) {
     $navLinkDatosCotiza = 'class="nav-link active"';
@@ -51,7 +45,7 @@
     $navLinkDestinos = 'class="nav-link active"';
   }
 
-  if ($segmento == 'DetalleProyectos' || $segmento == 'vista_admin_proyectos' || $segmento == 'MisProyectos' || $segmento == 'Proyectos_activos'
+  if ($segmento == 'DetalleProyectos' || $segmento == 'Proyectos' || $segmento == 'MisProyectos' || $segmento == 'Proyectos_activos'
   || $segmento == 'Proyectos_concluidos' || $segmento == 'MisProyectosConcluidos' || $segmento == 'Proyectos_eliminados') {
     $stOpen = 'style="display: block;"';
     $itOpen = ' class="nav-item menu-open"';
@@ -60,7 +54,7 @@
     if ($segmento == 'DetalleProyectos') {
       $detProy = 'style="display: block;"';
       $navLinkDetalle = 'class="nav-link active"';
-    } else if ($segmento == 'vista_admin_proyectos') {
+    } else if ($segmento == 'Proyectos') {
       $navLinkPoyAll = 'class="nav-link active"';
     } else if ($segmento == 'MisProyectos') {
       $navLinkPoyMine = 'class="nav-link active"';
@@ -74,14 +68,6 @@
       $navLinkPoyDel = 'class="nav-link active"';
     }
   }
-
-  if ($segmento == 'DetalleTarifa' || $segmento == 'DetalleCotizacion') {
-      $detcotiza = 'style="display: block;"';
-      $navLinkDetalle = 'class="nav-link active"';
-      $stOpencotiza = 'style="display: block;"';
-      $itOpencotiza = ' class="nav-item menu-open"';
-      $navLinkOpencotiza = 'class="nav-link active"';
-    }
 ?>
 <link rel="stylesheet" href="<?= base_url() ?>css/navbar/navbarPlataforma.css?v=<?= $version; ?>">
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -134,13 +120,18 @@
   <div class="sidebar">
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- <li class="nav-item">
+          <a href="<?= base_url() ?>NuevoProyecto/" <?= $navLinkNuevoP ?>><i class="nav-icon fas fa-plus"></i>
+              <p class="nav-titles">Nuevo Proyecto</p>
+            </a>
+        </li> -->
         <li class="nav-item">
           <?php if ($level == 1) { ?>
             <a href="<?= base_url() ?>Mantenimiento/DashboardRoot" <?= $navLinkDash ?>><i class="nav-icon fas fa-home"></i>
               <p class="nav-titles">Dashboard</p>
             </a>
           <?php } else if ($level == 2) { ?>
-            <a href="<?= base_url() ?>Plataforma/DashboardAdministrador" <?= $navLinkDash ?>><i class="nav-icon fas fa-home"></i>
+            <a href="<?= base_url() ?>Dashboard" <?= $navLinkDash ?>><i class="nav-icon fas fa-home"></i>
               <p class="nav-titles">Dashboard</p>
             </a>
           <?php } ?>
@@ -158,7 +149,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url() ?>Plataforma/vista_admin_proyectos" <?= $navLinkPoyAll ?>>
+              <a href="<?= base_url() ?>Plataforma/Proyectos" <?= $navLinkPoyAll ?>>
                 <i class="far fa-dot-circle nav-icon"></i>
                 <p class="nav-titles">Todos los proyectos</p>
               </a>
@@ -196,12 +187,6 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url() ?>Usuarios/lista_asesores" <?= $navLinkAses ?>>
-            <i class="nav-icon fas fa-users"></i>
-            <p class="nav-titles">Asesores</p>
-          </a>
-        </li>
-        <li class="nav-item">
           <a href="<?= base_url() ?>Plataforma/agencias_aduanales" <?= $navLinkAgent ?>>
             <i class="nav-icon fas fa-warehouse"></i>
             <p class="nav-titles">Agencias Aduanales</p>
@@ -217,45 +202,6 @@
           <a href="<?= base_url() ?>Plataforma/Busqueda_productos" <?= $navLinkProds ?>>
             <i class="fas fa-truck-loading nav-icon"></i>
             <p class="nav-titles">Productos</p>
-          </a>
-        </li>
-        <li <?= $itOpencotiza ?>>
-          <a <?= $navLinkOpencotiza ?>>
-            <i class="nav-icon fas fa-calculator"></i>
-            <p class="nav-titles">Cotizador<i class="fas fa-angle-left right"></i></p>
-          </a>
-          <ul class="nav nav-treeview" <?= $stOpencotiza ?>>
-            <li class="nav-item" <?= $detcotiza ?>>
-              <a href="" <?= $navLinkDetalle ?> style="padding-left: 2.3rem;">
-                <i class="far fa-dot-circle nav-icon"></i>
-                <p class="nav-titles">Detalle</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url() ?>Administrador/ListaTarifas" <?= $navLinkCotiza ?>>
-                <i class="far fa-dot-circle nav-icon"></i>
-                <p class="nav-titles">Tarifas</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url() ?>Administrador/ListaCotizaciones" <?= $navLinkDatosCotiza ?>>
-                <i class="far fa-dot-circle nav-icon"></i>
-                <p class="nav-titles">Cotizaciones</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url() ?>Administrador/ListaDestinos" <?= $navLinkDestinos ?>>
-                <i class="far fa-dot-circle nav-icon"></i>
-                <p class="nav-titles">Destino/Origen</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a href="<?= base_url() ?>Plataforma/vista_clientes" <?= $navLinkClien ?>>
-            <i class="fas fa-address-book nav-icon"></i>
-            <p class="nav-titles">Clientes</p>
           </a>
         </li>
       </ul>

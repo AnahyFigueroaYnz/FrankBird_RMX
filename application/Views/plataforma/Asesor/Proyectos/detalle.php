@@ -4,8 +4,6 @@ $this->load->library('cript');
 $id_proyecto_uri = $this->uri->segment(3);
 $id_proyecto = $this->cript->decrypted_id($id_proyecto_uri);
 
-$data_ver =  $this->versiones->get_version();
-$version = $data_ver->version;
 if ($Data_Proyecto != FALSE) {
   foreach ($Data_Proyecto as $row) {
     $activo_p = $row['activo_p'];
@@ -21,11 +19,8 @@ if ($Data_Cotizacion != FALSE) {
 //variable provisional para hacer en funcion de la variable que tomara en cuenta la api
 // $ContainerNumber = $bl;  //NULL
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/detalle-proyectos.css?v=<?= $version; ?>">
-<link rel="stylesheet" href="<?= base_url() ?>css/cards.css?v=<?= $version; ?>">
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/cot-agencias.css?v=<?= $version; ?>">
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/cot-proveedores.css?v=<?= $version; ?>">
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/cotizaciones.css?v=<?= $version; ?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/detalle-proyectos.css">
+<link rel="stylesheet" href="<?= base_url() ?>css/cards.css">
 <input type="hidden" id="ContainerNumber" value="<?= $bl ?>">
 <section class="content-header shadow-title">
     <div class="container-fluid">
@@ -37,34 +32,19 @@ if ($Data_Cotizacion != FALSE) {
           } else if ($activo_p == 0) {
             echo " (Eliminado)";
           } ?>
-                </h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item">
-                        <a href="<?= base_url() ?>Plataforma/DashboardAsesor"><i class="nav-icon fas fa-home"></i>
-                            Home</a>
-                    </li>
-                    <?php if ($level <= 2) { ?>
-                    <li class="breadcrumb-item">
-                        <a href="<?= base_url() ?>Plataforma/vista_admin_proyectos">Proyectos</a>
-                    </li>
-                    <!-- <a href="<?= base_url() ?>Plataforma/Proyectos_agencia">Proyectos &nbsp;</a>/ Detalle -->
-                    <?php } else if ($level == 5) { ?>
-                    <li class="breadcrumb-item">
-                        <a href="<?= base_url() ?>Plataforma/Proyectos_agencia">Proyectos</a>
-                    </li>
-                    <!-- <a href="<?= base_url() ?>Plataforma/Proyectos_agencia">Proyectos &nbsp;</a>/ Detalle -->
-                    <?php } else { ?>
-                    <li class="breadcrumb-item">
-                        <a href="<?= base_url() ?>Plataforma/MisProyectos">Mis Proyectos</a>
-                    </li>
-                    <!-- <a href="<?= base_url() ?>Plataforma/">Mis Proyectos &nbsp;</a>/ Detalle -->
-                    <?php } ?>
-                    <li class="breadcrumb-item active">Panel Proyecto</li>
-                </ol>
-            </div>
-        </div>
+        </h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item">
+            <a href="<?= base_url() ?>Plataforma/DashboardAsesor"><i class="nav-icon fas fa-home"></i> Home</a>
+          </li>
+            <li class="breadcrumb-item">
+              <a href="<?= base_url() ?>Plataforma/vista_admin_proyectos">Proyectos</a>
+            </li>
+          <li class="breadcrumb-item active">Panel Proyecto</li>
+        </ol>
+      </div>
     </div>
 </section>
 <br>
@@ -83,26 +63,12 @@ if ($Data_Cotizacion != FALSE) {
                     <a class="nav-item nav-link active" id="nav-Detalless-tab" data-target="#nav-Detalles" href=""
                         role="tab" data-toggle="tab" aria-controls="nav-Detalles" aria-selected="true"
                         data-id="<?= $id_proyecto ?>">Detalles</a>
-                    <?php if ($level != 4 && $level != 5) { ?>
                     <a class="nav-item nav-link nav-Checklist" id="nav-Checklist-tab" data-target="#nav-Checklist"
                         href="" role="tab" data-toggle="tab" aria-controls="nav-Checklist" aria-expanded="false"
                         data-id="<?= $id_proyecto ?>">Checklist</a>
-                    <?php }
-          if ($level != 5 && $cot == true) { ?>
-                    <a class="nav-item nav-link" id="nav-Cotiza-tab" data-target="#nav-Cotiza" href="" role="tab"
-                        data-toggle="tab" aria-controls="nav-Cotiza" aria-selected="false"
-                        data-id="<?= $id_proyecto ?>">Cotizaciones</a>
-                    <?php }
-          if ($level != 4 && $level != 5 && $activo_p == 1) { ?>
-                    <a class="nav-item nav-link" id="nav-CalculoCostos-tab" data-target="#nav-CalculoCostos" href=""
-                        role="tab" data-toggle="tab" aria-controls="nav-CalculoCostos" aria-selected="false"
-                        data-id="<?= $id_proyecto ?>">Cálculo Costos</a>
-                    <?php }
-          if ($level != 4) { ?>
                     <a class="nav-item nav-link" id="nav-Documentos-tab" data-target="#nav-Documentos" href=""
                         role="tab" data-toggle="tab" aria-controls="nav-Documentos" aria-selected="false"
                         data-id="<?= $id_proyecto ?>">Documentos</a>
-                    <?php } ?>
 
                 </nav>
             </div>
@@ -151,7 +117,7 @@ if ($Data_Cotizacion != FALSE) {
                             <br>
                             <div class="col-lg-5 col-md-5 col-12">
                                 <?php $this->load->view('plataforma/card-detalles/card-product'); ?>
-                                <?php if ($level != 5 && $status >= 5) { ?>
+                                <?php if ($status >= 5) { ?>
                                 <br>
                                 <?php $this->load->view('plataforma/card-detalles/card-costs'); ?>
                                 <?php } ?>
@@ -170,7 +136,7 @@ if ($Data_Cotizacion != FALSE) {
                             <br>
                             <div class="col-lg-5 col-md-5 col-12 card-left">
                                 <?php $this->load->view('plataforma/card-detalles/card-product'); ?>
-                                <?php if ($level != 5 && $status >= 5) { ?>
+                                <?php if ($status >= 5) { ?>
                                 <br>
                                 <?php $this->load->view('plataforma/card-detalles/card-costs'); ?>
                                 <?php } ?>
@@ -185,7 +151,7 @@ if ($Data_Cotizacion != FALSE) {
                             <br>
                             <div class="col-lg-5 col-md-5 col-12 card-left">
                                 <?php $this->load->view('plataforma/card-detalles/card-product'); ?>
-                                <?php if ($level != 5 && $status >= 5) { ?>
+                                <?php if ($status >= 5) { ?>
                                 <br>
                                 <?php $this->load->view('plataforma/card-detalles/card-costs'); ?>
                                 <?php } ?>
@@ -205,7 +171,7 @@ if ($Data_Cotizacion != FALSE) {
                             <br>
                             <div class="col-lg-5 col-md-5 col-12 card-left">
                                 <?php $this->load->view('plataforma/card-detalles/card-product'); ?>
-                                <?php if ($level != 5 && $status >= 5) { ?>
+                                <?php if ($status >= 5) { ?>
                                 <br>
                                 <?php $this->load->view('plataforma/card-detalles/card-costs'); ?>
                                 <?php } ?>
@@ -224,7 +190,7 @@ if ($Data_Cotizacion != FALSE) {
                             <br>
                             <div class="col-lg-5 col-md-5 col-12 card-left">
                                 <?php $this->load->view('plataforma/card-detalles/card-product'); ?>
-                                <?php if ($level != 5 && $status >= 5) { ?>
+                                <?php if ($status >= 5) { ?>
                                 <br>
                                 <?php $this->load->view('plataforma/card-detalles/card-costs'); ?>
                                 <?php } ?>

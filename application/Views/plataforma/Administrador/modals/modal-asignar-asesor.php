@@ -14,22 +14,7 @@
             <label for="txtPrecio">Nombre del proyecto</label>
             <input type="text" id="txt_nombre_proyecto_editar" class="form-control form-control-sm borders" required="">
           </div>
-          <div class="valAsesor col-md-4">
-            <label for="cantidad">Asesor</label>
-            <select id="sel_editar_asesor" class="form-control form-control-sm borders" required="">
-              <option value="0">Seleccionar</option>
-              <?php
-              if ($DATA_ASESORES != FALSE) {
-                foreach ($DATA_ASESORES->result() as $row) {
-                  echo '<option value="' . $row->id_usuario . '">';
-                  echo $row->nombre;
-                  echo '</option>';
-                }
-              }
-              ?>
-            </select>
-          </div>
-          <div class="valStatus col-md-4">
+          <div class="valStatus col-md-6">
             <label for="txtTotal">Estatus proyecto</label>
             <select class="form-control form-control-sm borders" id="sel_editar_status">
               <?php

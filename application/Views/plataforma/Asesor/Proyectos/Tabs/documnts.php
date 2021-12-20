@@ -74,7 +74,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div id="collapseTipoDoc<?= $row->id_tipo_doc ?>" class="collapse" aria-labelledby="headingTipoDoc<?= $row->id_tipo_doc ?>" data-parent="#accordion" style="display: none">
+                    <div id="collapseTipoDoc<?= $row->id_tipo_doc ?>" class="collapse" aria-labelledby="headingTipoDoc<?= $row->id_tipo_doc ?>" data-parent="#accordion">
                         <div class="card-body" style="border-top: 1px solid #dfdfdf;">
                             <form class="form-horizontal">
                                 as

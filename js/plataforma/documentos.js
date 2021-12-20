@@ -141,49 +141,8 @@ var documentos = {
 
             tipos.forEach(elem => {
                 var idT = elem.id_tipo_doc;
-                if (id_nivel == 5) {
-                    if (idT == 8) {
-                        $('.noFile' + idT + '').removeClass('hide-button');
-                        $('.subir' + idT + '').removeClass('hide-button');
-                    }
-                    else if (idT == 9) {
-                        $('.noFile' + idT + '').removeClass('hide-button');
-                        $('.subir' + idT + '').removeClass('hide-button');
-                    }
-                    else if (idT == 10) {
-                        $('.noFile' + idT + '').removeClass('hide-button');
-                        $('.subir' + idT + '').removeClass('hide-button');
-                    }
-                    else if (idT == 11) {
-                        $('.noFile' + idT + '').removeClass('hide-button');
-                        $('.subir' + idT + '').removeClass('hide-button');
-                    }
-                    else {
-                        $('.noFile' + idT + '').removeClass('hide-button');
-                        $('.subir' + idT + '').addClass('hide-button');
-                    }
-                } else {
-                    if (idT == 8) {
-                        $('.noFile' + idT + '').removeClass('hide-button');
-                        $('.subir' + idT + '').addClass('hide-button');
-                    }
-                    else if (idT == 9) {
-                        $('.noFile' + idT + '').removeClass('hide-button');
-                        $('.subir' + idT + '').addClass('hide-button');
-                    }
-                    else if (idT == 10) {
-                        $('.noFile' + idT + '').removeClass('hide-button');
-                        $('.subir' + idT + '').addClass('hide-button');
-                    }
-                    else if (idT == 11) {
-                        $('.noFile' + idT + '').removeClass('hide-button');
-                        $('.subir' + idT + '').addClass('hide-button');
-                    }
-                    else {
-                        $('.noFile' + idT + '').removeClass('hide-button');
-                        $('.subir' + idT + '').removeClass('hide-button');
-                    }
-                }
+                $('.noFile' + idT + '').removeClass('hide-button');
+                $('.subir' + idT + '').removeClass('hide-button');
             });
 
             data = {
@@ -202,113 +161,19 @@ var documentos = {
                     $('.noFile' + id + '').addClass('hide-button');
                     $('#pdf' + id + '').attr("src", archivo_path);
 
-                    if (id_nivel == 5) {
-                        if (id == 8) {
-                            $('.borrar' + id + '').removeClass('hide-button');
-                            $('.subir' + id + '').addClass('hide-button');
-                            $('.nameDoc' + id + '').html(nomDoc);
-                        }
-                        else if (id == 9) {
-                            $('.borrar' + id + '').removeClass('hide-button');
-                            $('.subir' + id + '').addClass('hide-button');
-                            $('.nameDoc' + id + '').html(nomDoc);
-                        }
-                        else if (id == 10) {
-                            $('.borrar' + id + '').removeClass('hide-button');
-                            $('.subir' + id + '').addClass('hide-button');
-                            $('.nameDoc' + id + '').html(nomDoc);
-                        }
-                        else if (id == 11) {
-                            $('.borrar' + id + '').removeClass('hide-button');
-                            $('.subir' + id + '').addClass('hide-button');
-                            $('.nameDoc' + id + '').html(nomDoc);
-                        }
-                        else {
-                            $('.subir' + id + '').addClass('hide-button');
-                        }
-
-                    } else {
-                        if (id == 8) {
-                            $('.subir' + id + '').addClass('hide-button');
-                            $('.nameDoc' + id + '').html(nomDoc);
-                        } else if (id == 9) {
-                            $('.subir' + id + '').addClass('hide-button');
-                            $('.nameDoc' + id + '').html(nomDoc);
-                        } else if (id == 10) {
-                            $('.subir' + id + '').addClass('hide-button');
-                            $('.nameDoc' + id + '').html(nomDoc);
-                        } else if (id == 11) {
-                            $('.subir' + id + '').addClass('hide-button');
-                            $('.nameDoc' + id + '').html(nomDoc);
-                        } else {
-                            $('.borrar' + id + '').removeClass('hide-button');
-                            $('.subir' + id + '').addClass('hide-button');
-                            $('.nameDoc' + id + '').html(nomDoc);
-                        }
-                    }
-
+                    $('.borrar' + id + '').removeClass('hide-button');
+                    $('.subir' + id + '').addClass('hide-button');
+                    $('.nameDoc' + id + '').html(nomDoc);
                 });
-
-                // $('.enviar' + id + '').addClass('hide-button');
-                // $('.cancelar' + id + '').addClass('hide-button');
 
             } else {
                 tipos.forEach(elem => {
                     var idT = elem.id_tipo_doc;
-                    if (id_nivel == 5) {
-                        if (idT == 8) {
-                            $('.noFile' + idT + '').removeClass('hide-button');
-                            $('.subir' + idT + '').removeClass('hide-button');
-                            $('.nameDoc' + idT + '').html('');
-                        }
-                        else if (idT == 9) {
-                            $('.noFile' + idT + '').removeClass('hide-button');
-                            $('.subir' + idT + '').removeClass('hide-button');
-                            $('.nameDoc' + idT + '').html('');
-                        }
-                        else if (idT == 10) {
-                            $('.noFile' + idT + '').removeClass('hide-button');
-                            $('.subir' + idT + '').removeClass('hide-button');
-                            $('.nameDoc' + idT + '').html('');
-                        }
-                        else if (idT == 11) {
-                            $('.noFile' + idT + '').removeClass('hide-button');
-                            $('.subir' + idT + '').removeClass('hide-button');
-                            $('.nameDoc' + idT + '').html('');
-                        }
-                        else {
-                            $('.noFile' + idT + '').removeClass('hide-button');
-                            $('.subir' + idT + '').addClass('hide-button');
-                            $('.nameDoc' + idT + '').html('');
-                        }
-                    } else {
-                        if (idT == 8) {
-                            $('.noFile' + idT + '').removeClass('hide-button');
-                            $('.subir' + idT + '').addClass('hide-button');
-                            $('.nameDoc' + idT + '').html('');
-                        }
-                        else if (idT == 9) {
-                            $('.noFile' + idT + '').removeClass('hide-button');
-                            $('.subir' + idT + '').addClass('hide-button');
-                            $('.nameDoc' + idT + '').html('');
-                        }
-                        else if (idT == 10) {
-                            $('.noFile' + idT + '').removeClass('hide-button');
-                            $('.subir' + idT + '').addClass('hide-button');
-                            $('.nameDoc' + idT + '').html('');
-                        }
-                        else if (idT == 11) {
-                            $('.noFile' + idT + '').removeClass('hide-button');
-                            $('.subir' + idT + '').addClass('hide-button');
-                            $('.nameDoc' + idT + '').html('');
-                        }
-                        else {
-                            $('.noFile' + idT + '').removeClass('hide-button');
-                            $('.subir' + idT + '').removeClass('hide-button');
-                            $('.nameDoc' + idT + '').html('');
-                        }
-                    }
-                });
+                    
+                    $('.noFile' + idT + '').removeClass('hide-button');
+                    $('.subir' + idT + '').removeClass('hide-button');
+                    $('.nameDoc' + idT + '').html('');
+        });
             }
         });
 
