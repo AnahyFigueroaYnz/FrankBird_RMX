@@ -1,3 +1,5 @@
+Use rmx; 
+
 -- procedure para cliente
 	drop procedure if exists noMyProyectos;
     delimiter $$
@@ -28,7 +30,6 @@
 		begin
 			SELECT *, proyecto.activo as activo_p,
 			proyecto.a_registro as registro_p, proyecto.folio as folio_p,
-			(SELECT nombre FROM usuarios WHERE id_usuario = proyecto.id_asesor) AS nombreAsesor, 
 			(usuarios.nombre) as nombreCliente
 			FROM proyecto
 			JOIN usuarios ON proyecto.id_cliente = usuarios.id_usuario

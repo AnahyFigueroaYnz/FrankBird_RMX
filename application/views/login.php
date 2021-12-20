@@ -29,9 +29,9 @@
     <!-- Google Font: Ubuntu -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:100,300,400,500,700,300,400,500,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url() ?>resources/template/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>system/template/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?= base_url() ?>resources/template/dist/css/adminlte.css">
+    <link rel="stylesheet" href="<?= base_url() ?>system/template/dist/css/adminlte.css">
 
 
     <!--jQuery-->
@@ -94,13 +94,13 @@
         </div>
     </div>
     <!-- jQuery -->
-    <script src="<?= base_url() ?>resources/template/plugins/jquery/jquery.min.js"></script>
+    <script src="<?= base_url() ?>system/template/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="<?= base_url() ?>resources/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>system/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- bs-custom-file-input -->
-    <script src="<?= base_url() ?>resources/template/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script src="<?= base_url() ?>system/template/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="<?= base_url() ?>resources/template/dist/js/adminlte.min.js"></script>
+    <script src="<?= base_url() ?>system/template/dist/js/adminlte.min.js"></script>
     <!-- Page specific script -->
     <script>
         $(function() {

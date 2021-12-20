@@ -11,28 +11,28 @@ class Plataforma extends CI_Controller
 
 	public function index()
 	{
-		if ($this->seguridad() == TRUE) {
+		// if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
+			// $id_usuario = $this->session->userdata('id_usuario');
+			
 			$id_usuario = 2;
-			$data = array(
-				'Data_Proveedores' => $this->Plataforma_model->noProveedores(),
-				'Data_Productos' => $this->Plataforma_model->noProductos(),
-				'Data_Clientes' => $this->Plataforma_model->noClientes(),
-				'Data_Proyectos' => $this->Plataforma_model->noProyectos(),
-				'Data_Agencias' => $this->Plataforma_model->noAgencias(),
-				'Data_Agentes' => $this->Plataforma_model->noAgentes(),
-				'Data_UltCotizaciones' => $this->Plataforma_model->lastCotizaciones(),
+			$data = array(				
+				'Data_Proyectos' => $this->Plataforma_model->noProyectos($id_usuario),
+				'Data_Agencias' => $this->Plataforma_model->noAgencias($id_usuario),
+				'Data_Productos' => $this->Plataforma_model->noProductos($id_usuario),
+				'Data_Proveedores' => $this->Plataforma_model->noProveedores($id_usuario),
+				'Data_UltCotizaciones' => $this->Plataforma_model->lastCotizaciones($id_usuario),
 				'Data_UltProyectos' => $this->Plataforma_model->lastProyectos(),
 				'Data_UltProductos' => $this->Plataforma_model->lastProductos(),
-				'Data_SourcingProy' => $this->Plataforma_model->sourcingProy(),
-				'Data_Ganancias' => $this->Plataforma_model->ganancias(),
+				'Data_SourcingProy' => $this->Plataforma_model->sourcingMisProy($id_usuario),
+				'Data_Ganancias' => $this->Plataforma_model->ganancias($id_usuario),
 				'Data_Pendientes' => $this->Plataforma_model->pendientesTasks($id_usuario),
 			);
 			$this->load->view('headers/header');
 			$this->load->view('dashboard', $data);
 			$this->load->view('footers/footer');
-		} else {
-			$this->load->view('login');
-		}
+		// } else {
+		// 	$this->load->view('login');
+		// }
 	}
 
 	
@@ -102,90 +102,6 @@ class Plataforma extends CI_Controller
 	public function perfil()
 	{
 		if ($this->mantenimiento() == FALSE) {
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-	public function DashboardAdministrador()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
-				$id_usuario = $this->session->userdata('id_usuario');
-				$data = array(
-					'Data_Proyectos' => $this->Plataforma_model->noProyectos(),
-					'Data_Agencias' => $this->Plataforma_model->noAgencias(),
-					'Data_Agentes' => $this->Plataforma_model->noAgentes(),
-					'Data_Proveedores' => $this->Plataforma_model->noProveedores(),
-					'Data_Productos' => $this->Plataforma_model->noProductos(),
-					'Data_Clientes' => $this->Plataforma_model->noClientes(),
-					'Data_UltCotizaciones' => $this->Plataforma_model->lastCotizaciones(),
-					'Data_UltProyectos' => $this->Plataforma_model->lastProyectos(),
-					'Data_UltProductos' => $this->Plataforma_model->lastProductos(),
-					'Data_SourcingProy' => $this->Plataforma_model->sourcingProy(),
-					'Data_Ganancias' => $this->Plataforma_model->ganancias(),
-					'Data_Pendientes' => $this->Plataforma_model->pendientesTasks($id_usuario),
-				);
-				// var_dump($data);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/administrador/dashboardAdmin', $data);
-				$this->load->view('footers/footer');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-
-	public function DashboardAsesor()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 3) {
-				$id_usuario = $this->session->userdata('id_usuario');
-				$data = array(
-					'Data_Proyectos' => $this->Plataforma_model->noMyProyectos($id_usuario),
-					'Data_Activos' => $this->Plataforma_model->noProyActivos($id_usuario),
-					'Data_Cancluidos' => $this->Plataforma_model->noProyConcluidos($id_usuario),
-					'Data_UltCotizaciones' => $this->Plataforma_model->lastMyCotizaciones($id_usuario),
-					'Data_SourcingProy' => $this->Plataforma_model->sourcingMisProy($id_usuario),
-					'Data_Pendientes' => $this->Plataforma_model->pendientesTasks($id_usuario),
-				);
-
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/asesor/dashboardAsesor', $data);
-				$this->load->view('footers/footer');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-
-	public function DashboardAgente()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE && $this->session->userdata('nivel') != 4) {
-				$id_usuario = $this->session->userdata('id_usuario');
-				$consulta = $this->Plataforma_model->get_agencia_agent($id_usuario);
-				$id_agencia = $consulta->id_agencia;
-
-				$data = array(
-					'Data_Proyectos' => $this->Plataforma_model->despachoProy($id_agencia),
-					'Data_Activos' => $this->Plataforma_model->despachoProyAc($id_agencia),
-					'Data_Cancluidos' => $this->Plataforma_model->despachoProyCon($id_agencia),
-					'Data_DespachoProy' => $this->Plataforma_model->desAduanProy($id_agencia),
-					'Data_Pendientes' => $this->Plataforma_model->pendientesTasks($id_usuario),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/agentes_aduanales/dashboardAgente', $data);
-				$this->load->view('footers/footer');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
 		}
@@ -2871,27 +2787,15 @@ class Plataforma extends CI_Controller
 
 	public function seguridad()
 	{
-		if (($this->session->userdata('logueado') == 1)) {
+		// if (($this->session->userdata('logueado') == 1)) {
 			return true;
-		} else {
-			return false;
-		}
+		// } else {
+		// 	return false;
+		// }
 	}
 	// funcion del mantenimiento
 	public function mantenimiento()
 	{
-		$nivel = $this->session->userdata('nivel');
-		$consulta_controller = $this->Home_model->get_status_C();
-		$status = $consulta_controller->activo;
-
-		if ($status == 0) { //inactivo
-			return FALSE;
-		} else {
-			if ($nivel == 1) {
-				return FALSE;
-			} else {
-				return TRUE;
-			}
-		}
+		return false;
 	}
 }

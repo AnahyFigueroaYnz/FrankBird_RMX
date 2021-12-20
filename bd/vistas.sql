@@ -1,5 +1,5 @@
-use birdie;
-
+-- use birdie;
+Use rmx; 
 -- ---------------------------------------------------------------
 -- Comienzan creacion de vistas para funciones de modelo Plataforma
 -- ---------------------------------------------------------------
@@ -25,19 +25,12 @@ use birdie;
         proyecto.*,
         (SELECT usuarios.nombre FROM usuarios WHERE usuarios.id_usuario = proyecto.id_cliente) AS nombre_cliente,
         proyecto.fecha_creacion AS fecha,
-        estados_proyectos.estado AS estado,
-        proyecto.id_asesor AS id_asesor_p
+        estados_proyectos.estado AS estado
     FROM proyecto
     JOIN estados_proyectos ON proyecto.id_estadoproyectos = estados_proyectos.id_estadoproyectos
     WHERE proyecto.activo = 1 AND proyecto.id_estadoproyectos > 1 AND proyecto.id_estadoproyectos < 24;
     
 -- vista para obtener los proyectos por asesor
-	DROP VIEW if exists get_proyectos_asesor;
-    CREATE VIEW get_proyectos_asesor as
-	SELECT proyecto.*, (SELECT nombre FROM usuarios WHERE id_usuario = proyecto.id_cliente) AS nombre_cliente,
-	fecha_creacion as fecha, estado
-	FROM proyecto
-	JOIN estados_proyectos ON  proyecto.id_estadoproyectos = estados_proyectos.id_estadoproyectos;
 
 -- vista para obtener las ganancias del mes
 	DROP VIEW if exists ganancias;
@@ -48,8 +41,8 @@ use birdie;
 	WHERE proyecto.activo = 1 AND proyecto.id_estadoproyectos >= 10 AND cotizaciones.activo = 3
 	AND MONTH(proyecto.fecha_creacion) = MONTH (NOW())
     group by id_cliente;
-
--- vista para tener los proyectos del asesor en sourcing dentro de 24 hrs
+    
+    -- vista para tener los proyectos del asesor en sourcing dentro de 24 hrs
 	DROP VIEW if exists sourcingMisProy_asesor;
 	CREATE VIEW sourcingMisProy_asesor as
 	SELECT proyecto.*,
@@ -140,10 +133,9 @@ use birdie;
 	DROP VIEW if exists sourcingMisProy;
     CREATE VIEW sourcingMisProy as
 	SELECT proyecto.*, 
-	(SELECT nombre from usuarios where id_usuario = proyecto.id_cliente) as Cliente,
-	(SELECT nombre from usuarios where id_usuario = proyecto.id_asesor) as Asesor
+	(SELECT nombre from usuarios where id_usuario = proyecto.id_cliente) as Cliente
 	FROM proyecto 
-	LEFT joinIN usuarios ON usuarios.id_usuario = proyecto.id_cliente
+	LEFT JOIN usuarios ON usuarios.id_usuario = proyecto.id_cliente
 	WHERE proyecto.id_estadoproyectos = 1 AND proyecto.activo = 1
 	AND (DAY(proyecto.fecha_creacion) < (select DAY (NOW())) OR MONTH(proyecto.fecha_creacion) < (select MONTH (NOW())) ); 
 

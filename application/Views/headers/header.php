@@ -23,9 +23,11 @@
     <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,700&display=fallback" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,700&display=fallback" />
     <!-- Google Font: Ubuntu -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:100,300,400,500,700,300,400,500,700&display=fallback" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Ubuntu:100,300,400,500,700,300,400,500,700&display=fallback" />
     <!-- Icon pestaña -->
     <link rel="shortcut icon" href="<?= base_url() ?>favicon.ico" type="image/x-icon" />
     <!-- bootstrap -->
@@ -35,58 +37,62 @@
     <link rel="stylesheet" href="<?= base_url(); ?>css/headers/chartJs/Chart.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>css/headers/chartJs/Chart.min.css" />
     <!-- Datatables net-->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/Bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/DataTables/css/dataTables.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/AutoFill/css/autoFill.bootstrap4.min.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/Buttons/css/buttons.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/ColReorder/css/colReorder.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/DateTime/css/dataTables.dateTime.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/FixedColumns/css/fixedColumns.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/FixedHeader/css/fixedHeader.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/KeyTable/css/keyTable.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/Responsive/css/responsive.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/RowGroup/css/rowGroup.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/RowReorder/css/rowReorder.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/Scroller/css/scroller.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/SearchBuilder/css/searchBuilder.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/SearchPanes/css/searchPanes.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/Select/css/select.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/datatable/StateRestore/css/stateRestore.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/Bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/DataTables/css/dataTables.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/AutoFill/css/autoFill.bootstrap4.min.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/Buttons/css/buttons.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/ColReorder/css/colReorder.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/DateTime/css/dataTables.dateTime.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/FixedColumns/css/fixedColumns.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/FixedHeader/css/fixedHeader.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/KeyTable/css/keyTable.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/Responsive/css/responsive.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/RowGroup/css/rowGroup.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/RowReorder/css/rowReorder.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/Scroller/css/scroller.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/SearchBuilder/css/searchBuilder.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/SearchPanes/css/searchPanes.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/Select/css/select.bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/StateRestore/css/stateRestore.bootstrap4.css" />
 
     <!-- Fontawesome Icons -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/fontawesome-free/css/all.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/fontawesome-free/css/all.css" />
     <!-- Toast -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/toastr/toastr.min.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/toastr/toastr.min.css" />
     <!-- admin LTE -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/dist/css/adminlte.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/dist/css/adminlte.css" />
     <!-- Charts CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/chart.js/Chart.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/chart.js/Chart.min.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/chart.js/Chart.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/chart.js/Chart.min.css" />
     <!-- select2-->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/select2/dist/css/select2.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/select2-bootstrap4-theme/select2-bootstrap4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/select2/css/select2.css" />
+    <link rel="stylesheet"
+        href="<?= base_url(); ?>system/template/plugins/select2-bootstrap4-theme/select2-bootstrap4.css" />
     <!-- summernote -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/summernote/summernote-bs4.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/summernote/summernote-bs4.css" />
     <!-- Datarange Picker -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/daterangepicker/daterangepicker.css" />
     <!-- iCheck -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
     <!-- Color Picker -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" />
+    <link rel="stylesheet"
+        href="<?= base_url(); ?>system/template/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" />
     <!-- Tempusdominus Bbootstrap 4 -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet"
+        href="<?= base_url(); ?>system/template/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
+    <link rel="stylesheet"
+        href="<?= base_url(); ?>system/template/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/daterangepicker/daterangepicker.css" />
     <!-- JQVMap -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/jqvmap/jqvmap.min.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/jqvmap/jqvmap.min.css" />
     <!-- Ionicons -->
-    <!-- <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/dist/css/ionicons.min.css" /> -->
+    <!-- <link rel="stylesheet" href="<?= base_url(); ?>system/template/dist/css/ionicons.min.css" /> -->
     <!-- Ion Slider -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/ion-rangeslider/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/ion-rangeslider/css/ion.rangeSlider.css" />
     <!-- bootstrap slider -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/libraries/template/plugins/bootstrap-slider/css/bootstrap-slider.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/bootstrap-slider/css/bootstrap-slider.css" />
 
 
     <!--CSS GLOBAL-->
@@ -94,7 +100,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>css/slider.css" />
 
     <!-- jQuery -->
-    <script src="<?= base_url(); ?>application/libraries/datatables/jQuery/jquery-3.6.0.js"></script>
+    <script src="<?= base_url(); ?>system/datatables/jQuery/jquery-3.6.0.js"></script>
 
 
 </head>
@@ -104,18 +110,22 @@
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link navbar-icon-menu" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link navbar-icon-menu" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown user-menu">
-                    <a href="" class="nav-link dropdown-toggle nav-drop-img" data-toggle="dropdown" aria-expanded="false">
-                        <img src="<?= base_url() ?>resources/imgs/user.jpg" class="user-image img-circle elevation-2 nav-user-img">
+                    <a href="" class="nav-link dropdown-toggle nav-drop-img" data-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="<?= base_url() ?>resources/imgs/user.jpg"
+                            class="user-image img-circle elevation-2 nav-user-img">
                         <span class="hidden-xs text-capitalize">Usuario</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
                         <li class="user-header bg-primary drop-user-img">
-                            <img src="<?= base_url() ?>resources/imgs/user.jpg" class="user-image img-circle elevation-2">
+                            <img src="<?= base_url() ?>resources/imgs/user.jpg"
+                                class="user-image img-circle elevation-2">
                             <p class="text-capitalize">Usuario
                                 <small>Administrador</small>
                             </p>
@@ -139,7 +149,8 @@
 
             <div class="sidebar">
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact nav-collapse-hide-child" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact nav-collapse-hide-child"
+                        data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="/index.html" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>

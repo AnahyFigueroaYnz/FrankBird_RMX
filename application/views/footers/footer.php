@@ -10,98 +10,97 @@
 <script src="<?= base_url(); ?>js/headers/chartJs/Chart.js"></script>
 
 <!-- Bootstrap -->
-<script src="<?= base_url(); ?>application/libraries/datatables/Bootstrap/js/bootstrap.js"></script>
+<script src="<?= base_url(); ?>system/datatables/Bootstrap/js/bootstrap.js"></script>
 <!-- DataTables -->
-<script src="<?= base_url(); ?>application/libraries/datatables/DataTables/js/jquery.dataTables.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/DataTables/js/dataTables.bootstrap4.js"></script>
+<script src="<?= base_url(); ?>system/datatables/DataTables/js/jquery.dataTables.js"></script>
+<script src="<?= base_url(); ?>system/datatables/DataTables/js/dataTables.bootstrap4.js"></script>
 <!-- Responsive -->
-<script src="<?= base_url(); ?>application/libraries/datatables/Responsive/js/dataTables.responsive.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/Responsive/js/responsive.bootstrap4.js"></script>
+<script src="<?= base_url(); ?>system/datatables/Responsive/js/dataTables.responsive.js"></script>
+<script src="<?= base_url(); ?>system/datatables/Responsive/js/responsive.bootstrap4.js"></script>
 <!-- FixedColumns -->
-<script src="<?= base_url(); ?>application/libraries/datatables/FixedColumns/js/dataTables.fixedColumns.js"></script>
+<script src="<?= base_url(); ?>system/datatables/FixedColumns/js/dataTables.fixedColumns.js"></script>
 <!-- FixedHeader -->
-<script src="<?= base_url(); ?>application/libraries/datatables/FixedHeader/js/dataTables.fixedHeader.js"></script>
+<script src="<?= base_url(); ?>system/datatables/FixedHeader/js/dataTables.fixedHeader.js"></script>
 <!-- RowReorder -->
-<script src="<?= base_url(); ?>application/libraries/datatables/RowReorder/js/dataTables.rowReorder.js"></script>
+<script src="<?= base_url(); ?>system/datatables/RowReorder/js/dataTables.rowReorder.js"></script>
 <!-- ColReorder -->
-<script src="<?= base_url(); ?>application/libraries/datatables/ColReorder/js/dataTables.colReorder.js"></script>
+<script src="<?= base_url(); ?>system/datatables/ColReorder/js/dataTables.colReorder.js"></script>
 <!-- DateTime -->
-<script src="<?= base_url(); ?>application/libraries/datatables/DateTime/js/dataTables.dateTime.js"></script>
+<script src="<?= base_url(); ?>system/datatables/DateTime/js/dataTables.dateTime.js"></script>
 <!-- KeyTable -->
-<script src="<?= base_url(); ?>application/libraries/datatables/KeyTable/js/dataTables.keyTable.js"></script>
+<script src="<?= base_url(); ?>system/datatables/KeyTable/js/dataTables.keyTable.js"></script>
 <!-- RowGroup -->
-<script src="<?= base_url(); ?>application/libraries/datatables/RowGroup/js/dataTables.rowGroup.js"></script>
+<script src="<?= base_url(); ?>system/datatables/RowGroup/js/dataTables.rowGroup.js"></script>
 <!-- Scroller -->
-<script src="<?= base_url(); ?>application/libraries/datatables/Scroller/js/dataTables.scroller.js"></script>
+<script src="<?= base_url(); ?>system/datatables/Scroller/js/dataTables.scroller.js"></script>
 <!-- AutoFill -->
-<script src="<?= base_url(); ?>application/libraries/datatables/AutoFill/js/dataTables.autoFill.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/AutoFill/js/autoFill.bootstrap4.js"></script>
+<script src="<?= base_url(); ?>system/datatables/AutoFill/js/dataTables.autoFill.js"></script>
+<script src="<?= base_url(); ?>system/datatables/AutoFill/js/autoFill.bootstrap4.js"></script>
 <!-- Select -->
-<script src="<?= base_url(); ?>application/libraries/datatables/Select/js/dataTables.select.js"></script>
+<script src="<?= base_url(); ?>system/datatables/Select/js/dataTables.select.js"></script>
 <!-- Buttons -->
-<script src="<?= base_url(); ?>application/libraries/datatables/Buttons/js/dataTables.buttons.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/Buttons/js/buttons.bootstrap4.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/Buttons/js/buttons.colVis.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/Buttons/js/buttons.html5.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/Buttons/js/buttons.print.js"></script>
+<script src="<?= base_url(); ?>system/datatables/Buttons/js/dataTables.buttons.js"></script>
+<script src="<?= base_url(); ?>system/datatables/Buttons/js/buttons.bootstrap4.js"></script>
+<script src="<?= base_url(); ?>system/datatables/Buttons/js/buttons.colVis.js"></script>
+<script src="<?= base_url(); ?>system/datatables/Buttons/js/buttons.html5.js"></script>
+<script src="<?= base_url(); ?>system/datatables/Buttons/js/buttons.print.js"></script>
 <!-- pdfmake -->
-<script src="<?= base_url(); ?>application/libraries/datatables/pdfmake/vfs_fonts.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/pdfmake/pdfmake.js"></script>
+<script src="<?= base_url(); ?>system/datatables/pdfmake/vfs_fonts.js"></script>
+<script src="<?= base_url(); ?>system/datatables/pdfmake/pdfmake.js"></script>
 <!-- JSZip -->
-<script src="<?= base_url(); ?>application/libraries/datatables/JSZip/jszip.js"></script>
+<script src="<?= base_url(); ?>system/datatables/JSZip/jszip.js"></script>
 <!-- SearchBuilder -->
-<script src="<?= base_url(); ?>application/libraries/datatables/SearchBuilder/js/dataTables.searchBuilder.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/SearchBuilder/js/searchBuilder.bootstrap4.js"></script>
+<script src="<?= base_url(); ?>system/datatables/SearchBuilder/js/dataTables.searchBuilder.js"></script>
+<script src="<?= base_url(); ?>system/datatables/SearchBuilder/js/searchBuilder.bootstrap4.js"></script>
 <!-- StateRestore -->
-<script src="<?= base_url(); ?>application/libraries/datatables/StateRestore/js/dataTables.stateRestore.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/StateRestore/js/stateRestore.bootstrap4.js"></script>
+<script src="<?= base_url(); ?>system/datatables/StateRestore/js/dataTables.stateRestore.js"></script>
+<script src="<?= base_url(); ?>system/datatables/StateRestore/js/stateRestore.bootstrap4.js"></script>
 <!-- SearchPanes -->
-<script src="<?= base_url(); ?>application/libraries/datatables/SearchPanes/js/dataTables.searchPanes.js"></script>
-<script src="<?= base_url(); ?>application/libraries/datatables/SearchPanes/js/searchPanes.bootstrap4.js"></script>
+<script src="<?= base_url(); ?>system/datatables/SearchPanes/js/dataTables.searchPanes.js"></script>
+<script src="<?= base_url(); ?>system/datatables/SearchPanes/js/searchPanes.bootstrap4.js"></script>
 <!-- Jquery -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/jquery/jquery.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.js">
+<script src="<?= base_url(); ?>system/template/plugins/jquery/jquery.js"></script>
 </script>
 <!-- Bootstrap4 Duallistbox -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.js">
+<script src="<?= base_url(); ?>system/template/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.js">
 </script>
 <!-- Color Picker -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js">
+<script src="<?= base_url(); ?>system/template/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js">
 </script>
 <!-- Bootstrap Switch -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
 <!-- Datapicker -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Bootstrap 4 -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/bootstrap/js/bootstrap.bundle.js"></script>
 <!-- select2 -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/select2/dist/js/select2.full.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/select2/js/select2.full.js"></script>
 <!-- Mask input -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/inputmask/jquery.inputmask.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/inputmask/jquery.inputmask.js"></script>
 <!-- SweetAlert2 -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/sweetalert2/sweetalert2.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/sweetalert2/sweetalert2.js"></script>
 <!-- dropzonejs -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/dropzone/min/dropzone.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/dropzone/dropzone.js"></script>
 <!-- Sparkline -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/sparklines/sparkline.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/sparklines/sparkline.js"></script>
 <!-- ChartJS -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/chart.js/Chart.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/chart.js/Chart.js"></script>
 <!-- daterangepicker -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/moment/moment.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/moment/moment.min.js"></script>
 <!-- Toastr -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/toastr/toastr.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/toastr/toastr.min.js"></script>
 <!-- AdminLTE App -->
-<script src="<?= base_url(); ?>application/libraries/template/dist/js/adminlte.js"></script>
+<script src="<?= base_url(); ?>system/template/dist/js/adminlte.js"></script>
 <!-- JQVMap -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/jqvmap/jquery.vmap.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/jqvmap/jquery.vmap.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/jquery-knob/jquery.knob.js"></script>
+<script src="<?= base_url(); ?>system/template/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- JQVMap mapa -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/jqvmap/maps/jquery.vmap.world"></script>
+<script src="<?= base_url(); ?>system/template/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
 <!-- overlayScrollbars -->
-<script src="<?= base_url(); ?>application/libraries/template/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js">
-</script>
+<script src="<?= base_url(); ?>system/template/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="<?= base_url(); ?>system/template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 
 <script defer>
     // FUNCION PARA CARGAR AJAX DESDE CUALQUIER ARCHIVO JS o <script defer> DEL SISTEMA

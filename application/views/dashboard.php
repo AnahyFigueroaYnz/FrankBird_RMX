@@ -10,17 +10,11 @@ if ($Data_Proyectos != FALSE) {
 if ($Data_Agencias != FALSE) {
     $NoAgencias = $Data_Agencias->NoAgencias;
 }
-if ($Data_Agentes != FALSE) {
-    $NoAgentes = $Data_Agentes->NoAgentes;
-}
 if ($Data_Proveedores != FALSE) {
     $NoProveedores = $Data_Proveedores->NoProveedores;
 }
 if ($Data_Productos != FALSE) {
     $NoProductos = $Data_Productos->NoProductos;
-}
-if ($Data_Clientes != FALSE) {
-    $NoClientes = $Data_Clientes->NoClientes;
 }
 if ($Data_Ganancias != FALSE) {
     $Ganancias = $Data_Ganancias->Ganancias;
@@ -62,7 +56,7 @@ function encrypted_id($id_proyecto)
                 <div class="col-lg-2 col-6 dash-margins">
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3><?= $NoProyecto ?></h3>
+                            <h3>1</h3>
                             <p>Proyectos</p>
                         </div>
                         <div class="icon">
@@ -76,7 +70,7 @@ function encrypted_id($id_proyecto)
                 <div class="col-lg-2 col-6 dash-margins">
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3><?= $NoAgencias ?></h3>
+                            <h3>2</h3>
                             <p>Agencias</p>
                         </div>
                         <div class="icon">
@@ -89,7 +83,7 @@ function encrypted_id($id_proyecto)
                 <div class="col-lg-2 col-6 dash-margins">
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3><?= $NoProveedores ?></h3>
+                            <h3>2</h3>
                             <p>Proveedores</p>
                         </div>
                         <div class="icon">
@@ -102,7 +96,7 @@ function encrypted_id($id_proyecto)
                 <div class="col-lg-2 col-6 dash-margins">
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3><?= $NoClientes ?></h3>
+                            <h3>33</h3>
                             <p>Clientes</p>
                         </div>
                         <div class="icon">
@@ -115,7 +109,7 @@ function encrypted_id($id_proyecto)
                 <div class="col-lg-4 col-12 dash-margins">
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>$<?= $gananciasFormat ?></h3>
+                            <h3>$2,800,000.00</h3>
                             <p>Ingresos del mes</p>
                         </div>
                         <div class="icon">
