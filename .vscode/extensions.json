@@ -73,6 +73,7 @@
         "mccarter.start-git-bash",
         "waderyan.gitblame",
         "donjayamanne.githistory",
-        "bmewburn.vscode-intelephense-client"
+        "bmewburn.vscode-intelephense-client",
+        "streetsidesoftware.code-spell-checker"
     ]
 }

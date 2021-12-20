@@ -58,3 +58,5 @@ $version = $data_ver->version;
         </tbody>
       </table>
     </div>
+  </div>
+</section>

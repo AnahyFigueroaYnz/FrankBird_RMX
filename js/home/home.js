@@ -185,7 +185,7 @@ var home = {
             var data = {
                 email: $('#email').val(),
             }
-            var response = cargar_ajax.run_server_ajax('Home/get_usuario', data);
+            var response = cargar_ajax.run_server_ajax('plataforma/get_usuario', data);
             nivel = response.id_nivelusuario;
             if (response.tyc == "0") {
                 $("#alert_notice").removeClass("sec_hidden");
@@ -200,7 +200,7 @@ var home = {
                     email: $('#email').val(),
                     contrasena: $('#contrasena').val(),
                 }
-                resp_login = cargar_ajax.run_server_ajax('Home/fun_login', data);
+                resp_login = cargar_ajax.run_server_ajax('plataforma/authenticator', data);
                 if (resp_login.autenticacion == false) {
                     swal.fire({
                         title: "Error!",
@@ -211,17 +211,8 @@ var home = {
                         timerProgressBar: true,
                     });
                 } else {
-                    if (nivel == 1) {
-                        window.location.assign(base_url + 'Mantenimiento/DashboardRoot');
-                    } else if (nivel == 2) {
-                        window.location.assign(base_url + 'Plataforma/DashboardAdministrador');
-                    } else if (nivel == 3) {
-                        window.location.assign(base_url + 'Plataforma/DashboardAsesor');
-                    } else if (nivel == 4) {
-                        window.location.assign(base_url + 'Clientes/DashboardCliente');
-                    } else if (nivel == 5) {
-                        window.location.assign(base_url + 'Plataforma/DashboardAgente');
-                    }
+                    
+                    window.location.assign(base_url + 'plataforma/Dashboard');
                 }
             }
         });

@@ -6,22 +6,39 @@ class Plataforma_model extends CI_Model
 
     function __construct()
     {
-        // Call the Model constructor
         parent::__construct();
     }
 
-    public function get_version()
+    // funcion para la informacion del usuario para autenticarlo
+    function authenticator($data)
     {
-        $this->db->select_max('version');
-        $this->db->from('versiones_js');
-        $this->db->where('activo', 1);
-
+        $this->db->from('usuarios');
+        $this->db->where('activo',1);
+        $this->db->where('email',$data['usuario']);
+        $this->db->where('contrasena',$data['password']);
         $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query->row();
-        } else {
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }else{
             return false;
-        }
+        }        
+    }
+
+    function get_user($email)
+    {
+        $this->db->from('usuarios');
+        $this->db->where('activo',1);
+        $this->db->where('email',$email);
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query->row();
+        }else{
+            return false;
+        }    
     }
 
     // funcion para obtener toda la informacion de los proyectos

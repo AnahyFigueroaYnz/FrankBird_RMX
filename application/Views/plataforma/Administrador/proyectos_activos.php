@@ -157,3 +157,5 @@ $version = $data_ver->version;
       <?php $this->load->view('plataforma/administrador/modals/modal-asignar-asesor'); ?>
     </div>
     <!-- Fin modal -->
+  </div>
+</section>

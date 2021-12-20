@@ -58,45 +58,47 @@ if ($Data_Cotizacion != FALSE) {
   $statusPedido = '';
 } ?>
 <section class="content-header shadow-title">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1 class="m-0 title-color"><i class="far fa-file-alt"></i> Pedido <?= $registro ?>-<?= $folio ?> <?= $statusPedido ?></h1>
-      </div>
-      <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item">
-            <a href="<?= base_url() ?>Clientes/DashboardCliente"><i class="nav-icon fas fa-home"></i> Home</a>
-          </li>
-          <li class="breadcrumb-item">
-            <a href="<?= base_url() ?>Clientes/MisPedidos">Mis Pedidos</a>
-          </li>
-          <li class="breadcrumb-item active">Detalle</li>
-        </ol>
-      </div>
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 title-color"><i class="far fa-file-alt"></i> Pedido <?= $registro ?>-<?= $folio ?>
+                    <?= $statusPedido ?></h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="<?= base_url() ?>Clientes/DashboardCliente"><i class="nav-icon fas fa-home"></i>
+                            Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="<?= base_url() ?>Clientes/MisPedidos">Mis Pedidos</a>
+                    </li>
+                    <li class="breadcrumb-item active">Detalle</li>
+                </ol>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 <br>
 <!-- ondragstart="return false" onselectstart="return false" oncontextmenu="return false" -->
 <section class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <input type="hidden" id="baseURL" value="<?= base_url() ?>">
-      <?php if ($statusCot == 0) { ?>
-        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <?php $this->load->view('plataforma/card-detalles/card-product'); ?>
-        </div>
-        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <?php $this->load->view('plataforma/cliente/pedidos/detalle/forms/productos'); ?>
-        </div>
-      <?php } else if ($statusCot == 1 || $statusCot == 2) { ?>
-        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <?php $this->load->view('plataforma/card-detalles/card-product'); ?>
-          <?php $this->load->view('plataforma/cliente/pedidos/detalle/forms/productos'); ?>
-        </div>
-        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <?php if ($status < 5) {
+    <div class="container-fluid">
+        <div class="row">
+            <input type="hidden" id="baseURL" value="<?= base_url() ?>">
+            <?php if ($statusCot == 0) { ?>
+            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <?php $this->load->view('plataforma/card-detalles/card-product'); ?>
+            </div>
+            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <?php $this->load->view('plataforma/cliente/pedidos/detalle/forms/productos'); ?>
+            </div>
+            <?php } else if ($statusCot == 1 || $statusCot == 2) { ?>
+            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <?php $this->load->view('plataforma/card-detalles/card-product'); ?>
+                <?php $this->load->view('plataforma/cliente/pedidos/detalle/forms/productos'); ?>
+            </div>
+            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <?php if ($status < 5) {
             if ($statusCot == 1) {
               $this->load->view('plataforma/cliente/pedidos/detalle/forms/cotizaciones');
             } else if ($statusCot == 2) {
@@ -106,114 +108,122 @@ if ($Data_Cotizacion != FALSE) {
           } else if ($status >= 5) {
             $this->load->view('plataforma/card-detalles/card-costs');
           } ?>
-        </div>
-      <?php }
-      if ($comprobar_coordenadas != false && $bl == NULL) { ?>
-        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <?php $this->load->view('plataforma/asesor/proyectos/tabs/mapa'); ?>
-        </div>
-      <?php } else if ($bl != NULL) {
-      ?>
-      <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="card shadow-cards tarjeta">
-          <div class="card-header">
-            <p class="card-title m-0"><i class="fas fa-map-marker-alt title-color"></i> Ubicación de tu pedido</p>
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-              </button>
             </div>
-          </div>
-          <div class="card-body p-0" style="display: block;">
-            <iframe src="" id="IframeShipsgoLiveMap" style="height: 300px;width: 100%;border-radius: 0rem 0rem 1rem 1rem;"></iframe>
-          </div>
+            <?php }
+      if ($comprobar_coordenadas != false && $bl == NULL) { ?>
+            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <?php $this->load->view('plataforma/asesor/proyectos/tabs/mapa'); ?>
+            </div>
+            <?php } else if ($bl != NULL) {
+      ?>
+            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="card shadow-cards tarjeta">
+                    <div class="card-header">
+                        <p class="card-title m-0"><i class="fas fa-map-marker-alt title-color"></i> Ubicación de tu
+                            pedido</p>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0" style="display: block;">
+                        <iframe src="" id="IframeShipsgoLiveMap"
+                            style="height: 300px;width: 100%;border-radius: 0rem 0rem 1rem 1rem;"></iframe>
+                    </div>
+                </div>
+            </div>
+            <?php }?>
         </div>
-      </div>
-      <?php }?>
+
+        <div class="modal fade" id="modalFiles" tabindex="-1" role="dialog" aria-hidden="true">
+            <?php $this->load->view('plataforma/cliente/modals/modal-files'); ?>
+        </div>
+
+        <div class="modal fade" id="modalTyC" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false"
+            data-backdrop="static">
+            <?php $this->load->view('plataforma/cliente/modals/modal-ter_con'); ?>
+        </div>
     </div>
+</section>
 
-    <div class="modal fade" id="modalFiles" tabindex="-1" role="dialog" aria-hidden="true">
-      <?php $this->load->view('plataforma/cliente/modals/modal-files'); ?>
-    </div>
+<script src="<?= base_url(); ?>js/plataforma/detalle.js?v=<?= $version ?>"></script>
+<script src="<?= base_url(); ?>js/plataforma/rastreo.js?v=<?= $version ?>"></script>
+<!-- <script src="<?= base_url(); ?>js/plataforma/cotizacion.js?v=<?= $version ?>"></script> -->
 
-    <div class="modal fade" id="modalTyC" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static">
-      <?php $this->load->view('plataforma/cliente/modals/modal-ter_con'); ?>
-    </div>
+<!-- Script para api google maps, funcion de init en plataforma.js, incluye mapa y autollenado -->
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYqGCtJ6iT0S49ACAg-yo8Sf-KTaoa614&callback=initMap&libraries=places&v=weekly"
+    async></script>
 
-    <script src="<?= base_url(); ?>js/plataforma/detalle.js?v=<?= $version ?>"></script>
-    <script src="<?= base_url(); ?>js/plataforma/rastreo.js?v=<?= $version ?>"></script>
-    <!-- <script src="<?= base_url(); ?>js/plataforma/cotizacion.js?v=<?= $version ?>"></script> -->
+<script type="text/javascript">
+//GOOGLE MAPS
+let map;
+let service;
+let infowindow;
 
-    <!-- Script para api google maps, funcion de init en plataforma.js, incluye mapa y autollenado -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYqGCtJ6iT0S49ACAg-yo8Sf-KTaoa614&callback=initMap&libraries=places&v=weekly" async></script>
+function initMap() {
+    // Create the search box and link it to the UI element.
+    const input = document.getElementById("txt_latitud");
+    const searchBox = new google.maps.places.SearchBox(input);
+    const inputContainer = document.getElementById("ContainerNumber");
 
-    <script type="text/javascript">
-      //GOOGLE MAPS
-      let map;
-      let service;
-      let infowindow;
-
-      function initMap() {
-        // Create the search box and link it to the UI element.
-        const input = document.getElementById("txt_latitud");
-        const searchBox = new google.maps.places.SearchBox(input);
-        const inputContainer = document.getElementById("ContainerNumber");
-
-        //Crea el mapa con el marcador para la fabrica
-        if (input.value != "" && (inputContainer.value === null || inputContainer.value === "")) {
-          //mostrar mapa con direccion
-          const sydney = new google.maps.LatLng(-33.867, 151.195);
-          infowindow = new google.maps.InfoWindow();
-          map = new google.maps.Map(document.getElementById("mapa"), {
+    //Crea el mapa con el marcador para la fabrica
+    if (input.value != "" && (inputContainer.value === null || inputContainer.value === "")) {
+        //mostrar mapa con direccion
+        const sydney = new google.maps.LatLng(-33.867, 151.195);
+        infowindow = new google.maps.InfoWindow();
+        map = new google.maps.Map(document.getElementById("mapa"), {
             center: sydney,
             zoom: 15,
-          });
-          const request = {
+        });
+        const request = {
             // query: "No. 18, Guanghua Road, Luzhou District, Nuevo Taipéi, Taiwán",
             query: $("#inpt_direccion").val(),
             fields: ["name", "geometry"],
-          };
-          service = new google.maps.places.PlacesService(map);
-          service.findPlaceFromQuery(request, (results, status) => {
+        };
+        service = new google.maps.places.PlacesService(map);
+        service.findPlaceFromQuery(request, (results, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-              for (let i = 0; i < results.length; i++) {
-                createMarker(results[i]);
-              }
-              map.setCenter(results[0].geometry.location);
+                for (let i = 0; i < results.length; i++) {
+                    createMarker(results[i]);
+                }
+                map.setCenter(results[0].geometry.location);
             }
-          });
-        }
-      }
-
-      function createMarker(place) {
-        if (!place.geometry || !place.geometry.location) return;
-        const marker = new google.maps.Marker({
-          map,
-          position: place.geometry.location,
         });
-        google.maps.event.addListener(marker, "click", () => {
-          infowindow.setContent(place.name || "");
-          infowindow.open(map);
-        });
-      }
+    }
+}
+
+function createMarker(place) {
+    if (!place.geometry || !place.geometry.location) return;
+    const marker = new google.maps.Marker({
+        map,
+        position: place.geometry.location,
+    });
+    google.maps.event.addListener(marker, "click", () => {
+        infowindow.setContent(place.name || "");
+        infowindow.open(map);
+    });
+}
 
 
-      //SHIPSGO
+//SHIPSGO
 
-      if (window.addEventListener) {
-        window.addEventListener("message", ShipsgoMessagesListener);
-      }
+if (window.addEventListener) {
+    window.addEventListener("message", ShipsgoMessagesListener);
+}
 
-      function ShipsgoMessagesListener() {
-        if (event.data.Action === "LoadNewContainerCode") {
-          document.getElementById("IframeShipsgoLiveMap").src = "https://shipsgo.com/iframe/where-is-my-container/" + event.data.Parameters.ContainerCode;
-        }
-      }
+function ShipsgoMessagesListener() {
+    if (event.data.Action === "LoadNewContainerCode") {
+        document.getElementById("IframeShipsgoLiveMap").src =
+            "https://shipsgo.com/iframe/where-is-my-container/" + event.data.Parameters.ContainerCode;
+    }
+}
 
-      var urlParams = new URLSearchParams(window.location.search);
-      var defaultQuery = $("#ContainerNumber").val();
-      if (defaultQuery === undefined || defaultQuery === null) {
-        defaultQuery = "default-container-code";
-      }
-      $("#IframeShipsgoLiveMap").attr("src", "https://shipsgo.com/iframe/where-is-my-container/" + defaultQuery + "");
-    </script>
+var urlParams = new URLSearchParams(window.location.search);
+var defaultQuery = $("#ContainerNumber").val();
+if (defaultQuery === undefined || defaultQuery === null) {
+    defaultQuery = "default-container-code";
+}
+$("#IframeShipsgoLiveMap").attr("src", "https://shipsgo.com/iframe/where-is-my-container/" + defaultQuery + "");
+</script>

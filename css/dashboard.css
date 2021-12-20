@@ -1,0 +1,133 @@
+#tblSourcings,
+#tblPendientes {
+    border-collapse: separate;
+    border-spacing: 0px 20px;
+}
+
+#tblSourcings tbody th,
+#tblSourcings tbody td {
+    padding: 1rem 0.75rem;
+}
+
+#tblSourcings tbody td,
+#tblPendientes tbody td {
+    padding: 0.5rem 0.75rem;
+}
+
+table.dataTable.dtr-column>tbody>tr>td.dtr-control:before,
+table.dataTable.dtr-column>tbody>tr>th.dtr-control:before,
+table.dataTable.dtr-column>tbody>tr>td.control:before,
+table.dataTable.dtr-column>tbody>tr>th.control:before {
+    top: initial;
+    left: initial;
+    height: auto;
+    width: fit-content;
+    margin-top: 0em;
+    margin-left: 0em;
+    display: block;
+    position: inherit;
+    color: transparent;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: none;
+    box-sizing: content-box;
+    text-align: center;
+    text-indent: 0 !important;
+    font-family: "Courier New", Courier, monospace;
+    line-height: 0;
+    content: url("/system/dataTable/details_open.png");
+    background-color: transparent;
+}
+
+table.dataTable.dtr-column>tbody>tr.parent td.dtr-control:before,
+table.dataTable.dtr-column>tbody>tr.parent th.dtr-control:before,
+table.dataTable.dtr-column>tbody>tr.parent td.control:before,
+table.dataTable.dtr-column>tbody>tr.parent th.control:before {
+    content: url("/system/dataTable/details_close.png");
+    background-color: transparent;
+}
+
+.td-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.badge-defin {
+    background-color: #adb5bd !important;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0rem !important;
+}
+
+.btn-light {
+    border: 1px solid #d0d0d2 !important;
+}
+
+.btn-check {
+    width: 20px;
+    height: 20px;
+    line-height: 0;
+    font-size: 10px;
+    margin-top: 0px;
+    text-align: center;
+    border-radius: 50%;
+    display: inline-grid;
+    align-content: center;
+    vertical-align: middle;
+    padding: 0px !important;
+}
+
+.btn-bf {
+    color: transparent;
+    border-color: #d0d0d2;
+    background-color: transparent;
+}
+
+.btn-af {
+    color: #fff !important;
+    border-color: #28a745 !important;
+    background-color: #28a745 !important;
+}
+
+.btn-af:hover {
+    color: #28a745 !important;
+    border-color: #28a745 !important;
+    background-color: #fff !important;
+}
+
+.editTask {
+    margin-right: 10px;
+}
+
+.brand-link .brand-image {
+    float: left;
+    line-height: 0.8;
+    margin-left: 0.8rem;
+    margin-right: 1rem;
+    margin-top: -5px;
+    max-height: 40px;
+    width: auto;
+}
+
+.brand-link {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    padding: 13px 2px;
+}
+
+.chartjs-render-monitor {
+    min-height: 250px;
+    height: 250px;
+    max-height: 250px;
+    max-width: 100%;
+    display: block;
+    width: 575px;
+}
+
+/* @media (min-width: 992px) {
+    .sidebar-mini.sidebar-collapse.layout-fixed .brand-link {
+        width: 4rem;
+        padding: 12px 2px;
+    }
+} */

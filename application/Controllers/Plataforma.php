@@ -7,151 +7,11 @@ class Plataforma extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Plataforma_model');
-
-		$this->load->library('versiones');
-		$ver = $this->Plataforma_model->get_version();
-		$this->versiones->set_version($ver);
 	}
 
 	public function index()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
-				if ($nivel == 1) { //root
-					redirect(base_url() . 'Mantenimiento/DashboardRoot');
-				} else if ($nivel == 2) { //admin 
-					redirect(base_url() . 'Plataforma/DashboardAdministrador');
-				} else if ($nivel == 3) { //asesor 
-					redirect(base_url() . 'Plataforma/DashboardAsesor');
-				} else if ($nivel == 4) { //cliente
-					redirect(base_url() . 'Clientes/DashboardCliente');
-				} else if ($nivel == 5) { //Agente
-					redirect(base_url() . 'Plataforma/DashboardAgente');
-				}
-			} else {
-				redirect(base_url() . 'Home/Ingresar');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-	/* Termino y condiciones */
-	public function TerminosCondiciones()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
-
-				$this->load->view('headers/header');
-				if ($nivel == 4) { //CLIENTE
-					$this->load->view('headers/navbar_clientes');
-				} else if ($nivel == 5) { //AGENTE
-					$this->load->view('headers/navBar_agente');
-				} else if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
-				$this->load->view('plataforma/global/term_cond');
-				$this->load->view('footers/footer-script');
-			} else {
-				redirect(base_url() . 'Home/Ingresar');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-	/* Politicas de privacidad */
-	public function PoliticasPrivacidad()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
-
-				$this->load->view('headers/header');
-				if ($nivel == 4) { //CLIENTE
-					$this->load->view('headers/navbar_clientes');
-				} else if ($nivel == 5) { //AGENTE
-					$this->load->view('headers/navBar_agente');
-				} else if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
-				$this->load->view('plataforma/global/politicas_priv');
-				$this->load->view('footers/footer-script');
-			} else {
-				redirect(base_url() . 'Home/Ingresar');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-	/* Preguntas frecuentes */
-	public function Help()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
-
-				$this->load->view('headers/header');
-				if ($nivel == 4) { //CLIENTE
-					$this->load->view('headers/navbar_clientes');
-				} else if ($nivel == 5) { //AGENTE
-					$this->load->view('headers/navBar_agente');
-				} else if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
-				$this->load->view('plataforma/global/help');
-				$this->load->view('footers/footer-script');
-			} else {
-				redirect(base_url() . 'Home/Ingresar');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-
-	/* VISTA PERFIL	*/
-	public function perfil()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
-				$id_usuario = $this->session->userdata('id_usuario');
-				$data = array(
-					'DATA_USUARIO' => $this->Plataforma_model->get_data_usuario($id_usuario),
-					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
-				);
-				$this->load->view('headers/header');
-				if ($nivel == 4) { //CLIENTE
-					$this->load->view('headers/navbar_clientes');
-				} else if ($nivel == 5) { //AGENTE
-					$this->load->view('headers/navBar_agente');
-				} else if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
-				$this->load->view('plataforma/perfil', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url() . 'Home/Ingresar');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-
-	public function Dashboard()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			$nivel = 2;
+		if ($this->seguridad() == TRUE) {
 			$id_usuario = 2;
 			$data = array(
 				'Data_Proveedores' => $this->Plataforma_model->noProveedores(),
@@ -168,21 +28,88 @@ class Plataforma extends CI_Controller
 				'Data_Pendientes' => $this->Plataforma_model->pendientesTasks($id_usuario),
 			);
 			$this->load->view('headers/header');
-			$this->load->view('headers/navBar_plataforma');
-			$this->load->view('plataforma/dashboard', $data);
-			$this->load->view('footers/footer_cierre');
-			$this->load->view('footers/footer-script');
-			$this->load->view('footers/cargar_js');
+			$this->load->view('dashboard', $data);
+			$this->load->view('footers/footer');
+		} else {
+			$this->load->view('login');
+		}
+	}
+
+	
+	// funcion de la vista de login segun el nievel de usuario logeado
+	public function Login()
+	{
+		$this->load->view('login');
+	}
+	/*Función para el logout*/
+	public function Logout()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url());
+	}
+	// Obtner la informacion del usuarios
+	public function get_usuario()
+	{
+		if ($this->input->is_ajax_request()) {
+			$email = $this->input->post('email');
+			$data = $this->Plataforma_model->get_user($email);
+			echo json_encode($data);
+		} else {
+			show_404();
+		}
+	}
+	/*Funcion para el login*/
+	public function authenticator()
+	{
+		if ($this->input->is_ajax_request()) {
+			$data = array(
+				'usuario' => $this->input->post('email', true),
+				'password' => $this->input->post('contrasena', true),
+			);
+
+			$query = $this->Plataforma_model->authenticator($data);
+
+			if ($query == false) {
+				$data_error = array('autenticacion' => false,);
+				echo json_encode($data_error);
+			} else {
+				foreach ($query->result() as $row) {
+					$id_usuario = $row->id_usuario;
+					$nombre = $row->nombre;
+					$usuario = $row->email;
+					$password = $row->contrasena;
+					$img_path = $row->img_path;
+				}
+				$newdata = array(
+					'id_usuario' => $id_usuario,
+					'nombre' => $nombre,
+					'usuario' => $usuario,
+					'password' => $password,
+					'img_path' => $img_path,
+					'logueado' => TRUE,
+				);
+
+				$this->session->set_userdata($newdata);
+				$data_success = array('autenticacion' => true,);
+				echo json_encode($data_success);
+			}
+		} else {
+			show_404();
+		}
+	}
+
+	/* VISTA PERFIL	*/
+	public function perfil()
+	{
+		if ($this->mantenimiento() == FALSE) {
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
 		}
 	}
-
 	public function DashboardAdministrador()
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
-				$nivel = $this->session->userdata('nivel');
 				$id_usuario = $this->session->userdata('id_usuario');
 				$data = array(
 					'Data_Proyectos' => $this->Plataforma_model->noProyectos(),
@@ -200,13 +127,11 @@ class Plataforma extends CI_Controller
 				);
 				// var_dump($data);
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_plataforma');
 				$this->load->view('plataforma/administrador/dashboardAdmin', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -228,13 +153,11 @@ class Plataforma extends CI_Controller
 				);
 
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_asesor');
 				$this->load->view('plataforma/asesor/dashboardAsesor', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -257,13 +180,11 @@ class Plataforma extends CI_Controller
 					'Data_Pendientes' => $this->Plataforma_model->pendientesTasks($id_usuario),
 				);
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_agente');
 				$this->load->view('plataforma/agentes_aduanales/dashboardAgente', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -310,13 +231,11 @@ class Plataforma extends CI_Controller
 					'DATA_STATUS' => $this->Plataforma_model->get_status(),
 				);
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_plataforma');
 				$this->load->view('plataforma/administrador/todos_proyectos', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -334,13 +253,11 @@ class Plataforma extends CI_Controller
 				);
 
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_plataforma');
 				$this->load->view('plataforma/administrador/proyectos_activos', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -358,13 +275,11 @@ class Plataforma extends CI_Controller
 				);
 
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_plataforma');
 				$this->load->view('plataforma/administrador/proyectos_concluidos', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -382,13 +297,11 @@ class Plataforma extends CI_Controller
 				);
 
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_plataforma');
 				$this->load->view('plataforma/administrador/proyectos_eliminados', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -400,22 +313,15 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
 				$id_asesor = $this->session->userdata('id_usuario');
 				$data = array(
 					'data_proy_asesor' => $this->Plataforma_model->get_proyectos_asesor($id_asesor),
 				);
 				$this->load->view('headers/header');
-				if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
 				$this->load->view('plataforma/asesor/proyectos/mis_proyectos', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -431,12 +337,10 @@ class Plataforma extends CI_Controller
 					'data_proy_asesor' => $this->Plataforma_model->get_proyectos_activos($id_asesor),
 				);
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_asesor');
 				$this->load->view('plataforma/asesor/proyectos/proy_activos', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -447,23 +351,15 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
 				$id_asesor = $this->session->userdata('id_usuario');
 				$data = array(
 					'data_proy_asesor' => $this->Plataforma_model->get_proyectos_concluidos($id_asesor),
 				);
 				$this->load->view('headers/header');
-
-				if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
 				$this->load->view('plataforma/asesor/proyectos/proy_concluidos', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -476,7 +372,6 @@ class Plataforma extends CI_Controller
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
 				// $id_proyecto = $this->uri->segment(3);
-				$nivel = $this->session->userdata('nivel');
 
 				$this->load->library('cript');
 				$id_proyecto_uri = $this->uri->segment(3);
@@ -515,25 +410,10 @@ class Plataforma extends CI_Controller
 				);
 
 				$this->load->view('headers/header');
-				if ($nivel == 4) { //CLIENTE
-					$this->load->view('headers/navbar_clientes');
-					$this->load->view('plataforma/cliente/pedidos/detalle/detalle', $data);
-				} else if ($nivel == 5) { //AGENTE
-					$this->load->view('headers/navBar_agente');
-					$this->load->view('plataforma/asesor/proyectos/detalle', $data);
-				} else if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-					$this->load->view('plataforma/asesor/proyectos/detalle', $data);
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-					$this->load->view('plataforma/asesor/proyectos/detalle', $data);
-				}
-
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -558,7 +438,6 @@ class Plataforma extends CI_Controller
 				//Update a bitacora
 				$tabla = "proyecto";
 				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_proyecto);
 			} else {
 				show_404();
 			}
@@ -604,10 +483,6 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->update_proyecto($data, $id_proyecto);
 				echo json_encode($data);
-				//Update a bitacora
-				$tabla = "proyecto";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_proyecto);
 			} else {
 				show_404();
 			}
@@ -626,10 +501,6 @@ class Plataforma extends CI_Controller
 				);
 				$this->Plataforma_model->update_proyecto($data, $id_proyecto);
 				echo json_encode($data);
-				//Update a bitacora
-				$tabla = "proyecto";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_proyecto);
 
 				//Envio de notificacion
 				$data_proy = $this->Plataforma_model->get_pb($id_proyecto);
@@ -659,23 +530,15 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
 				$data = array(
 					'Data_todos_productos' => $this->Plataforma_model->get_all_productos(),
 				);
 				$this->load->view('headers/header');
-
-				if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
 				$this->load->view('plataforma/search_all_products', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -753,24 +616,16 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
 				$data = array(
 					'Data_agencias_aduanales' => $this->Plataforma_model->agencias_aduanales(),
 					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
 				);
 				$this->load->view('headers/header');
-
-				if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
 				$this->load->view('plataforma/agencias_aduanales', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -781,7 +636,6 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
 				$id_agencia = $this->uri->segment(3);
 				$data = array(
 					'Data_detalle_agencia' => $this->Plataforma_model->get_detalle_agencias_aduanales($id_agencia),
@@ -790,18 +644,11 @@ class Plataforma extends CI_Controller
 					'Data_agentes' => $this->Plataforma_model->get_agentes($id_agencia),
 				);
 				$this->load->view('headers/header');
-
-				if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
 				$this->load->view('plataforma/detalleAgencia', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -825,7 +672,7 @@ class Plataforma extends CI_Controller
 				$tabla = "transporte";
 				$tipo_accion = "Insert";
 				$id_name = "id_transporte";
-				$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+				
 			} else {
 				show_404();
 			}
@@ -880,7 +727,7 @@ class Plataforma extends CI_Controller
 				//Update a bitacora
 				$tabla = "transporte";
 				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_transporte);
+				
 			} else {
 				show_404();
 			}
@@ -904,7 +751,7 @@ class Plataforma extends CI_Controller
 				//Update a bitacora
 				$tabla = "transporte";
 				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_transporte);
+				
 			} else {
 				show_404();
 			}
@@ -938,7 +785,7 @@ class Plataforma extends CI_Controller
 				$tabla = "agencias_aduanales";
 				$tipo_accion = "Insert";
 				$id_name = "id_agencia";
-				$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+				
 			} else {
 				show_404();
 			}
@@ -973,7 +820,7 @@ class Plataforma extends CI_Controller
 				//Update a bitacora
 				$tabla = "agencias_aduanales";
 				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_agencia);
+				
 			} else {
 				show_404();
 			}
@@ -996,7 +843,7 @@ class Plataforma extends CI_Controller
 				//Update a bitacora
 				$tabla = "agencias_aduanales";
 				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_agencia);
+				
 			} else {
 				show_404();
 			}
@@ -1010,24 +857,16 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
 				$data = array(
 					'data_proveedores_asesor' => $this->Plataforma_model->get_proveedores(),
 					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
 				);
 				$this->load->view('headers/header');
-
-				if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
 				$this->load->view('plataforma/proveedores', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -1072,7 +911,7 @@ class Plataforma extends CI_Controller
 				$tabla = "proveedores";
 				$tipo_accion = "Insert";
 				$id_name = "id_proveedor";
-				$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+				
 
 				//Envio notificacion
 				$consulta_admins = $this->Plataforma_model->get_admins();
@@ -1112,7 +951,7 @@ class Plataforma extends CI_Controller
 				$tabla = "proveedores";
 				$tipo_accion = "Insert";
 				$id_name = "id_proveedor";
-				$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+				
 			} else {
 				show_404();
 			}
@@ -1161,10 +1000,6 @@ class Plataforma extends CI_Controller
 				$this->Plataforma_model->update_prov($data, $id_proveedor);
 				echo json_encode($data);
 
-				//Update a bitacora
-				$tabla = "proveedores";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_proveedor);
 			} else {
 				show_404();
 			}
@@ -1178,7 +1013,6 @@ class Plataforma extends CI_Controller
 
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
 				$id_proveedor = $this->uri->segment(3);
 				$data = array(
 					'Data_detalle_proveedor' => $this->Plataforma_model->get_detalle_prov($id_proveedor),
@@ -1186,18 +1020,11 @@ class Plataforma extends CI_Controller
 					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
 				);
 				$this->load->view('headers/header');
-
-				if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
 				$this->load->view('plataforma/detalleProveedores', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -1239,10 +1066,6 @@ class Plataforma extends CI_Controller
 				$this->Plataforma_model->update_prov($data, $id_proveedor);
 				echo json_encode($data);
 
-				//Update a bitacora
-				$tabla = "proveedores";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_proveedor);
 			} else {
 				show_404();
 			}
@@ -1270,19 +1093,11 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE) {
-				$nivel = $this->session->userdata('nivel');
 				$this->load->view('headers/header');
-
-				if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
 				$this->load->view('plataforma/administrador/productos');
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 			} else {
-				redirect(base_url() . 'Home/Ingresar');
+				redirect(base_url() . 'plataforma/Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
@@ -1306,7 +1121,7 @@ class Plataforma extends CI_Controller
 				$tabla = "productos";
 				$tipo_accion = "Insert";
 				$id_name = "id_producto";
-				$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+				
 			} else {
 				show_404();
 			}
@@ -1344,11 +1159,6 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->update_producto($data, $id_producto);
 				echo json_encode($data);
-
-				//Update a bitacora
-				$tabla = "productos";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_producto);
 			} else {
 				show_404();
 			}
@@ -1368,10 +1178,7 @@ class Plataforma extends CI_Controller
 				$this->Plataforma_model->update_producto($data, $id_producto);
 				echo json_encode($data);
 
-				//Update a bitacora
-				$tabla = "productos";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_producto);
+
 			} else {
 				show_404();
 			}
@@ -1550,10 +1357,6 @@ class Plataforma extends CI_Controller
 					$this->Plataforma_model->insert_notificacion($data_notificacion);
 				}
 
-				//Update a bitacora
-				$tabla = "proyecto";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_proyecto);
 			} else {
 				show_404();
 			}
@@ -1663,12 +1466,6 @@ class Plataforma extends CI_Controller
 			//INSERTAR COTIZACION 
 			$this->Plataforma_model->agregar_cotizacion($data_Cotizacion);
 
-			//Update a bitacora
-			$tabla = "cotizaciones";
-			$tipo_accion = "Insert";
-			$id_name = "id_cotizacion";
-			$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
-
 			// Traer Id de cotizacion agregada
 			$IdCotizacion_Row = $this->Plataforma_model->ultimo_IdCotizacion($IdProyecto);
 			$IdCotizacion = $IdCotizacion_Row->id_cotizacion;
@@ -1688,11 +1485,6 @@ class Plataforma extends CI_Controller
 
 					//insert productos
 					$this->Plataforma_model->agregar_producto($data_Producto);
-					//Update a bitacora
-					$tabla = "producto_cotizacion";
-					$tipo_accion = "Insert";
-					$id_name = "id_producto_cot";
-					$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
 
 					// utlimo producto insertado
 					$IdProdCotiza_Row = $this->Plataforma_model->ultimo_IdProdCotiza($IdCotizacion);
@@ -1716,7 +1508,7 @@ class Plataforma extends CI_Controller
 							$tabla = "media_productos_cot";
 							$tipo_accion = "Insert";
 							$id_name = "id_media_prod_cot";
-							$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+							
 						}
 					}
 				}
@@ -1776,10 +1568,7 @@ class Plataforma extends CI_Controller
 				// actualizar path en la BD
 				$data_ImgProdCot = array('path_prod_cot' => $ruta_guardar_archivo,);
 				$this->Plataforma_model->update_media_producto($data_ImgProdCot, $IdMediaProdCot);
-				//Update a bitacora
-				$tabla = "media_productos_cot";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $IdMediaProdCot);
+
 			} else {
 				echo "imagen no cargada";
 			}
@@ -1937,10 +1726,6 @@ class Plataforma extends CI_Controller
 
 				$date = new DateTime();
 				$fecha = $date->format('Y/m/d');
-				//Update a bitacora
-				$tabla = "cotizaciones";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_cotizacion);
 
 				//encuentra el proyecto con el id_cotizacion
 				$data_referencia = $this->Plataforma_model->get_id_referencia($id_cotizacion);
@@ -2227,10 +2012,6 @@ class Plataforma extends CI_Controller
 				$this->Plataforma_model->update_perfil($data, $id_usuario);
 				echo json_encode($data);
 
-				//Update a bitacora
-				$tabla = "usuarios";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_usuario);
 			} else {
 				show_404();
 			}
@@ -2403,10 +2184,6 @@ class Plataforma extends CI_Controller
 				$path = $this->input->post('archivo_path'); //obtencion del path
 				unlink($path); //eliminacion del archivo
 
-				//Update a bitacora
-				$tabla = "documentos";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_documento);
 			} else {
 				show_404();
 			}
@@ -2434,7 +2211,7 @@ class Plataforma extends CI_Controller
 				$tabla = "documentos";
 				$tipo_accion = "Insert";
 				$id_name = "id_documento";
-				$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+				
 			} else {
 				show_404();
 			}
@@ -2500,7 +2277,7 @@ class Plataforma extends CI_Controller
 			$tabla = "documentos";
 			$tipo_accion = "Insert";
 			$id_name = "id_documento";
-			$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+			
 		} else {
 			$datacambio = array('activo' => 0,);
 			//cambiar el status de activo a 0
@@ -2511,7 +2288,7 @@ class Plataforma extends CI_Controller
 			$tabla = "documentos";
 			$tipo_accion = "Insert";
 			$id_name = "id_documento";
-			$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+			
 		}
 
 		//Consulta para obtener el ultimo id_documento que ha insertado 
@@ -2538,10 +2315,7 @@ class Plataforma extends CI_Controller
 				'archivo_path' => $ruta_guardar_archivo,
 			);
 			$this->Plataforma_model->update_documento($data2, $id_doc);
-			//Update a bitacora
-			$tabla = "documentos";
-			$tipo_accion = "Update";
-			$this->update_bitacora_up($tabla, $tipo_accion, $id_doc);
+
 		} else {
 			echo "imagen no cargada";
 		}
@@ -2567,10 +2341,7 @@ class Plataforma extends CI_Controller
 				'comentario' => $ruta_guardar_archivo,
 			);
 			$this->Plataforma_model->updateDonde($data, $id_done);
-			//Update a bitacora
-			$tabla = "done";
-			$tipo_accion = "Update";
-			$this->update_bitacora_up($tabla, $tipo_accion, $id_done);
+
 		} else {
 			echo "imagen no cargada";
 		}
@@ -2600,10 +2371,8 @@ class Plataforma extends CI_Controller
 					'data_clientes' => $this->Plataforma_model->get_clientes(),
 				);
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_plataforma');
 				$this->load->view('plataforma/administrador/ver_clientes', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
 				redirect(base_url());
@@ -2617,21 +2386,14 @@ class Plataforma extends CI_Controller
 	{
 		if ($this->mantenimiento() == FALSE) {
 			if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
-				$nivel = $this->session->userdata('nivel');
 				$id_usuario = $this->uri->segment(3);
 				$data = array(
 					'data_detalle_cliente' => $this->Plataforma_model->get_detalle_cliente($id_usuario),
 					'data_pedidos_cliente'  => $this->Plataforma_model->get_pedidos_cliente($id_usuario),
 				);
 				$this->load->view('headers/header');
-				if ($nivel == 3) { //Asesor
-					$this->load->view('headers/navBar_asesor');
-				} else {
-					$this->load->view('headers/navBar_plataforma');
-				}
 				$this->load->view('plataforma/administrador/detalles_cliente', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
 				redirect(base_url());
@@ -2655,10 +2417,8 @@ class Plataforma extends CI_Controller
 					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
 				);
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_agente');
 				$this->load->view('plataforma/agentes_aduanales/proyectos_agente', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
 				redirect(base_url());
@@ -2688,7 +2448,7 @@ class Plataforma extends CI_Controller
 				$tabla = "usuarios";
 				$tipo_accion = "Insert";
 				$id_name = "id_usuario";
-				$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+				
 			} else {
 				show_404();
 			}
@@ -2727,7 +2487,7 @@ class Plataforma extends CI_Controller
 				$tabla = "relacion_agente_aduanal";
 				$tipo_accion = "Insert";
 				$id_name = "id_relacion_aa";
-				$this->update_bitacora_in($tabla, $tipo_accion, $id_name);
+				
 			} else {
 				show_404();
 			}
@@ -2809,10 +2569,6 @@ class Plataforma extends CI_Controller
 
 				$this->Plataforma_model->update_perfil($data2, $id_usuario);
 				echo json_encode($data2);
-				//Update a bitacora
-				$tabla = "usuarios";
-				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_usuario);
 			} else {
 				$dt = array(
 					'status' => 'false',
@@ -3295,7 +3051,7 @@ class Plataforma extends CI_Controller
 				//Update a bitacora
 				$tabla = "coordenadas";
 				$tipo_accion = "Update";
-				$this->update_bitacora_up($tabla, $tipo_accion, $id_proyecto);
+				
 
 				//Envio de notificacion
 				$consulta_uno = $this->Plataforma_model->get_pb($id_proyecto);
@@ -3374,10 +3130,8 @@ class Plataforma extends CI_Controller
 					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
 				);
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_agente');
 				$this->load->view('plataforma/agentes_aduanales/proyectos_activos_agente', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
+				$this->load->view('footers/footer');
 				$this->load->view('footers/cargar_js');
 			} else {
 				redirect(base_url());
@@ -3389,28 +3143,22 @@ class Plataforma extends CI_Controller
 
 	public function ProyectosConcluidosAgencia()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				//consulta id
-				$id_usuario = $this->session->userdata('id_usuario');
-				$consulta = $this->Plataforma_model->get_agencia_agent($id_usuario);
-				$id_agencia = $consulta->id_agencia;
+		if ($this->seguridad() == TRUE) {
+			//consulta id
+			$id_usuario = $this->session->userdata('id_usuario');
+			$consulta = $this->Plataforma_model->get_agencia_agent($id_usuario);
+			$id_agencia = $consulta->id_agencia;
 
-				$data = array(
-					'data_proy_agente' => $this->Plataforma_model->get_proy_agente_concluidos($id_agencia),
-					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_agente');
-				$this->load->view('plataforma/agentes_aduanales/proyectos_concluidos_agente', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url());
-			}
+			$data = array(
+				'data_proy_agente' => $this->Plataforma_model->get_proy_agente_concluidos($id_agencia),
+				'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
+			);
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/agentes_aduanales/proyectos_concluidos_agente', $data);
+			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url());
 		}
 	}
 
@@ -3477,19 +3225,53 @@ class Plataforma extends CI_Controller
 		}
 	}
 
+	/* Termino y condiciones */
+	public function TerminosCondiciones()
+	{
+		if ($this->seguridad() == TRUE) {
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/global/term_cond');
+			$this->load->view('footers/footer-script');
+		} else {
+			redirect(base_url() . 'plataforma/Login');
+		}
+	}
+	/* Politicas de privacidad */
+	public function PoliticasPrivacidad()
+	{
+		if ($this->seguridad() == TRUE) {
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/global/politicas_priv');
+			$this->load->view('footers/footer-script');
+		} else {
+			redirect(base_url() . 'plataforma/Login');
+		}
+	}
+	/* Preguntas frecuentes */
+	public function Help()
+	{
+		if ($this->seguridad() == TRUE) {
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/global/help');
+			$this->load->view('footers/footer');
+		} else {
+			redirect(base_url() . 'plataforma/Login');
+		}
+	}
+
 	public function seguridad()
 	{
-		if (($this->session->userdata('logueado') == 1) && ($this->session->userdata('tyc') == 1)) {
+		if (($this->session->userdata('logueado') == 1)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-
+	// funcion del mantenimiento
 	public function mantenimiento()
 	{
 		$nivel = $this->session->userdata('nivel');
-		$consulta_controller = $this->Plataforma_model->get_status_C();
+		$consulta_controller = $this->Home_model->get_status_C();
 		$status = $consulta_controller->activo;
 
 		if ($status == 0) { //inactivo
@@ -3501,28 +3283,5 @@ class Plataforma extends CI_Controller
 				return TRUE;
 			}
 		}
-	}
-
-	public function update_bitacora_up($tabla, $tipo_accion, $id_tabla)
-	{
-		//get last in bitacora 
-		$id_consulta_bit = $this->Plataforma_model->get_last_id_bit($tabla, $tipo_accion, $id_tabla);
-		$id_bit = $id_consulta_bit->id_bit;
-		$data_up = array('id_usuario' => $this->session->userdata('id_usuario'),);
-		//Hace el update
-		$this->Plataforma_model->Update_bit($id_bit, $data_up);
-	}
-
-	public function update_bitacora_in($tabla, $tipo_accion, $id_name)
-	{
-		//Update a bitacora
-		$id_consulta_last_tabla = $this->Plataforma_model->last_tabla($tabla, $id_name);
-		$id_tabla = $id_consulta_last_tabla->$id_name;
-		//get last in bitacora 
-		$id_consulta_bit = $this->Plataforma_model->get_last_id_bit($tabla, $tipo_accion, $id_tabla);
-		$id_bit = $id_consulta_bit->id_bit;
-		$data_up = array('id_usuario' => $this->session->userdata('id_usuario'),);
-		//Hace el update
-		$this->Plataforma_model->Update_bit($id_bit, $data_up);
 	}
 }
