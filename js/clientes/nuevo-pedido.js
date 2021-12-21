@@ -1518,7 +1518,7 @@
 
 var inicio = {
     activos: function () {
-        dataAjax_Proveedores = cargar_ajax.run_server_ajax("Clientes/getProveedoresCliente/"+id_cliente+"");
+        dataAjax_Proveedores = cargar_ajax.run_server_ajax("NuevoProyecto/getProveedoresCliente/"+id_cliente+"");
         if (dataAjax_Proveedores !== false) {
             dataAjax_Proveedores.forEach(elem => {
                 var dta = {
@@ -3161,7 +3161,7 @@ var inicio = {
                 if (arreglo_imagenes != 0) {
                     frmData.append('imgs', JSON.stringify(arreglo_imagenes));
                     frmData.append('id_cliente', id_cliente);
-                    resp = cargar_ajax2.run_server_ajax2('Clientes/enviar', frmData);
+                    resp = cargar_ajax2.run_server_ajax2('NuevoProyecto/enviar', frmData);
                     if (resp == undefined || resp.status == 'false') {
                         if (resp == undefined) {
                             toastr.error("No se pudo subir la imagen, error desconocido", "Error!");
@@ -3179,7 +3179,7 @@ var inicio = {
                 if (arreglo_invoice != 0) {
                     frmData_inv.append('archivos_invoice', JSON.stringify(arreglo_invoice));
                     frmData_inv.append('id_cliente', id_cliente);
-                    resp_inv = cargar_ajax2.run_server_ajax2('Clientes/enviar_inv', frmData_inv);
+                    resp_inv = cargar_ajax2.run_server_ajax2('NuevoProyecto/enviar_inv', frmData_inv);
                     if (resp_inv == undefined || resp_inv.status == 'false') {
                         if (resp_inv == undefined) {
                             toastr.error("No se pudo subir la factura/invoice, error desconocido", "Error!");
@@ -3197,7 +3197,7 @@ var inicio = {
                 if (file_Files_oem != 0) {
                     frmData_oem.append('oemservice_path', file_Files_oem);
                     frmData_oem.append('id_cliente', id_cliente);
-                    resp_oem = cargar_ajax2.run_server_ajax2('Clientes/cargar_oem', frmData_oem);
+                    resp_oem = cargar_ajax2.run_server_ajax2('NuevoProyecto/cargar_oem', frmData_oem);
                     if (resp_oem == undefined || resp_oem.status == 'false') {
                         if (resp_oem == undefined) {
                             toastr.error("No se pudo subir la imagen oem, error desconocido", "Error!");

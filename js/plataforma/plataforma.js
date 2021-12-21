@@ -797,7 +797,7 @@ var plataforma = {
 					timerProgressBar: true,
 				})
 				.then((result) => {
-					window.location.assign(base_url + "Plataforma/vista_admin_proyectos");
+					window.location.assign(base_url + "Plataforma/Proyectos");
 				});
 		});
 	},

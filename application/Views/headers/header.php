@@ -152,7 +152,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact nav-collapse-hide-child"
                         data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="/index.html" class="nav-link">
+                            <a href="<?= base_url() ?>Dashboard" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p class="nav-titles">Dashboard</p>
                             </a>
@@ -164,31 +164,31 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/aplication/proyectos-nuevo.html" class="nav-link">
+                                    <a href="<?= base_url() ?>NuevoProyecto" class="nav-link">
                                         <i class="nav-icon fas fa-plus"></i>
                                         <p class="nav-titles">Nuevo</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/aplication/proyectos-todos.html" class="nav-link active">
+                                    <a href="<?= base_url() ?>Plataforma/Proyectos" class="nav-link active">
                                         <i class="nav-icon fas fa-record-vinyl"></i>
                                         <p class="nav-titles">Todos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/aplication/proyectos-activos.html" class="nav-link">
+                                    <a href="<?= base_url() ?>Plataforma/Proyectos_activos" class="nav-link">
                                         <i class="nav-icon fas fa-record-vinyl"></i>
                                         <p class="nav-titles">Activos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/aplication/proyectos-concluidos.html" class="nav-link">
+                                    <a href="<?= base_url() ?>Plataforma/Proyectos_concluidos" class="nav-link">
                                         <i class="nav-icon fas fa-record-vinyl"></i>
                                         <p class="nav-titles">Concluidos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/aplication/proyectos-eliminados.html" class="nav-link">
+                                    <a href="<?= base_url() ?>Plataforma/Proyectos_eliminados" class="nav-link">
                                         <i class="nav-icon fas fa-record-vinyl"></i>
                                         <p class="nav-titles">Eliminados</p>
                                     </a>
@@ -196,19 +196,19 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="/aplication/productos.html" class="nav-link">
+                            <a href="<?= base_url() ?>Plataforma/Busqueda_productos" class="nav-link">
                                 <i class="nav-icon fas fa-boxes"></i>
                                 <p class="nav-titles">Productos</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/aplication/proveedores.html" class="nav-link">
+                            <a href="<?= base_url() ?>Plataforma/Proveedores" class="nav-link">
                                 <i class="nav-icon fas fa-city"></i>
                                 <p class="nav-titles">Proveedores</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/aplication/agencias-aduanales.html" class="nav-link">
+                            <a href="<?= base_url() ?>Plataforma/agencias_aduanales" class="nav-link">
                                 <i class="nav-icon fas fa-route"></i>
                                 <p class="nav-titles">Agencias aduanales</p>
                             </a>
@@ -216,7 +216,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="sidebar-custom">
+            <!-- <div class="sidebar-custom">
                 <nav>
                     <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent nav-compact nav-flat" role="menu">
                         <li class="nav-item">
@@ -233,5 +233,5 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div> -->
         </aside>

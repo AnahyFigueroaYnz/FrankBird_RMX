@@ -33,15 +33,9 @@ function encrypted_id($id_proyecto)
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <?php if ($level == 1) { ?>
             <li class="breadcrumb-item">
-              <a href="<?= base_url() ?>Mantenimiento/DashboardRoot"><i class="nav-icon fas fa-home"></i> Home</a>
+              <a href="<?= base_url() ?>Dashboard"><i class="nav-icon fas fa-home"></i> Home</a>
             </li>
-          <?php } else if ($level == 2) { ?>
-            <li class="breadcrumb-item">
-              <a href="<?= base_url() ?>Plataforma/DashboardAdministrador"><i class="nav-icon fas fa-home"></i> Home</a>
-            </li>
-          <?php } ?>
           <li class="breadcrumb-item active">Todos los Proyectos</li>
         </ol>
       </div>

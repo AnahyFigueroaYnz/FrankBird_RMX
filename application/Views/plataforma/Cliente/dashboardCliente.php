@@ -31,7 +31,7 @@ if ($Data_Cancluidos != FALSE) {
     $NoConcluidos = $Data_Cancluidos->NoConcluidos;
 }
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/dashboard.css?v=<?= $version; ?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/dashboard.css ">
 <section class="content-header shadow-title">
     <div class="container-fluid">
         <div class="row mb-2">

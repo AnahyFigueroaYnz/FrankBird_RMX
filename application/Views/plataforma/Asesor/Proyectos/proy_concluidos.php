@@ -13,10 +13,10 @@ function encrypted_id($id_proyecto)
     return str_replace($search, $replace, $encrypted);
 }
 
-$data_ver =  $this->versiones->get_version();
-$version = $data_ver->version;
+//$data_ver =  $this->versiones->get_version();
+//$version = $data_ver->version;
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/proyectos.css?v=<?=$version;?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/proyectos.css ">
 <link rel="stylesheet" href="../css/detalle-proyectos.css">
 <section class="content-header shadow-title">
     <div class="container-fluid">
@@ -27,7 +27,7 @@ $version = $data_ver->version;
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">
-                        <a href="<?= base_url() ?>Plataforma/DashboardAsesor"><i class="nav-icon fas fa-home"></i> Home</a>
+                        <a href="<?= base_url() ?>Dashboard"><i class="nav-icon fas fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item active">Mis proyectos concluidos</li>
                 </ol>

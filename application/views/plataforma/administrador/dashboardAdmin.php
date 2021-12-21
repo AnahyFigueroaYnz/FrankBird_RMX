@@ -2,18 +2,22 @@
 $user = $this->session->userdata('usuario');
 $nombre = $this->session->userdata('nombre');
 $level = $this->session->userdata('nivel');
-$data_ver =  $this->versiones->get_version();
 $id_usuario = $this->session->userdata('id_usuario');
-$version = $data_ver->version;
 
 if ($Data_Proyectos != FALSE) {
     $NoProyecto = $Data_Proyectos->NoProyecto;
+}else{
+    $NoProyecto = 0;
 }
 if ($Data_Agencias != FALSE) {
     $NoAgencias = $Data_Agencias->NoAgencias;
+}else{
+    $NoAgencias = 0;
 }
 if ($Data_Proveedores != FALSE) {
     $NoProveedores = $Data_Proveedores->NoProveedores;
+}else{
+    $NoProveedores = 0;
 }
 if ($Data_Ganancias != FALSE) {
     $Ganancias = $Data_Ganancias->Ganancias;
@@ -36,7 +40,7 @@ function encrypted_id($id_proyecto)
   return str_replace($search, $replace, $encrypted);
 }
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/dashboard.css?v=<?= $version; ?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/dashboard.css ">
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -72,7 +76,7 @@ function encrypted_id($id_proyecto)
                     <div class="icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <a href="<?= base_url() ?>Plataforma/vista_admin_proyectos" class="small-box-footer">Mas información <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="<?= base_url() ?>Plataforma/Proyectos" class="small-box-footer">Mas información <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-2 col-6 dash-margins">

@@ -37,10 +37,10 @@ if ($Data_Cotizacion != FALSE) {
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item">
-            <a href="<?= base_url() ?>Plataforma/DashboardAsesor"><i class="nav-icon fas fa-home"></i> Home</a>
+            <a href="<?= base_url() ?>Dashboard"><i class="nav-icon fas fa-home"></i> Home</a>
           </li>
             <li class="breadcrumb-item">
-              <a href="<?= base_url() ?>Plataforma/vista_admin_proyectos">Proyectos</a>
+              <a href="<?= base_url() ?>Plataforma/Proyectos">Proyectos</a>
             </li>
           <li class="breadcrumb-item active">Panel Proyecto</li>
         </ol>

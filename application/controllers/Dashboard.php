@@ -16,8 +16,8 @@ class Dashboard extends CI_Controller
 
 	public function index()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
+		//if ($this->mantenimiento() == FALSE) {
+			//if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
 				$id_usuario = $this->session->userdata('id_usuario');
 				$data = array(
 					'Data_Proyectos' => $this->Dash_model->noProyectos($id_usuario),
@@ -31,17 +31,14 @@ class Dashboard extends CI_Controller
 					'Data_Pendientes' => $this->Dash_model->pendientesTasks($id_usuario),
 				);
 				$this->load->view('headers/header');
-				$this->load->view('headers/navBar_plataforma');
 				$this->load->view('plataforma/administrador/dashboardAdmin', $data);
-				$this->load->view('footers/footer_cierre');
-				$this->load->view('footers/footer-script');
-				$this->load->view('footers/cargar_js');
-			} else {
-				redirect(base_url() . 'Home');
+				$this->load->view('footers/footer');
+			/*} else {
+				redirect(base_url() . 'Login');
 			}
 		} else {
 			$this->load->view('mantenimiento/mantenimiento');
-		}
+		}*/
 	}
 
 	public function mantenimiento()

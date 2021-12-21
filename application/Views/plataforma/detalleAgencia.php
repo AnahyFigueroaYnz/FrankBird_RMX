@@ -17,11 +17,11 @@ if ($Data_detalle_agencia != FALSE) {
     }
 }
 
-$data_ver =  $this->versiones->get_version();
-$version = $data_ver->version;
+//$data_ver =  $this->versiones->get_version();
+//$version = $data_ver->version;
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/agencias.css?v=<?=$version;?>">
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/agencias.css?v=<?=$version;?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/agencias.css ">
+<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/agencias.css ">
 <section class="content-header shadow-title">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -30,15 +30,9 @@ $version = $data_ver->version;
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <?php if ($level <= 2) { ?>
                         <li class="breadcrumb-item">
-                            <a href="<?= base_url() ?>Plataforma/DashboardAdministrador"><i class="nav-icon fas fa-home"></i> Home</a>
+                            <a href="<?= base_url() ?>Dashboard"><i class="nav-icon fas fa-home"></i> Home</a>
                         </li>
-                        <?php } else if ($level == 3) { ?>
-                        <li class="breadcrumb-item">
-                            <a href="<?= base_url() ?>Plataforma/DashboardAsesor"><i class="nav-icon fas fa-home"></i> Home</a>
-                        </li>
-                    <?php } ?>
                     <li class="breadcrumb-item">
                         <a href="<?= base_url() ?>Plataforma/agencias_aduanales">Agencias Aduanales</a>
                     </li>

@@ -1,8 +1,8 @@
 <?php
-$data_ver =  $this->versiones->get_version();
-$version = $data_ver->version;
+//$data_ver =  $this->versiones->get_version();
+//$version = $data_ver->version;
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/cliente/producto.css?v=<?=$version;?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/cliente/producto.css ">
 <section class="content-header shadow-title">
     <div class="container-fluid">
         <div class="row mb-2">

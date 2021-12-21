@@ -1,6 +1,6 @@
 <?php
-$data_ver =  $this->versiones->get_version();
-$version = $data_ver->version;
+//$data_ver =  $this->versiones->get_version();
+//$version = $data_ver->version;
 $level = $this->session->userdata('nivel');
 $CotAcept = false;
 
@@ -79,7 +79,7 @@ if ($Data_Cotizacion != FALSE) {
     $dolarFormat = 0;
     $logisticaFormat = 0;
 } ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/cards.css?v=<?= $version; ?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/cards.css ">
 <div class="card text-center shadow-lg tarjeta">
     <ul class="list-group">
         <li class="list-group-item list-gastos text-center" style="padding: 0.5rem 0.3rem !important;">

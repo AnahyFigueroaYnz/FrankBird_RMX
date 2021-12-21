@@ -33,7 +33,7 @@ function encrypted_id($id_proyecto)
 
 $version = $data_ver->version;
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/dashboard.css?v=<?= $version; ?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/dashboard.css ">
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">

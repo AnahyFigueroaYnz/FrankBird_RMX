@@ -48,10 +48,10 @@ if ($NoBL != "" || $NoBL != null) {
 }else{
     $NoBL = null;
 }
-$data_ver =  $this->versiones->get_version();
-$version = $data_ver->version;
+//$data_ver =  $this->versiones->get_version();
+//$version = $data_ver->version;
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/cards.css?v=<?= $version; ?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/cards.css ">
 <div class="card text-center shadow-lg tarjeta">
     <input type="hidden" id="txtBL" value="<?= $NoBL; ?>">
     <?php if ($NoBL != "" || $NoBL != null) { ?>

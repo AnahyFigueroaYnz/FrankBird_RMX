@@ -1,9 +1,9 @@
 <?php
-$data_ver =  $this->versiones->get_version();
-$version = $data_ver->version;
+//$data_ver =  $this->versiones->get_version();
+//$version = $data_ver->version;
 $id_cliente = $this->session->userdata('id_usuario');
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/cliente/nuevo-pedido.css?v=<?= $version; ?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/cliente/nuevo-pedido.css ">
 <input type="hidden" id="txtStepActivo" value="1">
 <input type="hidden" id="txtStepForm" value="1">
 <input type="hidden" id="baseURL" value="<?= base_url() ?>">
@@ -94,4 +94,4 @@ $id_cliente = $this->session->userdata('id_usuario');
             <?php $this->load->view('plataforma/cliente/modals/modal-pedido'); ?>
         </div>
         
-        <script src="<?= base_url(); ?>js/clientes/nuevo-pedido.js?v=<?= $version ?>"></script>
+        <script src="<?= base_url(); ?>js/clientes/nuevo-pedido.js"></script>

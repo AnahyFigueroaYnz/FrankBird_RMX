@@ -4,8 +4,8 @@ $this->load->library('cript');
 $id_proyecto_uri = $this->uri->segment(3);
 $id_proyecto = $this->cript->decrypted_id($id_proyecto_uri);
 
-$data_ver =  $this->versiones->get_version();
-$version = $data_ver->version;
+//$data_ver =  $this->versiones->get_version();
+//$version = $data_ver->version;
 if ($Data_Proyecto != FALSE) {
   foreach ($Data_Proyecto as $row) {
     $activo_p = $row['activo_p'];
@@ -48,8 +48,8 @@ if ($Data_Cotizacion != FALSE) {
   $statusCot = 0;
 }
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/cards.css?v=<?= $version; ?>">
-<link rel="stylesheet" href="<?= base_url() ?>css/cliente/detalle-pedido.css?v=<?= $version; ?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/cards.css ">
+<link rel="stylesheet" href="<?= base_url() ?>css/cliente/detalle-pedido.css ">
 <input type="hidden" id="ContainerNumber" value="<?= $bl ?>">
 <input type="hidden" id="txt_latitud" value="<?= $direccion; ?>">
 <?php if ($activo_p == 2) {

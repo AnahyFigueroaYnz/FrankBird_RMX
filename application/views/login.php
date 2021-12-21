@@ -39,6 +39,7 @@
 </head>
 
 <body class="login-page">
+    <label id="baseURL" style="display: none"><?= base_url() ?></label>
     <div class="login-content">
         <div class="col login-banner">
             <div class="banner-box text-left">
@@ -80,7 +81,7 @@
                             <div class="input-group-append m-0">
                                 <div class="input-group-text" style="border-radius: 0px;">
                                     <span class="login-password">
-                                        <i id="iShowPass" class="fa fa-eye"> </i>
+                                        <i id="iShowPass" class="fa fa-eye" onClick="showLoginPwd()"> </i>
                                     </span>
                                 </div>
                             </div>
@@ -107,7 +108,7 @@
             bsCustomFileInput.init();
         });
     </script>
-
+    <script src="<?= base_url() ?>js/login/login.js"></script>
 </body>
 
 </html>

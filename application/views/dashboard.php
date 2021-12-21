@@ -62,7 +62,7 @@ function encrypted_id($id_proyecto)
                         <div class="icon">
                             <i class="fas fa-project-diagram"></i>
                         </div>
-                        <a href="<?= base_url() ?>Plataforma/vista_admin_proyectos" class="small-box-footer">Mas
+                        <a href="<?= base_url() ?>Plataforma/Proyectos" class="small-box-footer">Mas
                             información
                             <i class="fas fa-arrow-circle-right"></i></a>
                     </div>

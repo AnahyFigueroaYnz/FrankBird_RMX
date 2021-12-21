@@ -1,10 +1,7 @@
 <?php
 $level = $this->session->userdata('nivel');
-
-$data_ver =  $this->versiones->get_version();
-$version = $data_ver->version;
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/productos.css?v=<?= $version; ?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/productos.css">
 <link rel="stylesheet" href="<?= base_url() ?>css/detalle-proyectos.css">
 
 <section class="content-header shadow-title">
@@ -25,7 +22,7 @@ $version = $data_ver->version;
             </li>
           <?php } else if ($level == 3) { ?>
             <li class="breadcrumb-item">
-              <a href="<?= base_url() ?>Plataforma/DashboardAsesor"><i class="nav-icon fas fa-home"></i> Home</a>
+              <a href="<?= base_url() ?>Dashboard"><i class="nav-icon fas fa-home"></i> Home</a>
             </li>
           <?php } ?>
           <li class="breadcrumb-item active">Productos</li>

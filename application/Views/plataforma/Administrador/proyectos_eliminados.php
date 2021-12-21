@@ -21,10 +21,10 @@ function encrypted_id($id_proyecto)
   return str_replace($search, $replace, $encrypted);
 }
 
-$data_ver =  $this->versiones->get_version();
-$version = $data_ver->version;
+//$data_ver =  $this->versiones->get_version();
+//$version = $data_ver->version;
 ?>
-<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/proyectos.css?v=<?= $version; ?>">
+<link rel="stylesheet" href="<?= base_url() ?>css/plataforma/proyectos.css ">
 <section class="content-header shadow-title">
   <div class="container-fluid">
     <div class="row mb-2">
