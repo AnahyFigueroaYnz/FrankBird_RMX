@@ -133,12 +133,13 @@ class Plataforma extends CI_Controller
 			$this->load->library('cript');
 			$id_proyecto_uri = $this->uri->segment(3);
 			$id_proyecto = $this->cript->decrypted_id($id_proyecto_uri);
+			$id_usuario = $this->session->userdata('id_usuario');
 
 			$data = array(
 				'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
 				'Data_Puertos_Salida' => $this->Plataforma_model->puertos_salida(),
-				'Data_Agencias' => $this->Plataforma_model->agencias_aduanales(),
-				'Data_Proveedores' => $this->Plataforma_model->get_proveedores(),
+				'Data_Agencias' => $this->Plataforma_model->agencias_aduanales($id_usuario),
+				'Data_Proveedores' => $this->Plataforma_model->get_proveedores($id_usuario),
 				'Data_Puertos_Llegada' => $this->Plataforma_model->puertos_llegada(),
 				'Data_Proyecto' => $this->Plataforma_model->get_all_data_proyecto($id_proyecto),
 				'Data_Productos_C' => $this->Plataforma_model->get_productos_c($id_proyecto),
