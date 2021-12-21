@@ -9,13 +9,7 @@ var yyyy = today.getFullYear();
 today = yyyy + '-' + mm + '-' + dd;
 todayPrint = dd + '-' + mm + '-' + yyyy;
 
-const swalDeletetask = Swal.mixin({
-    customClass: {
-        cancelButton: 'btn btn-outline-secondary btn-nuevo padding-buttons',
-        confirmButton: 'btn btn-outline-primary btn-nuevo margin-buttons'
-    },
-    buttonsStyling: false
-});
+
 
 // validar comentario de la tarea lista
 function validarPendiente() {
@@ -75,138 +69,6 @@ var grafics = {
                                     puerto_salidaAd,
                                     puerto_llegadaAd,
                                     concluidoAd
-                                ],
-                                backgroundColor: ['#d2d6de', '#23bb52', '#007bff', '#6c757d', '#7800b6', '#008f39'],
-                            }
-                        ]
-                    },
-                    options: {
-                        title: {
-                            display: false,
-                            text: 'Chart.js Doughnut Chart'
-                        },
-                        maintainAspectRatio: false,
-                        responsive: true,
-                        rotation: -Math.PI,
-                        cutoutPercentage: 30,
-                        circumference: Math.PI,
-                        legend: {
-                            position: 'bottom'
-                        },
-                    }
-                });
-            }
-        }
-    },
-    graficaAsesor: function () {
-        asesor = cargar_ajax.run_server_ajax('Plataforma/statusProyectoAsesor');
-        if (asesor != null) {
-            var sourcingAs;
-            var cotizadosAs;
-            var produccionAs;
-            var puerto_salidaAs;
-            var puerto_llegadaAs;
-            var concluidoAs;
-
-            asesor.forEach(elem => {
-                sourcingAs = elem.sourcing;
-                cotizadosAs = elem.cotizados;
-                produccionAs = elem.en_proceso;
-                puerto_salidaAs = elem.puerto_salida;
-                puerto_llegadaAs = elem.puerto_llegada;
-                concluidoAs = elem.concluido;
-            });
-
-            Chart.defaults.global.defaultFontSize = 18;
-
-            var donutAsesor = document.getElementById("donutAsesor");
-            if (donutAsesor != null) {
-                var charAsesor = new Chart(donutAsesor, {
-                    type: 'doughnut',
-                    data: {
-                        labels: [
-                            "Sourcing",
-                            "Cotizacion aceptada",
-                            "En proceso",
-                            "En puerto de salida",
-                            "En puerto de llegada",
-                            "Proyecto concluido"
-                        ],
-                        datasets: [
-                            {
-                                data: [
-                                    sourcingAs,
-                                    cotizadosAs,
-                                    produccionAs,
-                                    puerto_salidaAs,
-                                    puerto_llegadaAs,
-                                    concluidoAs
-                                ],
-                                backgroundColor: ['#d2d6de', '#23bb52', '#007bff', '#6c757d', '#7800b6', '#008f39'],
-                            }
-                        ]
-                    },
-                    options: {
-                        title: {
-                            display: false,
-                            text: 'Chart.js Doughnut Chart'
-                        },
-                        maintainAspectRatio: false,
-                        responsive: true,
-                        rotation: -Math.PI,
-                        cutoutPercentage: 30,
-                        circumference: Math.PI,
-                        legend: {
-                            position: 'bottom'
-                        },
-                    }
-                });
-            }
-        }
-    },
-    graficaCliente: function () {
-        cliente = cargar_ajax.run_server_ajax('Clientes/statusProyectoCliente');
-        if (cliente != null) {
-            var sourcingCl;
-            var cotizadosCl;
-            var produccionCl;
-            var puerto_salidaCl;
-            var puerto_llegadaCl;
-            var concluidoCl;
-
-            cliente.forEach(elem => {
-                sourcingCl = elem.sourcing;
-                cotizadosCl = elem.cotizados;
-                produccionCl = elem.en_proceso;
-                puerto_salidaCl = elem.puerto_salida;
-                puerto_llegadaCl = elem.puerto_llegada;
-                concluidoCl = elem.concluido;
-            });
-            
-            Chart.defaults.global.defaultFontSize = 18;
-
-            var donutCliente = $('#donutCliente').get(0);
-            if (donutCliente != null) {
-                var charCliente = new Chart(donutCliente, {
-                    type: 'doughnut',
-                    data: {
-                        labels: [
-                            "Sourcing",
-                            "Cotizacion aceptada",
-                            "En proceso",
-                            "En puerto de salida",
-                            "En puerto de llegada",
-                            "Proyecto concluido"
-                        ],
-                        datasets: [
-                            {
-                                data: [
-                                    sourcingCl,
-                                    cotizadosCl,
-                                    produccionCl,
-                                    puerto_salidaCl,
-                                    puerto_llegadaCl,
-                                    concluidoCl
                                 ],
                                 backgroundColor: ['#d2d6de', '#23bb52', '#007bff', '#6c757d', '#7800b6', '#008f39'],
                             }
@@ -382,6 +244,7 @@ var pendientes = {
             }            
         });
 
+        //abre modal
         $(document).on('click', '#btnAddTask', function(event) {
             event.preventDefault();
             jQuery.noConflict();
@@ -426,7 +289,10 @@ var pendientes = {
                 id_task_dash: id_task_dash,
                 activo: 0
             }
-            swalDeletetask.fire({
+            if (window.confirm("¿Está seguro de eliminar esté pendiente?")) {
+                window.open(location.reload(), cargar_ajax.run_server_ajax('Plataforma/taskDashDelet', data));
+            }
+            /*swal.fire({
                 title: "¿Está seguro de eliminar esté pendiente?",
                 text: "¡No podrás revertir esto, la información se perderá!",
                 icon: "warning",
@@ -438,7 +304,7 @@ var pendientes = {
                     cargar_ajax.run_server_ajax('Plataforma/taskDashDelet', data);
                     location.reload();
                 }
-            });
+            });*/
         });
     },
 
@@ -496,8 +362,6 @@ var pendientes = {
 
 jQuery(document).ready(function () {
     grafics.graficaAdmin(this);
-    grafics.graficaAsesor(this);
-    grafics.graficaCliente(this);
     task.addCheck(this);
     task.removeCheck(this);
     pendientes.add_edit(this);

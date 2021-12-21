@@ -5,9 +5,10 @@
 		switch ($_curController) {
 
 		    case 'Plataforma':
-			    echo '<script src="'.base_url().'js/plataforma/plataforma.js"></script>';
-			    echo '<script src="'.base_url().'js/plataforma/dashboard.js"></script>';
+			    echo '<script src="'.base_url().'js/plataforma/plataforma.js"></script>';			    
 			    echo '<script src="'.base_url().'js/plataforma/documentos.js"></script>';
+			case 'Dashboard':
+				echo '<script src="'.base_url().'js/plataforma/dashboard.js"></script>';
 		    
 	    }
 ?>

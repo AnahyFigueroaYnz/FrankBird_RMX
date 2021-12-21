@@ -11,8 +11,12 @@ class Login extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('login');
-		$this->load->view('footers/footer');
+		if ($this->seguridad() == TRUE) {
+			redirect(base_url() . 'Dashboard');
+		}else{
+			$this->load->view('login');
+			$this->load->view('footers/footer');
+		}
 	}
 	
 	/*Función para el logout*/
@@ -63,6 +67,15 @@ class Login extends CI_Controller
 			}
 		} else {
 			show_404();
+		}
+	}
+
+	public function seguridad()
+	{
+		if ($this->session->userdata('logueado') == 1) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 }

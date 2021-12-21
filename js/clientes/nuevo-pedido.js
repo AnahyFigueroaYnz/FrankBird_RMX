@@ -3035,7 +3035,7 @@ var inicio = {
                     path_temporal = null;
                 }
 
-                if (bool_prov_selected == false) {
+                if (bool_prov_selected == true) {
                     if (bool_insertadoPrevio == true) {
                         data_proveedor_cliente = {
                             tipo_data: 'proveedor_cliente_existente',
@@ -3103,7 +3103,8 @@ var inicio = {
                     };
                     productos_prov.push(data);
                 }
-
+                console.log(pedido)
+                console.log(productos_prov)
                 i_interno_prod++;
             }
 
@@ -3156,25 +3157,7 @@ var inicio = {
                 toastr.error("No se pudo registrar el pedido, error desconocido", "Error!");
             } else {
                 toastr.success("Se ingreso correctamente la información", "Registro exitoso");
-
-                //Envio de imagenes productos sp
-                if (arreglo_imagenes != 0) {
-                    frmData.append('imgs', JSON.stringify(arreglo_imagenes));
-                    frmData.append('id_cliente', id_cliente);
-                    resp = cargar_ajax2.run_server_ajax2('NuevoProyecto/enviar', frmData);
-                    if (resp == undefined || resp.status == 'false') {
-                        if (resp == undefined) {
-                            toastr.error("No se pudo subir la imagen, error desconocido", "Error!");
-                        } else if (resp.info == 'carga') {
-                            toastr.error("No se pudo subir la imagen, error al subir", "Error!");
-                        } else if (resp.info == 'extension') {
-                            toastr.error("No se pudo subir la imagen, extension invalida", "Error!");
-                        }
-                    } else {
-                        toastr.success("Se actualizo correctamente la imagen", "Actualización Correcta");
-                    }
-                }
-
+                
                 //Envio de archivos invoice
                 if (arreglo_invoice != 0) {
                     frmData_inv.append('archivos_invoice', JSON.stringify(arreglo_invoice));
@@ -3256,7 +3239,7 @@ var inicio = {
                     path_temporal = null;
                 }
 
-                if (bool_prov_selected == false) {
+                if (bool_prov_selected == true) {
                     if (bool_insertadoPrevio == true) {
                         data_proveedor_cliente = {
                             tipo_data: 'proveedor_cliente_existente',

@@ -11,89 +11,13 @@ class Plataforma extends CI_Controller
 
 	public function index()
 	{
-		// if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
-			// $id_usuario = $this->session->userdata('id_usuario');
-			
-			$id_usuario = 2;
-			$data = array(				
-				'Data_Proyectos' => $this->Plataforma_model->noProyectos($id_usuario),
-				'Data_Agencias' => $this->Plataforma_model->noAgencias($id_usuario),
-				'Data_Productos' => $this->Plataforma_model->noProductos($id_usuario),
-				'Data_Proveedores' => $this->Plataforma_model->noProveedores($id_usuario),
-				'Data_UltCotizaciones' => $this->Plataforma_model->lastCotizaciones($id_usuario),
-				'Data_UltProyectos' => $this->Plataforma_model->lastProyectos(),
-				'Data_UltProductos' => $this->Plataforma_model->lastProductos(),
-				'Data_SourcingProy' => $this->Plataforma_model->sourcingMisProy($id_usuario),
-				'Data_Ganancias' => $this->Plataforma_model->ganancias($id_usuario),
-				'Data_Pendientes' => $this->Plataforma_model->pendientesTasks($id_usuario),
-			);
-			$this->load->view('headers/header');
-			$this->load->view('dashboard', $data);
-			$this->load->view('footers/footer');
-		// } else {
-		// 	$this->load->view('login');
-		// }
+		if ($this->seguridad() == TRUE) {
+			redirect(base_url() . 'Dashboard');
+		} else {
+		 	redirect(base_url() . 'Login');
+		}
 	}	
 	
-	// Obtner la informacion del usuarios
-	public function get_usuario()
-	{
-		if ($this->input->is_ajax_request()) {
-			$email = $this->input->post('email');
-			$data = $this->Plataforma_model->get_user($email);
-			echo json_encode($data);
-		} else {
-			show_404();
-		}
-	}
-	/*Funcion para el login*/
-	public function authenticator()
-	{
-		if ($this->input->is_ajax_request()) {
-			$data = array(
-				'usuario' => $this->input->post('email', true),
-				'password' => $this->input->post('contrasena', true),
-			);
-
-			$query = $this->Plataforma_model->authenticator($data);
-
-			if ($query == false) {
-				$data_error = array('autenticacion' => false,);
-				echo json_encode($data_error);
-			} else {
-				foreach ($query->result() as $row) {
-					$id_usuario = $row->id_usuario;
-					$nombre = $row->nombre;
-					$usuario = $row->email;
-					$password = $row->contrasena;
-					$img_path = $row->img_path;
-				}
-				$newdata = array(
-					'id_usuario' => $id_usuario,
-					'nombre' => $nombre,
-					'usuario' => $usuario,
-					'password' => $password,
-					'img_path' => $img_path,
-					'logueado' => TRUE,
-				);
-
-				$this->session->set_userdata($newdata);
-				$data_success = array('autenticacion' => true,);
-				echo json_encode($data_success);
-			}
-		} else {
-			show_404();
-		}
-	}
-
-	/* VISTA PERFIL	*/
-	public function perfil()
-	{
-		if ($this->mantenimiento() == FALSE) {
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
 	// estatus de proyectos del admin
 	public function statusProyecto()
 	{
@@ -106,7 +30,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	// estatus de proyectos del asesor
@@ -121,154 +45,84 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
 	/*	VISTA TODOS LOS PROYECTOS ADMIN */
 	public function Proyectos()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$id_usuario = $this->session->userdata('id_usuario');
-				$data = array(
-					'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allproyectos($id_usuario),
-					//'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
-					'DATA_STATUS' => $this->Plataforma_model->get_status(),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/administrador/todos_proyectos', $data);
-				$this->load->view('footers/footer');
+		if ($this->seguridad() == TRUE) {
+			$id_usuario = $this->session->userdata('id_usuario');
+			$data = array(
+				'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allproyectos($id_usuario),
+				//'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
+				'DATA_STATUS' => $this->Plataforma_model->get_status(),
+			);
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/administrador/todos_proyectos', $data);
+			$this->load->view('footers/cargar_js');
+			$this->load->view('footers/footer');
 
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'Login');
 		}
 	}
 	/*	VISTA TODOS LOS PROYECTOS ACTIVOS ADMIN */
 	public function Proyectos_activos()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$id_usuario = $this->session->userdata('id_usuario');
-				$data = array(
-					'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allactivos($id_usuario),
-					'DATA_STATUS' => $this->Plataforma_model->get_status(),
-				);
+		if ($this->seguridad() == TRUE) {
+			$id_usuario = $this->session->userdata('id_usuario');
+			$data = array(
+				'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allactivos($id_usuario),
+				'DATA_STATUS' => $this->Plataforma_model->get_status(),
+			);
 
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/administrador/proyectos_activos', $data);
-				$this->load->view('footers/footer');
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/administrador/proyectos_activos', $data);
+			$this->load->view('footers/cargar_js');
+			$this->load->view('footers/footer');
 
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'Login');
 		}
 	}
 	/*	VISTA TODOS LOS PROYECTOS CONCLUIODOS ADMIN */
 	public function Proyectos_concluidos()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$id_usuario = $this->session->userdata('id_usuario');
-				$data = array(
-					'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allconcluidos($id_usuario),
-					'DATA_STATUS' => $this->Plataforma_model->get_status(),
-				);
+		if ($this->seguridad() == TRUE) {
+			$id_usuario = $this->session->userdata('id_usuario');
+			$data = array(
+				'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_allconcluidos($id_usuario),
+				'DATA_STATUS' => $this->Plataforma_model->get_status(),
+			);
 
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/administrador/proyectos_concluidos', $data);
-				$this->load->view('footers/footer');
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/administrador/proyectos_concluidos', $data);
+			$this->load->view('footers/cargar_js');
+			$this->load->view('footers/footer');
 
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'Login');
 		}
 	}
 	/*	VISTA TODOS LOS PROYECTOS ELIMINADOS ADMIN */
 	public function Proyectos_eliminados()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
-				$data = array(
-					'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_alleliminados(),
-					'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
-					'DATA_STATUS' => $this->Plataforma_model->get_status(),
-				);
+		if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
+			$data = array(
+				'DATA_TODOSPROYECTOS' => $this->Plataforma_model->get_alleliminados(),
+				'DATA_ASESORES' => $this->Plataforma_model->get_asesores(),
+				'DATA_STATUS' => $this->Plataforma_model->get_status(),
+			);
 
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/administrador/proyectos_eliminados', $data);
-				$this->load->view('footers/footer');
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/administrador/proyectos_eliminados', $data);
+			$this->load->view('footers/cargar_js');
+			$this->load->view('footers/footer');
 
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-
-	/*	VISTA PROYECTOS AD Y AS */
-	public function MisProyectos()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$id_asesor = $this->session->userdata('id_usuario');
-				$data = array(
-					'data_proy_asesor' => $this->Plataforma_model->get_proyectos_asesor($id_asesor),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/asesor/proyectos/mis_proyectos', $data);
-				$this->load->view('footers/footer');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-	/*	VISTA PROYECTOS AS */
-	public function MisProyectosActivos()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$id_asesor = $this->session->userdata('id_usuario');
-				$data = array(
-					'data_proy_asesor' => $this->Plataforma_model->get_proyectos_activos($id_asesor),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/asesor/proyectos/proy_activos', $data);
-				$this->load->view('footers/footer');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-	/*	VISTA PROYECTOS AS */
-	public function MisProyectosConcluidos()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$id_asesor = $this->session->userdata('id_usuario');
-				$data = array(
-					'data_proy_asesor' => $this->Plataforma_model->get_proyectos_concluidos($id_asesor),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/asesor/proyectos/proy_concluidos', $data);
-				$this->load->view('footers/footer');
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -276,7 +130,6 @@ class Plataforma extends CI_Controller
 	public function DetalleProyectos()
 	{
 		if ($this->seguridad() == TRUE) {
-
 			$this->load->library('cript');
 			$id_proyecto_uri = $this->uri->segment(3);
 			$id_proyecto = $this->cript->decrypted_id($id_proyecto_uri);
@@ -315,9 +168,10 @@ class Plataforma extends CI_Controller
 
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/asesor/proyectos/detalle', $data);
+			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -340,7 +194,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -385,7 +239,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -403,26 +257,23 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
 	public function Busqueda_productos()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$data = array(
-					'Data_todos_productos' => $this->Plataforma_model->get_all_productos(),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/search_all_products', $data);
-				$this->load->view('footers/footer');
+		if ($this->seguridad() == TRUE) {
+			$id_usuario = $this->session->userdata('id_usuario');
+			$data = array(
+				'Data_todos_productos' => $this->Plataforma_model->get_all_productos($id_usuario),
+			);
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/search_all_products', $data);
+			$this->load->view('footers/footer');
 
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -437,7 +288,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -457,7 +308,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -472,7 +323,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -487,7 +338,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -495,21 +346,19 @@ class Plataforma extends CI_Controller
 
 	public function agencias_aduanales()
 	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE) {
-				$data = array(
-					'Data_agencias_aduanales' => $this->Plataforma_model->agencias_aduanales(),
-					'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/agencias_aduanales', $data);
-				$this->load->view('footers/footer');
+		if ($this->seguridad() == TRUE) {
+			$id_usuario = $this->session->userdata('id_usuario');
+			$data = array(
+				'Data_agencias_aduanales' => $this->Plataforma_model->agencias_aduanales($id_usuario),
+				'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
+			);
+			$this->load->view('headers/header');
+			$this->load->view('plataforma/agencias_aduanales', $data);
+			$this->load->view('footers/cargar_js');
+			$this->load->view('footers/footer');
 
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
 		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -525,9 +374,10 @@ class Plataforma extends CI_Controller
 			);
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/detalleAgencia', $data);
+			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -547,7 +397,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -562,7 +412,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -578,7 +428,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -598,7 +448,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -617,7 +467,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -645,7 +495,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -675,7 +525,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -693,7 +543,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -701,15 +551,17 @@ class Plataforma extends CI_Controller
 	public function Proveedores()
 	{
 		if ($this->seguridad() == TRUE) {
+			$id_usuario = $this->session->userdata('id_usuario');
 			$data = array(
-				'data_proveedores_asesor' => $this->Plataforma_model->get_proveedores(),
+				'data_proveedores_asesor' => $this->Plataforma_model->get_proveedores($id_usuario),
 				'DATA_LADAS' => $this->Plataforma_model->get_ladas(),
 			);
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/proveedores', $data);
+			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -723,7 +575,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -750,7 +602,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	public function crear_proveedor_cotiza()
@@ -770,7 +622,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	public function ultimo_prov()
@@ -784,7 +636,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -799,7 +651,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -817,7 +669,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -832,9 +684,10 @@ class Plataforma extends CI_Controller
 			);
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/detalleProveedores', $data);
+			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	// mari no
@@ -851,7 +704,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	// 
@@ -876,7 +729,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	public function get_proveedores_tabla()
@@ -890,19 +743,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
-		}
-	}
-
-	/*	VISTA PRODUCTOS AS Y AD */
-	public function productos()
-	{
-		if ($this->seguridad() == TRUE) {
-			$this->load->view('headers/header');
-			$this->load->view('plataforma/administrador/productos');
-			$this->load->view('footers/footer');
-		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -922,7 +763,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -939,7 +780,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -959,7 +800,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -977,7 +818,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -994,7 +835,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1009,7 +850,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1024,7 +865,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1039,7 +880,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1054,7 +895,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1069,7 +910,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1084,7 +925,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1114,7 +955,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1133,7 +974,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1149,7 +990,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1167,7 +1008,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1321,7 +1162,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1337,7 +1178,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1352,7 +1193,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1368,7 +1209,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1383,7 +1224,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1398,7 +1239,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1413,7 +1254,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1428,7 +1269,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1443,7 +1284,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1610,7 +1451,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	// funcion para obtener media del producto con proveedor del pedido
@@ -1625,7 +1466,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	// funcion para obtener media del producto sin proveedor del pedido
@@ -1640,7 +1481,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	// funcion para obtener media de la perzonalizacion del producto del pedido
@@ -1655,7 +1496,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	// funcion para obtenr la media del producto de la cotizacion
@@ -1670,7 +1511,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1702,7 +1543,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1722,7 +1563,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1742,7 +1583,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1762,7 +1603,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1782,7 +1623,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1802,7 +1643,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1822,7 +1663,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1836,7 +1677,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1852,7 +1693,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1873,7 +1714,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1895,7 +1736,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1911,7 +1752,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -1926,7 +1767,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2025,48 +1866,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
-		}
-	}
-
-	// vista clientes Admin y asesor 
-	public function vista_clientes()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
-				$data = array(
-					'data_clientes' => $this->Plataforma_model->get_clientes(),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/administrador/ver_clientes', $data);
-				$this->load->view('footers/footer');
-
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
-		}
-	}
-
-	public function DetalleUsuario()
-	{
-		if ($this->mantenimiento() == FALSE) {
-			if ($this->seguridad() == TRUE && $this->session->userdata('nivel') <= 2) {
-				$id_usuario = $this->uri->segment(3);
-				$data = array(
-					'data_detalle_cliente' => $this->Plataforma_model->get_detalle_cliente($id_usuario),
-					'data_pedidos_cliente'  => $this->Plataforma_model->get_pedidos_cliente($id_usuario),
-				);
-				$this->load->view('headers/header');
-				$this->load->view('plataforma/administrador/detalles_cliente', $data);
-				$this->load->view('footers/footer');
-
-			} else {
-				redirect(base_url() . 'plataforma/Login');
-			}
-		} else {
-			$this->load->view('mantenimiento/mantenimiento');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2316,7 +2116,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	// funcion del correo para aviso de la fecha limite del pendiente
@@ -2478,7 +2278,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2497,7 +2297,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2512,7 +2312,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2528,7 +2328,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2548,7 +2348,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2568,7 +2368,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2586,7 +2386,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2604,7 +2404,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2624,7 +2424,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2638,7 +2438,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2667,7 +2467,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2682,7 +2482,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2697,7 +2497,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2730,7 +2530,7 @@ class Plataforma extends CI_Controller
 				show_404();
 			}
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
@@ -2742,7 +2542,7 @@ class Plataforma extends CI_Controller
 			$this->load->view('plataforma/global/term_cond');
 			$this->load->view('footers/footer-script');
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	/* Politicas de privacidad */
@@ -2753,7 +2553,7 @@ class Plataforma extends CI_Controller
 			$this->load->view('plataforma/global/politicas_priv');
 			$this->load->view('footers/footer-script');
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 	/* Preguntas frecuentes */
@@ -2764,21 +2564,16 @@ class Plataforma extends CI_Controller
 			$this->load->view('plataforma/global/help');
 			$this->load->view('footers/footer');
 		} else {
-			redirect(base_url() . 'plataforma/Login');
+			redirect(base_url() . 'Login');
 		}
 	}
 
 	public function seguridad()
 	{
-		// if (($this->session->userdata('logueado') == 1)) {
+		if (($this->session->userdata('logueado') == 1)) {
 			return true;
-		// } else {
-		// 	return false;
-		// }
-	}
-	// funcion del mantenimiento
-	public function mantenimiento()
-	{
-		return false;
+		} else {
+			return false;
+		}
 	}
 }

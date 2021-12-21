@@ -389,12 +389,13 @@ class Plataforma_model extends CI_Model
             return FALSE;
         }
     }
-    public function get_all_productos()
+    public function get_all_productos($id)
     {
         $this->db->select('productos.id_producto, producto, productos.fracc_arancelaria, productos.id_proveedor, proveedor');
         $this->db->from('productos');
         $this->db->join('proveedores', 'productos.id_proveedor = proveedores.id_proveedor');
         $this->db->where('productos.activo', 1);
+        $this->db->where('proveedores.id_usuario', $id);
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
@@ -654,12 +655,13 @@ class Plataforma_model extends CI_Model
         }
     }
     // traer todas las agencias aduanales 
-    public function agencias_aduanales()
+    public function agencias_aduanales($id)
     {
         $this->db->from('agencias_aduanales');
         $this->db->join('ladas', 'ladas.id_lada = agencias_aduanales.id_lada', 'left');
         $this->db->where('agencias_aduanales.id_agencia <>', 7);
         $this->db->where('agencias_aduanales.activo', 1);
+        $this->db->where('id_usuario', $id);
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
@@ -884,11 +886,12 @@ class Plataforma_model extends CI_Model
     }
 
     //funcion para obtener todos los proveedores de la empresa     
-    public function get_proveedores()
+    public function get_proveedores($id)
     {
         $this->db->from('proveedores');
         $this->db->join('ladas', 'ladas.id_lada = proveedores.id_lada', 'left');
         $this->db->where('proveedores.activo', 1);
+        $this->db->where('id_usuario', $id);
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

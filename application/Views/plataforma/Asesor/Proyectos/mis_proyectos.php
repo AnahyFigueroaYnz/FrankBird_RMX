@@ -12,9 +12,6 @@
 
         return str_replace($search, $replace, $encrypted);
     }
-
-    $data_ver =  $this->versiones->get_version();
-    $version = $data_ver->version;
 ?>
 <link rel="stylesheet" href="<?= base_url() ?>css/plataforma/proyectos.css ">
 <link rel="stylesheet" href="<?= base_url() ?>css/detalle-proyectos.css">
