@@ -3035,7 +3035,7 @@ var inicio = {
                     path_temporal = null;
                 }
 
-                if (bool_prov_selected == true) {
+                if (bool_prov_selected == false) {
                     if (bool_insertadoPrevio == true) {
                         data_proveedor_cliente = {
                             tipo_data: 'proveedor_cliente_existente',
@@ -3091,17 +3091,44 @@ var inicio = {
                         id_prov_interno++;
                     }
                 } else {
-                    var data = {  //data de producto con proveedor ya ingresado
-                        'id': i_interno_prod,
-                        id_prov_interno: id_provisional_prov_i,
-                        'prod': $('#inpt_form_producto').val(),
-                        'cant': cantidad,
-                        'unidades': $('#selUnidades_prod_sp').val(),
-                        'especificaciones': $('#inpt_form_especificaciones').val(),
-                        'color_oem': $('#inpt_form_colores').val(),
-                        'img_path': path_temporal_prov,
-                    };
-                    productos_prov.push(data);
+                    if (bool_insertadoPrevio == true) {
+                        data_proveedor_cliente = {
+                            tipo_data: 'proveedor_cliente_existente',
+                            id_prov_interno: id_provisional_prov_i,
+                            proveedor: $('#inpt_nombre_proveedor option:selected').text(),
+                            email: $('#inpt_email_proveedor').val(),
+                            contacto: $('#inpt_contacto_proveedor').val(),
+                            id_lada: $('#sel_ladaProv').val(),
+                            telefono: $('#inpt_telefono_proveedor').val(),
+                            direccion: $('#inpt_direccion_proveedor').val(),
+                            productos: productos_prov,
+                            invoice_path: path_temporal,
+                        }
+                        pedido.push(data_proveedor_cliente);
+                        var data = {  //data de producto con proveedor nuevo
+                            'id': i_interno_prod,
+                            id_prov_interno: id_provisional_prov_i,
+                            'prod': $('#inpt_form_producto').val(),
+                            'cant': cantidad,
+                            'unidades': $('#selUnidades_prod_sp').val(),
+                            'especificaciones': $('#inpt_form_especificaciones').val(),
+                            'color_oem': $('#inpt_form_colores').val(),
+                            'img_path': path_temporal_prov,
+                        };
+                        productos_prov.push(data);
+                    }else{
+                        var data = {  //data de producto con proveedor ya ingresado
+                            'id': i_interno_prod,
+                            id_prov_interno: id_provisional_prov_i,
+                            'prod': $('#inpt_form_producto').val(),
+                            'cant': cantidad,
+                            'unidades': $('#selUnidades_prod_sp').val(),
+                            'especificaciones': $('#inpt_form_especificaciones').val(),
+                            'color_oem': $('#inpt_form_colores').val(),
+                            'img_path': path_temporal_prov,
+                        };
+                        productos_prov.push(data);
+                    }
                 }
                 console.log(pedido)
                 console.log(productos_prov)
@@ -3239,7 +3266,7 @@ var inicio = {
                     path_temporal = null;
                 }
 
-                if (bool_prov_selected == true) {
+                if (bool_prov_selected == false) {
                     if (bool_insertadoPrevio == true) {
                         data_proveedor_cliente = {
                             tipo_data: 'proveedor_cliente_existente',

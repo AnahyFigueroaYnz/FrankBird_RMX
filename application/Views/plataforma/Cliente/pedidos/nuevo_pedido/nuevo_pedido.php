@@ -79,7 +79,7 @@ $id_cliente = $this->session->userdata('id_usuario');
                         </p>
                     </div>
                     <div class="form-group text-center" style="margin: 1rem 0rem;">
-                        <a type="button" href="<?= base_url() ?>Plataforma/MisProyectos" class="btn btn-outline-success btn-sm btn-border" id="btnPedidos">Ir a mis proyectos</a>
+                        <a type="button" href="<?= base_url() ?>Plataforma/Proyectos" class="btn btn-outline-success btn-sm btn-border" id="btnPedidos">Ir a mis proyectos</a>
                     </div>
                     <div class="form-group text-center" style="margin: 1rem 0rem;">
                         <a type="button" href="<?= base_url() ?>NuevoProyecto/" class="btn btn-outline-success btn-sm btn-border" id="btnNuevoPedido">Nuevo Pedido</a>
