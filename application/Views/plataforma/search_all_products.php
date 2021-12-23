@@ -50,22 +50,18 @@ $level = $this->session->userdata('nivel');
             foreach ($Data_todos_productos->result() as $row) { ?>
               <tr class="shadow border-row">
                 <td style="vertical-align: middle" style="margin-left: 0.5rem;">
-                  <a href="<?= base_url("Plataforma/detalleProveedor/$row->id_proveedor") ?>">
-                    <span class="td-text"><?= $row->producto; ?></span>
+                  <a href="<?= base_url("Plataforma/detalleProveedor/$row->id_proveedor_c") ?>">
+                    <span class="td-text"><?= $row->producto_proveedor_c; ?></span>
                   </a>
                 </td>
                 <td style="vertical-align: middle">
                   <span class="td-text"><?= $row->proveedor; ?></span>
                 </td>
                 <td style="vertical-align: middle">
-                  <?php if ($row->fracc_arancelaria == NULL || $row->fracc_arancelaria == '') { ?>
                     <span class="td-text">Por definir</span>
-                  <?php } else { ?>
-                    <span class="td-text"><?= $row->producto; ?></span>
-                  <?php } ?>
                 </td>
-                <td><span class="td-text" style="visibility: hidden"><?= $row->id_producto ?></span></td>
-                <td><span class="td-text" style="visibility: hidden"><?= $row->id_proveedor ?></span></td>
+                <td><span class="td-text" style="visibility: hidden"><?= $row->id_producto_c ?></span></td>
+                <td><span class="td-text" style="visibility: hidden"><?= $row->id_proveedor_c ?></span></td>
               </tr>
           <?php }
           } ?>

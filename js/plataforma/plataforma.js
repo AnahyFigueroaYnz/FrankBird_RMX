@@ -41,7 +41,7 @@ var plataforma = {
 			event.preventDefault();
 			jQuery.noConflict();
 			jQuery(function ($) {
-				$("#modal_add_edit_proveedor").modal();
+				//$("#modal_add_edit_proveedor").modal();
 			});
 			$("#modal_proveedorLabel").html("Agregar Proveedor");
 		});
@@ -235,7 +235,7 @@ var plataforma = {
 			event.preventDefault();
 			jQuery.noConflict();
 			jQuery(function ($) {
-				$("#modal_add_edit_productos").modal();
+				//$("#modal_add_edit_productos").modal();
 			});
 			$("#title_add_edit_productos").html("Agregar Producto");
 			$("#txt_id_producto").val("");

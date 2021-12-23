@@ -263,10 +263,10 @@ if ($Data_Cotizacion != FALSE) {
     </div>
 </section>
 
-<script src="<?= base_url(); ?>js/plataforma/cotizacion.js?v=<?= $version ?>"></script>
-<script src="<?= base_url(); ?>js/plataforma/checklist.js?v=<?= $version ?>"></script>
-<script src="<?= base_url(); ?>js/plataforma/detalle.js?v=<?= $version ?>"></script>
-<script src="<?= base_url(); ?>js/plataforma/rastreo.js?v=<?= $version ?>"></script>
+<script src="<?= base_url(); ?>js/plataforma/cotizacion.js"></script>
+<script src="<?= base_url(); ?>js/plataforma/checklist.js"></script>
+<script src="<?= base_url(); ?>js/plataforma/detalle.js"></script>
+<script src="<?= base_url(); ?>js/plataforma/rastreo.js"></script>
 
 <!-- Script para api google maps, funcion de init en plataforma.js, incluye mapa y autollenado -->
 <script

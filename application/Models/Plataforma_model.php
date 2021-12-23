@@ -391,11 +391,11 @@ class Plataforma_model extends CI_Model
     }
     public function get_all_productos($id)
     {
-        $this->db->select('productos.id_producto, producto, productos.fracc_arancelaria, productos.id_proveedor, proveedor');
-        $this->db->from('productos');
-        $this->db->join('proveedores', 'productos.id_proveedor = proveedores.id_proveedor');
-        $this->db->where('productos.activo', 1);
-        $this->db->where('proveedores.id_usuario', $id);
+        $this->db->select('productos_clientes.id_producto_c, producto_proveedor_c, productos_clientes.id_proveedor_c, proveedor');
+        $this->db->from('productos_clientes');
+        $this->db->join('proveedores_clientes', 'productos_clientes.id_proveedor_c = proveedores_clientes.id_proveedor_c');
+        $this->db->where('productos_clientes.activo', 1);
+        $this->db->where('proveedores_clientes.id_cliente', $id);
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
@@ -831,8 +831,8 @@ class Plataforma_model extends CI_Model
     }
     public function get_prod_proveedor($id_proveedor)
     {
-        $this->db->from('productos');
-        $this->db->where('id_proveedor ', $id_proveedor);
+        $this->db->from('productos_clientes');
+        $this->db->where('id_proveedor_c ', $id_proveedor);
         $this->db->where('activo ', 1);
 
         $query = $this->db->get();
@@ -845,10 +845,10 @@ class Plataforma_model extends CI_Model
     }
     public function get_detalle_prov($id_proveedor)
     {
-        $this->db->from('proveedores');
-        $this->db->join('ladas', 'ladas.id_lada = proveedores.id_lada', 'left');
-        $this->db->where('id_proveedor', $id_proveedor);
-        $this->db->where('proveedores.activo', 1);
+        $this->db->from('proveedores_clientes');
+        $this->db->join('ladas', 'ladas.id_lada = proveedores_clientes.id_lada', 'left');
+        $this->db->where('id_proveedor_c', $id_proveedor);
+        $this->db->where('proveedores_clientes.activo', 1);
 
         $query = $this->db->get();
         //echo $this->db->last_query();
@@ -888,10 +888,10 @@ class Plataforma_model extends CI_Model
     //funcion para obtener todos los proveedores de la empresa     
     public function get_proveedores($id)
     {
-        $this->db->from('proveedores');
-        $this->db->join('ladas', 'ladas.id_lada = proveedores.id_lada', 'left');
-        $this->db->where('proveedores.activo', 1);
-        $this->db->where('id_usuario', $id);
+        $this->db->from('proveedores_clientes');
+        $this->db->join('ladas', 'ladas.id_lada = proveedores_clientes.id_lada', 'left');
+        $this->db->where('proveedores_clientes.activo', 1);
+        $this->db->where('id_cliente', $id);
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

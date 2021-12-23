@@ -14,19 +14,9 @@ $level = $this->session->userdata('nivel');
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <?php if ($level == 1) { ?>
-                        <li class="breadcrumb-item">
-                            <a href="<?= base_url() ?>Mantenimiento/DashboardRoot"><i class="nav-icon fas fa-home"></i> Home</a>
-                        </li>
-                    <?php } else if ($level == 2) { ?>
                         <li class="breadcrumb-item">
                             <a href="<?= base_url() ?>Dashboard"><i class="nav-icon fas fa-home"></i> Home</a>
                         </li>
-                    <?php } else if ($level == 3) { ?>
-                        <li class="breadcrumb-item">
-                            <a href="<?= base_url() ?>Dashboard"><i class="nav-icon fas fa-home"></i> Home</a>
-                        </li>
-                    <?php } ?>
                     <li class="breadcrumb-item active">Proveedores</li>
                 </ol>
             </div>
@@ -62,9 +52,9 @@ $level = $this->session->userdata('nivel');
                 <?php
                 if ($data_proveedores_asesor != FALSE) {
                     foreach ($data_proveedores_asesor->result() as $row) { ?>
-                        <tr class="shadow border-row" id="tr_<?= $row->id_proveedor ?>" name="tr_<?= $row->id_proveedor ?>">
+                        <tr class="shadow border-row" id="tr_<?= $row->id_proveedor_c ?>" name="tr_<?= $row->id_proveedor_c ?>">
                             <td style="vertical-align: middle">
-                                <a href="<?= base_url("Plataforma/detalleProveedor/$row->id_proveedor") ?>" style="margin-left: 0.5rem;">
+                                <a href="<?= base_url("Plataforma/detalleProveedor/$row->id_proveedor_c") ?>" style="margin-left: 0.5rem;">
                                     <span class="td-text"><?= $row->proveedor; ?></span>
                                 </a>
                             </td>
@@ -83,14 +73,14 @@ $level = $this->session->userdata('nivel');
                             </td>
                             <?php if ($level <= 2) { ?>
                                 <td style="vertical-align: middle" class="text-center levelAdmin">
-                                    <a type="button" href="#" data-id="<?= $row->id_proveedor; ?>" class="eliminar_proveedor" style="color: #dc3545;">
-                                        <i class="far fa-trash-alt eliminar_proveedor" data-id="<?= $row->id_proveedor; ?>" data-toggle="tooltip" data-placement="top" title="Eliminar Proveedor"></i>
+                                    <a type="button" href="#" data-id="<?= $row->id_proveedor_c; ?>" class="eliminar_proveedor" style="color: #dc3545;">
+                                        <i class="far fa-trash-alt eliminar_proveedor" data-id="<?= $row->id_proveedor_c; ?>" data-toggle="tooltip" data-placement="top" title="Eliminar Proveedor"></i>
                                     </a>
                                 </td>
                             <?php } else { ?>
                                 <td style="visibility: hidden;" class="levelAsesor"></td>
                             <?php } ?>
-                            <td><span class="td-text" style="visibility: hidden"><?= $row->id_proveedor ?></span></td>
+                            <td><span class="td-text" style="visibility: hidden"><?= $row->id_proveedor_c ?></span></td>
                         </tr>
                 <?php
                     }

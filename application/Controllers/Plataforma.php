@@ -61,8 +61,8 @@ class Plataforma extends CI_Controller
 			);
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/administrador/todos_proyectos', $data);
-			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 
 		} else {
 			redirect(base_url() . 'Login');
@@ -80,8 +80,8 @@ class Plataforma extends CI_Controller
 
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/administrador/proyectos_activos', $data);
-			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 
 		} else {
 			redirect(base_url() . 'Login');
@@ -99,8 +99,8 @@ class Plataforma extends CI_Controller
 
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/administrador/proyectos_concluidos', $data);
-			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 
 		} else {
 			redirect(base_url() . 'Login');
@@ -118,8 +118,8 @@ class Plataforma extends CI_Controller
 
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/administrador/proyectos_eliminados', $data);
-			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 
 		} else {
 			redirect(base_url() . 'Login');
@@ -169,8 +169,8 @@ class Plataforma extends CI_Controller
 
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/asesor/proyectos/detalle', $data);
-			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 		} else {
 			redirect(base_url() . 'Login');
 		}
@@ -355,8 +355,8 @@ class Plataforma extends CI_Controller
 			);
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/agencias_aduanales', $data);
-			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 
 		} else {
 			redirect(base_url() . 'Login');
@@ -375,8 +375,8 @@ class Plataforma extends CI_Controller
 			);
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/detalleAgencia', $data);
-			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 		} else {
 			redirect(base_url() . 'Login');
 		}
@@ -559,8 +559,8 @@ class Plataforma extends CI_Controller
 			);
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/proveedores', $data);
-			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 		} else {
 			redirect(base_url() . 'Login');
 		}
@@ -685,8 +685,8 @@ class Plataforma extends CI_Controller
 			);
 			$this->load->view('headers/header');
 			$this->load->view('plataforma/detalleProveedores', $data);
-			$this->load->view('footers/cargar_js');
 			$this->load->view('footers/footer');
+			$this->load->view('footers/cargar_js');
 		} else {
 			redirect(base_url() . 'Login');
 		}
