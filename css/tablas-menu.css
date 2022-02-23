@@ -52,7 +52,7 @@ table.dataTable.dtr-column>tbody>tr>th.control:before {
     text-indent: 0px !important;
     background-color: transparent;
     font-family: "Courier New", Courier, monospace;
-    content: url("../system/dataTable/details_open.png");
+    content: url("../resources/libraries/dataTable/details_open.png");
 }
 
 table.dataTable.dtr-column>tbody>tr.parent td.dtr-control:before,
@@ -60,7 +60,7 @@ table.dataTable.dtr-column>tbody>tr.parent th.dtr-control:before,
 table.dataTable.dtr-column>tbody>tr.parent td.control:before,
 table.dataTable.dtr-column>tbody>tr.parent th.control:before {
     background-color: transparent;
-    content: url("../system/dataTable/details_close.png");
+    content: url("../resources/libraries/dataTable/details_close.png");
 }
 
 .td-text {

@@ -1,0 +1,78 @@
+#tblPendientes {
+	border-collapse: separate;
+	border-spacing: 0px 10px;
+}
+
+#tblPendientes td, #tblPendientes tr {
+	padding: 0.5rem 0.75rem;
+}
+
+#tblSourcings {
+	border-collapse: separate;
+	border-spacing: 0px 10px;
+}
+
+#tblSourcings td, #tblSourcings tr {
+	padding: 0.5rem 0.75rem;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+	top: 16px;
+	left: 1px;
+	height: 9px;
+	width: 9px;
+	display: block;
+	position: absolute;
+	color: white;
+	border: 0px solid white;
+	border-radius: 2rem;
+	box-shadow: none;
+	box-sizing: content-box;
+	text-align: center;
+	text-indent: 0 !important;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+	line-height: 12.9px;
+	content: '+';
+	background-color: #0275d8;
+}
+
+.btn-check-bf {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 1px 0px;
+    line-height: 1.5;
+    margin-top: 0px;
+    font-size: 18px;
+    border-radius: 15px;
+}
+
+.btn-check-af {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 2px 0px;
+    line-height: 1;
+    margin-top: 0px;
+    border-radius: 15px;
+    font-size: 13px;
+    color: #ffff !important;
+}
+
+.hide-button {
+  display: none;
+}
+
+.trash:hover {
+  color: rgb(197, 6, 6);
+}
+
+.trash {
+  color: red;
+}
+
+.borders {
+	border-radius: 2rem;
+}

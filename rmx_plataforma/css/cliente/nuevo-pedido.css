@@ -1,0 +1,466 @@
+input:disabled {
+	cursor: not-allowed;
+}
+
+/* estilo de input formulario chico */
+.form-control-sm {
+	height: calc(1.9rem + 2px) !important;
+}
+
+/* estilos para boton de los pasos */
+.btn-borders {
+	border-radius: 2rem;
+	width: 6rem;
+}
+
+/* estilo de boton de redireccion a pedidos */
+.btn-border {
+	border-radius: 2rem;
+	width: 10rem;
+}
+
+/* estilos para bordee globales */
+.borders {
+	border-radius: 2rem;
+	border: 1px solid #e7e8e9;
+}
+/* estilos de bordes de medio para grupos de inputs con un select2 */
+.broders-middle-select {
+	border: 1px solid #e7e8e9;
+	border-right: transparent !important;
+	border-left: transparent !important;
+	padding: 0rem 0.75rem !important;
+}
+
+/* estilos de bordes derechos para grupos de inputs de mas 2 elementos */
+.borders-right {
+	border-top-right-radius: 2rem;
+	border-bottom-right-radius: 2rem;
+	background: #fff;
+	border-left: transparent !important;
+	border: 1px solid #e7e8e9;
+	padding: 0rem 0.9rem 0rem 0.75rem;
+}
+/* estilos de bordes derechos para grupos de inputs con un select2 */
+.broders-right-select {
+	border: 1px solid #e7e8e9;
+	border-left: transparent !important;
+	padding: 0rem 0.75rem;
+	border-radius: 0rem 1rem 1rem 0rem !important;
+}
+/* estilos de bordes derechos para grupos de inputs de mas 3 elementos */
+.borders-right-group {
+	border-left: transparent !important;
+	border-radius: 0rem 2rem 2rem 0rem !important;
+	border: 1px solid #e7e8e9;
+	background: #fff;
+}
+
+/* estilos para bordes izquierdos para grupos de inputs de mas 2 elementos */
+.borders-left {
+	border-right: transparent;
+	padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	border-radius: 2rem 0rem 0rem 2rem;
+	border-color: #e7e8e9;
+}
+
+/* estilos para bordes izquierdos para grupos de inputs de mas 3 elementos */
+.borders-left-group {
+	border: 1px solid #e7e8e9;
+	color: #495057;
+	border-right: transparent !important;
+	background: #fff;
+	padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	border-radius: 2rem 0rem 0rem 2rem;
+}
+
+/* estilos de span para grupos de inputs de mas 3 elementos */
+.span-middle {
+	background-color: #fff;
+	border-left: transparent;
+	border-right: transparent;
+	border-top: 1px solid #e7e8e9;
+	border-bottom: 1px solid #e7e8e9;
+}
+
+/* div del grupo de input de los botones */
+.div-group {
+	background: #fff;
+	border-radius: 0rem 1rem 1rem 0rem;
+}
+
+/* estilos de iconos antes acciones */
+.iColor {
+	color: transparent;
+}
+
+/* estilos de icono tipo titulo de cards */
+.icon-cardPedidos {
+	font-size: 2rem;
+	color: #000080;
+	margin-bottom: 1rem;
+}
+
+/* estilo de texto tipo titulo de cards */
+.text-cardPedidos {
+	color: #808080;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+/* estuilo de texto tipo subtitulo */
+.text-subtitle {
+	color: #808080;
+	font-size: 13px;
+	font-weight: 500;
+	margin-left: 2.5rem;
+	margin-bottom: 0;
+}
+
+/* estilo de texto de nombre de inputs */
+.form-text {
+	font-size: 16px;
+	line-height: 25px;
+	color: #5B6670;
+}
+
+/* estilo de input con la funcion de disabled */
+.form-control:disabled,
+.form-control[readonly] {
+	background-color: #f4f6f9;
+	opacity: 1;
+}
+
+/* estilo de select cuando este esta seleccionado */
+select.form-control:focus {
+	color: #495057;
+	background-color: #ffffff;
+	border-color: #e7e8e9;
+	outline: 0;
+	border-top-right-radius: 1rem;
+	border-top-left-radius: 0;
+	border-bottom-right-radius: 1rem;
+	border-bottom-left-radius: 0;
+}
+
+/* estilo del custom file adaptado al tamaño dado */
+.custom-file {
+	height: calc(1.9rem + 2px);
+	border-top-left-radius: 1rem;
+	border-bottom-left-radius: 1rem;
+}
+
+/* estilo de label de input tipo archivos al español */
+.custom-file-input~.custom-file-label::after {
+	content: "Seleccionar";
+	background-color: transparent;
+	border: transparent;
+	height: calc(1.9rem + 0px);
+	vertical-align: middle;
+	line-height: 1.3;
+	font-size: 14px;
+}
+
+/* estilo del placeholder el input tipo archivos */
+.file-placeholder {
+	color: #939ba2 !important;
+}
+
+/* estilo del tamaño del label de input tipo archivos */
+.custom-file-label-sm {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+	height: calc(1.9rem + 2px);
+	padding: 0.375rem 0.75rem;
+	line-height: 1.3;
+	color: #495057;
+	background-color: #fff;
+	border: 1px solid #e7e8e9;
+	border-right: transparent;
+	border-radius: 2rem;
+	font-size: 14px;
+}
+
+/* estilo del tamaño de input tipo archivos */
+.custom-file-input-sm {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	height: calc(1.9rem + 2px);
+	margin: 0;
+	opacity: 0;
+}
+
+/* estilo de tamaño para boton pequeño de input tipo archivo */
+.btn-sm {
+	height: calc(1.9rem + 2px);
+}
+
+/* estilo de radio button */
+.icheck-primary>input:first-child:checked+input[type=hidden]+label::before,
+.icheck-primary>input:first-child:checked+label::before {
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
+/* estilo de radio button al pasar por encima y desahabilitado*/
+.icheck-primary>input:first-child:not(:checked):not(:disabled):hover+input[type=hidden]+label::before,
+.icheck-primary>input:first-child:not(:checked):not(:disabled):hover+label::before {
+	border-color: #007bff;
+}
+
+/* estilo del popover informatico */
+.popValidacion {
+	color: #dc3545 !important;
+}
+
+/* estilo del popover informatico cuando se pasa el cursos encima */
+.popValidacion:hover {
+	color: #c83333 !important;
+}
+
+/* estilo del boton eliminar */
+.btnEliminar {
+	color: #dc3545 !important;
+}
+
+/* estilo del boton eliminar cuando se pasa el cursos encima */
+.btnEliminar:hover {
+	color: #c83333 !important;
+}
+
+/* estilo de las flechs de atras y siguiente */
+.iconArrows {
+	color: #000080;
+	font-size: 1.5rem;
+}
+
+/* estilo del contenedor del evnico y comentarios del producto */
+.contentEnvio {
+	background: transparent;
+	padding-bottom: 0;
+	border: 0;
+}
+
+/* estilo del contenedor del evnico y comentarios del producto */
+.titleEnvio {
+	color: #5b6670;
+	font-size: 20px;
+	margin-bottom: 0.5rem;
+}
+
+/* estilo del texto del evnico y comentarios del producto */
+.textEnvio {
+	color: #808080;
+	font-size: 15px;
+	margin-bottom: 2px;
+	margin-left: 9px;
+}
+
+/* estilo de contendero del producto */
+.cardPedido {
+	border: 0 !important;
+	box-shadow: none;
+	border-radius: 0;
+	background: transparent;
+}
+
+/* estilo del titulo del contenedor del producto */
+.cardTitle {
+	border: 0;
+	border-radius: 0;
+	padding-bottom: 0;
+}
+
+/* estilo del titulo del producto */
+.titlePedido {
+	color: #5b6670;
+	font-size: 20px;
+}
+
+/* estilo de la lita del producto */
+.list-Pedido {
+	background: transparent;
+	padding: 0;
+	border: 0;
+}
+
+/* estilo del contenedor de la lista del producto */
+.list-Content {
+	color: #808080;
+	font-size: 15px;
+	margin-bottom: 2px;
+	margin-left: 12px;
+}
+
+/* estilo del titulo de la lista del producto */
+.list-Title {
+	color: #5b6670;
+	font-size: 18px;
+	margin: 5px 0px 4px 7px;
+}
+
+/* estilo de la validacion valida de los inputs */
+.valid {
+	border-color: #28a745 !important;
+}
+
+/* estilo de la validacion invalida de los inputs */
+.invalid {
+	border-color: #dc3545 !important;
+}
+
+/* estilo de la validacion invalida de los mensajes */
+.invalid-msj {
+	display: none;
+	width: 100%;
+	margin-top: .25rem;
+	font-size: 80%;
+	color: #dc3545;
+	margin-bottom: 0;
+}
+/* estilo del contenedor antes de productos agregados */
+.cont-inicio {
+	border: 2px solid #dfdfdf;
+	padding: 0rem;
+	border-radius: 1rem;
+}
+/* estilo de la cabecera de la lita de los productos */
+.list-group-item {
+	padding: 0.3rem 0.4rem !important;
+	vertical-align: middle !important;
+	border-top: 0px !important;
+	border-left: 0px !important;
+	border-right: 0px !important;
+	background-color: #f4f6f9 !important;
+	cursor: pointer !important;
+}
+.border-list-prod {
+	border-bottom: 2px solid #bababa !important;
+}
+/* estilo del primer elemento de la lista del producto*/
+.border-list-prod:first-child  {
+	border-top-left-radius: 0rem !important;
+	border-top-right-radius: 0rem !important;
+}
+/* estilo del ultimo elemento de la lista del producto*/
+.border-list-prod:last-child  {
+	border-bottom-right-radius: 0rem !important;
+	border-bottom-left-radius: 0rem !important;
+}
+/* estilo del primer elemento de la lista del pedido completo*/
+.list-Pedido:first-child  {
+	border-top-left-radius: 1rem !important;
+	border-top-right-radius: 1rem !important;
+}
+/* estilo del ultimo elemento de la lista del pedido completo*/
+.list-Pedido:last-child  {
+	border-bottom-right-radius: 1rem !important;
+	border-bottom-left-radius: 1rem !important;
+}
+/* estilo titulo del producto del pedido */
+.prod-title {
+	color: #808080 !important;
+	font-size: 15px !important;
+	font-weight: 400 !important;
+}
+/* estilo del boton de editar los elementos del pedido */
+.edits-btns {
+	font-size: 15px !important;
+	margin-left: 10px !important;
+}
+/* estilo del grososr de la fuente de los elementos del pedido */ 
+.font-w {
+	font-weight: 300 !important;
+}
+
+/* Arrow del select2*/
+.text-sm .select2-container--default .select2-selection--single .select2-selection__arrow,
+select.form-control-sm~.select2-container--default .select2-selection--single .select2-selection__arrow {
+	top: 0.2rem;
+	right: 7px;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+	padding-left: 0px;
+}
+
+.text-sm .select2-container--default .select2-selection--single,
+select.form-control-sm~.select2-container--default .select2-selection--single {
+	border-radius: 2rem;
+	height: calc(1.9rem + 2px);
+}
+
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--single,
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+	border-top-left-radius: 1rem;
+	border-top-right-radius: 1rem;
+	height: calc(1.9rem + 2px);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__clear {
+	color: #dc3545;
+	font-size: 20px;
+	font-weight: 800;
+	bottom: 2px;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+	font-size: 14px;
+	padding: 0rem 0.5rem;
+}
+
+.select2-container--default .select2-selection--single {
+	border-color: #e7e8e9;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+	border-color: #e7e8e9;
+}
+
+.select2-search--dropdown .select2-search__field {
+	border-radius: 2rem;
+}
+
+.select2-search--dropdown .select2-search__field {
+	height: calc(4vh - 0rem);
+}
+
+.select2-container--default .select2-results__option {
+	font-size: 14px;
+}
+
+.pdf-icon {
+	vertical-align: middle !important;
+	color: #cc0b0b !important;
+	margin-left: 5px !important;
+	font-size: 2rem  !important;
+}
+.pdf-icon:hover {
+	vertical-align: middle !important;
+	color: #9C1616 !important;
+}
+
+.excel-icon {
+	vertical-align: middle !important;
+	color: #128E2F !important;
+	margin-left: 5px !important;
+	font-size: 2rem  !important;
+}
+.excel-icon:hover {
+	vertical-align: middle !important;
+	color: #05611A !important;
+}
+
+.files-pedido {
+	object-fit: scale-down;
+	height: 50vh;
+	width: 100%;
+}

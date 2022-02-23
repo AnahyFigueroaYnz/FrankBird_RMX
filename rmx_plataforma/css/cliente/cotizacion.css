@@ -1,0 +1,199 @@
+.tarjeta {
+    border-radius: 14px 14px 14px 14px;
+    -moz-border-radius: 14px 14px 14px 14px;
+    -webkit-border-radius: 14px 14px 14px 14px;
+    border: 1px solid #dfdfdf;
+    background: white;
+}
+.list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom: 1px solid #d0d0d2;
+}
+
+.list-group-item+.list-group-item {
+  border-top-width: 1px;
+}
+
+.list-card {
+    border: transparent;
+    padding: 0.2rem;
+    border-top: 1px solid #d0d0d2;
+}
+
+.cardCotiza {
+  margin-bottom: 0rem;
+  border: transparent;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.125), 0 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeaderCotiza {
+  background: transparent;
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  /* border-bottom: 0rem; */
+}
+
+.card-tbCotiza {
+  border-top: 0rem !important;
+  vertical-align: middle !important;
+}
+
+.img-caroucel {
+  object-fit: scale-down;
+  height: 50vh;
+  width: 100%;
+}
+
+.img-caroucel-cot {
+  object-fit: scale-down;
+  height: 25vh;
+  width: 100%;
+}
+
+.carousel-indicators .active {
+  color: #565454;
+  background-color: #565454;
+}
+
+.carousel-indicators li {
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.infoArancel {
+    color: #ffc107 !important;
+}
+
+.infoArancel:hover {
+    color: #e0a800 !important;
+}
+
+.brand-link .brand-image {
+  float: left !important;
+  line-height: .8 !important;
+  margin-left: .5rem !important;
+  margin-right: .5rem !important;
+  margin-top: -7px !important;
+  max-height: 43px !important;
+  width: auto !important;
+}
+
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#tblCotizaciones {
+	border-collapse: separate;
+	border-spacing: 0px 20px;
+}
+
+#tblCotizaciones tbody td {
+	padding: 1rem 1rem;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+	top: 20px;
+	left: 2px;
+	height: 14px;
+	width: 14px;
+	display: block;
+	position: absolute;
+	color: white;
+	border: 2px solid white;
+	border-radius: 2rem;
+	box-shadow: 0 0 3px #444;
+	box-sizing: content-box;
+	text-align: center;
+	text-indent: 0 !important;
+	font-family: 'Courier New', Courier, monospace;
+	line-height: 14px;
+	content: '+';
+	background-color: #0275d8;
+}
+
+@media (max-width: 2560px) {
+  .det-caroucel {
+    width: 79%;
+    margin-left: 1rem;
+  }
+  
+  .modal-caroucel {
+    width: 91%;
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .det-caroucel {
+    width: 67%;
+    margin-left: 1rem;
+  }
+  
+  .modal-caroucel {
+    width: 91%;
+    margin-left: 2rem;
+  }
+}
+
+@media(max-width: 900px) {
+  .det-caroucel {
+    width: 90%;
+    margin-left: 2rem;
+  }
+  
+  .modal-caroucel {
+    width: 85%;
+    margin-left: 2rem;
+  }
+}
+
+@media(max-width: 500px) {
+  .det-caroucel {
+    width: 81%;
+    margin-left: 2rem;
+  }
+  
+  .modal-caroucel {
+    width: 80%;
+    margin-left: 2rem;
+  }
+}
+
+@media(max-width: 390px) {
+  .det-caroucel {
+    width: 88%;
+    margin-left: 1rem;
+  }
+  
+  .modal-caroucel {
+    width: 89%;
+    margin-left: 1rem;
+  }
+}
+
+@media(max-width: 320px) {
+  .det-caroucel {
+    width: 85%;
+    margin-left: 1rem;
+  }
+  
+  .modal-caroucel {
+    width: 86%;
+    margin-left: 1rem;
+  }
+}

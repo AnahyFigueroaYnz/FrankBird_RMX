@@ -1,0 +1,142 @@
+
+/* estilo de los estatus de las cotizaciones */
+.badge-pill {
+	padding: 0.5rem 1rem !important;
+    border-radius: 0.3rem !important;
+    font-size: 12.5px !important;
+}
+/* estilo de los botones de las cotizaciones */
+.badge-pill-btn {
+	padding: 0.5rem 1rem !important;
+    border-radius: 0.3rem !important;
+    font-size: 12.5px !important;
+    cursor: pointer !important;
+}
+.badge-light {
+    border: 1px solid #dfdfdf !important;
+}
+.badge-outline-success {
+    background-color: #fff !important;
+    color: #28a745 !important;
+    border: 1px solid #28a745 !important;
+}
+.badge-outline-success:hover {
+    background-color: #28a745 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}
+.badge-outline-warning {
+    background-color: #fff !important;
+    color: #ffc107 !important;
+    border: 1px solid #ffc107 !important;
+}
+.badge-outline-warning:hover {
+    background-color: #ffc107 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}
+.badge-outline-danger {
+    background-color: #fff !important;
+    color: #dc3545 !important;
+    border: 1px solid #dc3545 !important;
+}
+.badge-outline-danger:hover {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}
+/* estilo de la lita de las cotizaciones */
+.list-Cot {
+	padding: 0.5rem 1rem !important;
+	vertical-align: middle !important;
+	border: 0px !important;
+	background-color: transparent !important;
+	cursor: pointer !important;
+}
+/* estilo de la lita de las cotizaciones */
+.list-Cots {
+	padding: 0.5rem 1rem !important;
+    vertical-align: middle !important;
+    border-top: 1px solid rgba(0, 0, 0, .125) !important;
+	border-left: 0px !important;
+	border-right: 0px !important;
+	border-bottom: 0px !important;
+	background-color: transparent !important;
+	cursor: pointer !important;
+}
+
+/* estilo del primer elemento de la lista de las cotizaciones */
+.list-Cot:first-child {
+	border-top-left-radius: 1rem !important;
+	border-top-right-radius: 1rem !important;
+}
+
+/* estilo del ultimo elemento de la lista de las cotizaciones */
+.list-Cot:last-child {
+	border-bottom-right-radius: 1rem !important;
+	border-bottom-left-radius: 1rem !important;
+}
+/* estilo listas de la info de la cotizacion*/
+.list-CotDet {
+	border: 0 !important;
+	border-radius: 0 !important;
+	padding: 0.2rem 0.8rem !important;
+	background-color: transparent !important;
+}
+/* estilo listas del total de la cotizacion*/
+.list-CotDetTotal {
+	border: 1px solid #dfdfdf !important;
+	border-radius: 1rem !important;
+	padding: 0.5rem 0.8rem !important;
+    background-color: transparent !important;
+    margin: 0.5rem 0rem !important;
+    cursor: pointer !important;
+}
+/* estilo del grososr de la fuente de los elementos */
+.font-w {
+	font-weight: 400 !important;
+}
+/* estilo texto de las titulos de la cotizacion */
+.text-CotDetTitle {
+	font-size: 15px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+/* estilo texto de los elementos de la cotizacion */
+.text-CotDetCont {
+	font-size: 14px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.carousel-indicators .active {
+	color: #565454 !important;
+	background-color: #565454 !important;
+	border: 0 !important;
+}
+
+.carousel-indicators li {
+	background-color: rgb(0 0 0 / 50%) !important;
+	border: 0 !important;
+}
+
+/* estilo de boton recotizar cotizacion */
+.btnReload {
+	border-radius: 1rem;
+	margin: 0rem 1rem;
+	padding: 0.2rem 1.5rem;
+}
+
+/* estilo de boton aceptar cotizacion */
+.btnSuccess {
+	border-radius: 1rem;
+	margin: 0rem 0rem 0rem 1rem;
+	padding: 0.2rem 1.5rem;
+}
+
+/* estilo de boton aceptar cotizacion */
+.btnDelete {
+	border-radius: 1rem;
+	margin: 0rem 0rem 0rem 1rem;
+	padding: 0.2rem 1.5rem;
+}

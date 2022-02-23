@@ -1,0 +1,534 @@
+.visible {
+    visibility: hidden !important;
+}
+
+.text-xs {
+    font-size: 12px !important;
+    font-family: sans-serif !important;
+}
+
+.text-sm {
+    font-size: 14px !important;
+    font-family: sans-serif !important;
+}
+
+.item-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item-head .title {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 0px;
+    margin-left: 0px;
+    color: #535853;
+    vertical-align: baseline;
+}
+
+.item-head .title i {
+    color: #000080;
+}
+
+.item-head .description {
+    color: #6c757d;
+    margin-top: 5px;
+    font-size: 12px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+.item-head .tools {
+    display: flex;
+    margin: 0px 0px 5px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.item-head .tools .action {
+    margin: 0px;
+    font-size: 12px;
+    color: #000080;
+    padding: 0px 5px;
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: middle;
+    font-family: sans-serif;
+    background-color: transparent;
+}
+
+.item-head .tools .action .actionText {
+    font-size: 11px;
+    margin: 0px 8px;
+    color: #535853;
+}
+
+.item-head .progress {
+    margin: 0px;
+    height: 10px;
+    box-shadow: none;
+    text-align: center;
+    border-radius: 1rem;
+    vertical-align: middle;
+}
+
+.item-head .progress .empty {
+    padding: 0px;
+    line-height: 1;
+    font-size: 10px;
+    margin: 1px 0px 0px 50%;
+}
+
+.item-head .progress .progress-bar {
+    padding: 0px;
+    color: #fff;
+    border-radius: 1rem;
+    background-color: #007bff;
+}
+
+.item-head .progress .progress-bar.prc-0 {
+    width: 0% !important;
+}
+
+.item-head .progress .progress-bar.prc-10 {
+    width: 10% !important;
+}
+
+.item-head .progress .progress-bar.prc-20 {
+    width: 20% !important;
+}
+
+.item-head .progress .progress-bar.prc-40 {
+    width: 40% !important;
+}
+
+.item-head .progress .progress-bar.prc-60 {
+    width: 60% !important;
+}
+
+.item-head .progress .progress-bar.prc-80 {
+    width: 80% !important;
+}
+
+.item-head .progress .progress-bar.prc-90 {
+    width: 90% !important;
+}
+
+.item-head .progress .progress-bar.prc-100 {
+    width: 100% !important;
+}
+
+.item-head .progress .progress-bar .porcentText {
+    margin: 0px;
+    padding: 0px;
+    font-size: 11px;
+    line-height: 0px;
+}
+
+.media-group {
+    display: flex;
+    position: relative;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: flex-end;
+    border-bottom: 1px solid #ced4da;
+}
+.media-group .actions {
+    border: 0px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 2px 2px;
+    color: #6c757d;
+    position: relative;
+}
+.media-group .actions.disabled {
+    cursor: no-drop;
+    font-size: 13px;
+    color: #c50606a8;
+}
+
+.media-group .actions-group {
+    display: flex;
+    position: relative;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: space-between;
+}
+
+.media-group .btn-action {
+    border: 0px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 300;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    padding: 2px 2px 0px;
+}
+
+.media-group .btn-action.disabled {
+    cursor: default;
+    pointer-events: none;
+}
+
+.icon-cardPedidos {
+    font-size: 25px;
+    color: #000080;
+    margin: 0px 0px 10px;
+    text-align: center;
+}
+
+.text-cardPedidos {
+    color: #808080;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px;
+}
+
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px 0px;
+    align-self: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-content: center;
+    -webkit-flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.icheck-primary {
+    margin: 0px !important;
+    display: inline !important;
+    padding-left: 0 !important;
+    min-height: 22px !important;
+}
+
+.tabsEspacio {
+    height: 58vh;
+    overflow-y: auto;
+}
+
+.tabsCardEspacio {
+    height: 52vh;
+    overflow-y: auto;
+}
+
+.div-title {
+    margin: 0px;
+    text-align: center;
+    padding: 3px 0px 8px;
+}
+.lbl-title {
+    margin: 0px;
+    font-size: 15px;
+    color: #000080;
+    font-family: sans-serif;
+}
+
+.card-tools .btn-tool i {
+    font-size: 10px !important;
+}
+
+.file-group {
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.btn-imgen {
+    font-size: 12px;
+    font-family: sans-serif;
+    color: #6c757d !important;
+}
+
+.btn-choose {
+    margin: 0;
+    display: block;
+    cursor: pointer;
+    font-size: 11px;
+    color: #919293;
+    padding: 3px 0px;
+    font-weight: 500;
+    border-width: 2px;
+    text-align: center;
+    border-style: dashed;
+    border-radius: 0.25rem;
+    font-family: sans-serif;
+    border-color: #ced4da;
+
+    /* width: 100%;
+    padding: 0px;
+    display: block;
+    color: #ced4da;
+    border-width: 2px;
+    text-align: center;
+    border-style: dashed;
+    border-radius: 0.25rem;
+    border-color: #ced4da;
+    background-color: transparent; */
+}
+
+.btn-choose:hover {
+    border-color: #6c757d;
+    color: #6c757d !important;
+}
+
+.btn-file {
+    color: #3ab0c3;
+    border: 1px solid;
+    text-align: center;
+    border-color: #3ab0c3;
+    background-color: transparent;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.btn-file-block {
+    width: 100%;
+    display: block;
+    color: #3ab0c3;
+    border: 1px solid;
+    text-align: center;
+    border-color: #3ab0c3;
+    background-color: transparent;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.btn-file-xs {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #3ab0c3;
+    border: 1px solid;
+    text-align: center;
+    padding: 2px 4px 0px;
+    border-color: #3ab0c3;
+    background-color: transparent;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.btn-file-block-xs {
+    width: 100%;
+    display: block;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #3ab0c3;
+    text-align: center;
+    padding: 2px 4px 0px;
+    background-color: transparent;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.btn-file:hover,
+.btn-file-xs:hover,
+.btn-file-block:hover,
+.btn-file-block-xs:hover {
+    color: #17a2b8;
+}
+
+.btn-cancel {
+    color: #ff0000;
+    border: 1px solid;
+    text-align: center;
+    border-color: #ff0000;
+    background-color: transparent;
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.btn-cancel-xs {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #ff0000;
+    text-align: center;
+    padding: 2px 4px 0px;
+    background-color: transparent;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.btn-cancel:hover,
+.btn-cancel-xs:hover {
+    color: #c50606;
+}
+
+.btn-link {
+    border: 0;
+    font-size: 13px;
+    border-radius: 0;
+    padding: 5px 10px;
+    font-family: sans-serif;
+}
+
+.btn-update {
+    font-size: 13px;
+    color: #000080;
+    padding: 5px 10px;
+    border-radius: 0.25rem;
+    font-family: sans-serif;
+    border: 1px solid #000080;
+}
+
+.btn-update-block {
+    display: block;
+    font-size: 12px;
+    color: #000080;
+    padding: 2px 10px;
+    text-align: center;
+    border-radius: 0.25rem;
+    font-family: sans-serif;
+    border: 1px solid #000080;
+}
+
+.btn-update:hover,
+.btn-update-block:hover {
+    color: #001a70;
+    border: 1px solid #001a70;
+}
+
+.btn-save {
+    font-size: 13px;
+    color: #28a745;
+    padding: 5px 10px;
+    border-radius: 0.25rem;
+    font-family: sans-serif;
+    border: 1px solid #28a745;
+}
+
+.btn-save-block {
+    display: block;
+    font-size: 12px;
+    color: #28a745;
+    padding: 2px 10px;
+    text-align: center;
+    border-radius: 0.25rem;
+    font-family: sans-serif;
+    border: 1px solid #28a745;
+}
+
+.btn-save:hover,
+.btn-save-block:hover {
+    color: #218838;
+    border: 1px solid #218838;
+}
+
+.btn-file.disabled,
+.next-step.disabled,
+.btn-submit.disabled,
+.btn-action.disabled,
+.btn-file-xs.disabled,
+.btn-file-block.disabled,
+.btn-file-block-xs.disabled {
+    cursor: default;
+    pointer-events: none;
+}
+
+.lstTask .icheck {
+    min-height: 22px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.lstTask .icheck label {
+    cursor: pointer;
+    min-height: 22px;
+    margin-bottom: 0;
+    font-weight: 700;
+    line-height: 22px;
+    border-radius: 50%;
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    padding-left: 0px !important;
+}
+
+.lstTask .icheck label::before {
+    margin-top: 1px;
+    margin-left: -25px !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+}
+
+.lstTask .icheck label::after {
+    margin-top: 1px;
+    margin-left: -25px;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    font-size: 12px;
+    padding: 0px 5px;
+    font-family: sans-serif;
+    font-size: 12px !important;
+}
+
+.select2-container--default .select2-selection--single {
+    font-family: sans-serif;
+    padding: 2px 5px 2px 8px;
+    font-size: 12px !important;
+    height: calc(2rem - 8px) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    color: white;
+    padding: 4px 10px 20px;
+    font-family: sans-serif;
+    font-size: 12px !important;
+    background-color: #5897fb;
+    height: calc(2rem - 8px) !important;
+}
+
+.select2-container--default .select2-results__option {
+    font-family: sans-serif;
+    padding: 4px 10px 20px;
+    font-size: 12px !important;
+    height: calc(2rem - 8px) !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    padding: 4px 5px 0px;
+    border-radius: 0px;
+    border: 0px !important;
+    border-bottom: 1px solid #aaa !important;
+    height: calc(2rem - 8px) !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__clear {
+    cursor: pointer;
+    float: right;
+    font-weight: bolder;
+    color: #888;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.select2-container--default .select2-selection--single {
+    border-radius: 0px;
+    background-color: #fff;
+    border-top: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 1px solid #aaa !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 0px;
+    right: 1px;
+    width: 20px;
+    height: 24px;
+    position: absolute;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    border: 0px;
+    color: #444;
+    line-height: 28px;
+    font-family: sans-serif;
+    height: calc(2rem - 8px) !important;
+}

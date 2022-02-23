@@ -1,41 +1,43 @@
-#tblPendientes {
-	border-collapse: separate;
-	border-spacing: 0px 10px;
+#tblTareas {
+    border-collapse: separate;
+    border-spacing: 0px 10px;
 }
 
-#tblPendientes td, #tblPendientes tr {
-	padding: 0.5rem 0.75rem;
+#tblTareas td,
+#tblTareas tr {
+    padding: 0.5rem 0.75rem;
 }
 
 #tblSourcings {
-	border-collapse: separate;
-	border-spacing: 0px 10px;
+    border-collapse: separate;
+    border-spacing: 0px 10px;
 }
 
-#tblSourcings td, #tblSourcings tr {
-	padding: 0.5rem 0.75rem;
+#tblSourcings td,
+#tblSourcings tr {
+    padding: 0.5rem 0.75rem;
 }
 
 table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
 table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
-	top: 16px;
-	left: 1px;
-	height: 9px;
-	width: 9px;
-	display: block;
-	position: absolute;
-	color: white;
-	border: 0px solid white;
-	border-radius: 2rem;
-	box-shadow: none;
-	box-sizing: content-box;
-	text-align: center;
-	text-indent: 0 !important;
+    top: 16px;
+    left: 1px;
+    height: 9px;
+    width: 9px;
+    display: block;
+    position: absolute;
+    color: white;
+    border: 0px solid white;
+    border-radius: 2rem;
+    box-shadow: none;
+    box-sizing: content-box;
+    text-align: center;
+    text-indent: 0 !important;
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
-	line-height: 12.9px;
-	content: '+';
-	background-color: #0275d8;
+    line-height: 12.9px;
+    content: '+';
+    background-color: #0275d8;
 }
 
 .btn-check-bf {
@@ -62,17 +64,17 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before 
 }
 
 .hide-button {
-  display: none;
+    display: none;
 }
 
 .trash:hover {
-  color: rgb(197, 6, 6);
+    color: rgb(197, 6, 6);
 }
 
 .trash {
-  color: red;
+    color: red;
 }
 
 .borders {
-	border-radius: 2rem;
+    border-radius: 2rem;
 }

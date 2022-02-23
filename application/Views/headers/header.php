@@ -4,7 +4,6 @@
 <head>
 
     <title>birdie</title>
-
     <!-- ASCII -->
     <meta charset="UTF-8" />
     <!-- HTTP Headers -->
@@ -23,172 +22,217 @@
     <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,700&display=fallback" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,700&display=fallback" />
     <!-- Google Font: Ubuntu -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Ubuntu:100,300,400,500,700,300,400,500,700&display=fallback" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:100,300,400,500,700,300,400,500,700&display=fallback" />
     <!-- Icon pestaña -->
     <link rel="shortcut icon" href="<?= base_url() ?>favicon.ico" type="image/x-icon" />
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="<?= base_url(); ?>css/headers/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>css/headers/bootstrap.css" />
-    <!-- Charts CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>css/headers/chartJs/Chart.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>css/headers/chartJs/Chart.min.css" />
-    <!-- Datatables net-->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/Bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/DataTables/css/dataTables.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/AutoFill/css/autoFill.bootstrap4.min.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/Buttons/css/buttons.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/ColReorder/css/colReorder.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/DateTime/css/dataTables.dateTime.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/FixedColumns/css/fixedColumns.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/FixedHeader/css/fixedHeader.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/KeyTable/css/keyTable.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/Responsive/css/responsive.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/RowGroup/css/rowGroup.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/RowReorder/css/rowReorder.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/Scroller/css/scroller.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/SearchBuilder/css/searchBuilder.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/SearchPanes/css/searchPanes.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/Select/css/select.bootstrap4.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/datatables/StateRestore/css/stateRestore.bootstrap4.css" />
-
-    <!-- Fontawesome Icons -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/fontawesome-free/css/all.css" />
     <!-- Toast -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/toastr/toastr.min.css" />
-    <!-- admin LTE -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/dist/css/adminlte.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/toastr/toastr.css" />
     <!-- Charts CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/chart.js/Chart.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/chart.js/Chart.min.css" />
-    <!-- select2-->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/select2/css/select2.css" />
-    <link rel="stylesheet"
-        href="<?= base_url(); ?>system/template/plugins/select2-bootstrap4-theme/select2-bootstrap4.css" />
-    <!-- summernote -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/summernote/summernote-bs4.css" />
-    <!-- Datarange Picker -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/daterangepicker/daterangepicker.css" />
-    <!-- iCheck -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
-    <!-- Color Picker -->
-    <link rel="stylesheet"
-        href="<?= base_url(); ?>system/template/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" />
-    <!-- Tempusdominus Bbootstrap 4 -->
-    <link rel="stylesheet"
-        href="<?= base_url(); ?>system/template/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet"
-        href="<?= base_url(); ?>system/template/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/daterangepicker/daterangepicker.css" />
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/jqvmap/jqvmap.min.css" />
-    <!-- Ionicons -->
-    <!-- <link rel="stylesheet" href="<?= base_url(); ?>system/template/dist/css/ionicons.min.css" /> -->
-    <!-- Ion Slider -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/ion-rangeslider/css/ion.rangeSlider.css" />
-    <!-- bootstrap slider -->
-    <link rel="stylesheet" href="<?= base_url(); ?>system/template/plugins/bootstrap-slider/css/bootstrap-slider.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/chartJS/Chart.css" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/bootstrap/css/bootstrap-table.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/bootstrap/css/bootstrap-tagsinput.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/bootstrap/css/bootstrap-switch-button.css" />
+    <!-- Datatables net-->
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/dataTable/datatables.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/dataTable/datatables/css/dataTables.bootstrap4.css" />
 
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/dataTable/rowreorder/css/rowReorder.dataTables.css" />
 
-    <!--CSS GLOBAL-->
-    <link rel="stylesheet" href="<?= base_url() ?>css/plataforma.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>css/slider.css" />
+    <!-- Template -->
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/css/adminlte.css" />
 
-    <!-- jQuery -->
-    <script src="<?= base_url(); ?>system/datatables/jQuery/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/css/ionicons.min.css" />
 
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/chartJS/Chart.css" />
 
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/toastr/toastr.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/jqvmap/jqvmap.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/jsgrid/jsgrid.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/fullcalendar/main.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/select2/select2.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/select2/select2-bootstrap4.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/jquery-ui/jquery-ui.theme.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/dropzone/css/dropzone.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/bs-stepper/bs-stepper.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/summernote/summernote.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/sweetalert2/sweetalert2.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/fontawesome-free/css/all.min.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/summernote/summernote-bs4.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/flag-icon-css/css/flag-icon.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/tempusdominus/tempusdominus.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/ekko-lightbox/ekko-lightbox.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/daterangepicker/daterangepicker.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/ion-rangeslider/ion.rangeSlider.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/overlayscrollbars/OverlayScrollbars.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/bootstrap-duallistbox/bootstrap-duallistbox.css" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>resources/libraries/adminlte/plugins/bootstrap-colorpicker/bootstrap-colorpicker.css" />
+
+    <!-- Gloal -->
+    <link rel="stylesheet" href="<?= base_url(); ?>css/global.css" />
+    <!-- Navbar -->
+    <link rel="stylesheet" href="<?= base_url(); ?>css/navbar.css" />
+    <!-- Dashboard -->
+    <link rel="stylesheet" href="<?= base_url(); ?>css/dashboard.css" />
+
+    <!-- Popper -->
+    <script src="<?= base_url(); ?>resources/libraries/popper/popper.js"></script>
+
+    <!-- SweetAlert -->
+    <script src="<?= base_url(); ?>resources/libraries/sweetalert2/sweetAlert.js"></script>
+    <script src="<?= base_url(); ?>resources/libraries/sweetalert2/sweetAlert2.js"></script>
+    <script src="<?= base_url(); ?>resources/libraries/sweetalert2/sweetalert2@9.js"></script>
+
+    <!-- JQuery -->
+    <script src="<?= base_url(); ?>resources/libraries/jquery/jquery-3.min.js"></script>
 </head>
-
 <body class="sidebar-mini-md layout-fixed control-sidebar-slide-open">
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link navbar-icon-menu" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                    <a class="nav-link navbar-icon-menu" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown user-menu">
-                    <a href="" class="nav-link dropdown-toggle nav-drop-img" data-toggle="dropdown"
-                        aria-expanded="false">
-                        <img src="<?= base_url() ?>resources/imgs/user.jpg"
-                            class="user-image img-circle elevation-2 nav-user-img">
-                        <span class="hidden-xs text-capitalize">Usuario</span>
+                    <a href="" class="nav-link dropdown-toggle nav-drop-img" data-toggle="dropdown">
+                        <img src="<?= base_url(); ?>resources/img/user.jpg" class="user-image img-circle elevation-2" alt="Imagen Usuario" />
+                        <span class="d-none d-md-inline">Héctor López</span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
-                        <li class="user-header bg-primary drop-user-img">
-                            <img src="<?= base_url() ?>resources/imgs/user.jpg"
-                                class="user-image img-circle elevation-2">
-                            <p class="text-capitalize">Usuario
-                                <small>Administrador</small>
-                            </p>
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px">
+                        <li class="user-header bg-primary">
+                            <img src="<?= base_url(); ?>resources/img/user.jpg" class="user-image img-circle elevation-2" alt="Imagen Usuario Dropdown" />
+                            <p class="text-capitalize">Héctor López <small>Gerente Logística</small></p>
                         </li>
                         <li class="user-footer d-flex justify-content-between">
-                            <a href="<?= base_url() ?>Plataforma/perfil" class="btn btn-default">Perfil</a>
-                            <a href="<?= base_url() ?>Home/logout" class="btn btn-default ml-auto">Cerrar Session</a>
+                            <a href="<?= base_url(); ?>Perfil" class="btn btn-default">Perfil</a>
+                            <a href="<?= base_url(); ?>Dashboard" class="btn btn-default ml-auto">Cerrar Session</a>
                         </li>
                     </ul>
                 </li>
             </ul>
         </nav>
+<?php
+$Controller = $this->uri->segment(1);
+$SubController = $this->uri->segment(2);
 
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="<?= base_url() ?>Home" class="brand-link">
-                <img src="<?= base_url() ?>" class="brand-image">
-                <span class="brand-text font-weight-light">
-                    <img src="<?= base_url() ?>" class="brand-imagen">&nbsp;
-                </span>
+$Agencias = '';
+$Dashboard = '';
+$Productos = '';
+$Proyectos = '';
+$Proveedores = '';
+$Proyectos_Menu = '';
+$Proyectos_Nuevo = '';
+$Proyectos_Todos = '';
+$Proyectos_Activos = '';
+$Proyectos_Concluidos = '';
+$Proyectos_Eliminados = '';
+
+if ($Controller == 'Agencias') {
+    $Agencias = 'active';
+}
+if ($Controller == 'Dashboard') {
+    $Dashboard = 'active';
+}
+if ($Controller == 'Productos') {
+    $Productos = 'active';
+}
+if ($Controller == 'Proveedores') {
+    $Proveedores = 'active';
+}
+if ($Controller == 'Proyectos') {
+    $Proyectos = 'active';
+    $Proyectos_Menu = 'menu-open';
+
+    if ($SubController == 'Nuevo') {
+        $Proyectos_Nuevo = 'active';
+    }
+    if ($SubController == 'Todos') {
+        $Proyectos_Todos = 'active';
+    }
+    if ($SubController == 'Activos') {
+        $Proyectos_Activos = 'active';
+    }
+    if ($SubController == 'Concluidos') {
+        $Proyectos_Concluidos = 'active';
+    }
+    if ($SubController == 'Eliminados') {
+        $Proyectos_Eliminados = 'active';
+    }
+}
+?>
+        <aside class="main-sidebar main-sidebar-custom sidebar-dark-primary elevation-4">
+            <a href="https://www.reachmx.com/" class="brand-link">
+                <img src="<?= base_url(); ?>resources/logo/birdie_icon.svg" class="brand-image" alt="Logo Empresa" />
+                <span class="brand-text font-weight-light"> <img src="<?= base_url(); ?>resources/logo/birdie.svg" class="brand-imagen img-fluid img-sm" alt="Nombre Empresa" />&nbsp; </span>
             </a>
-
             <div class="sidebar">
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact nav-collapse-hide-child"
-                        data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact nav-collapse-hide-child" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="/index.html" class="nav-link">
+                            <a href="<?= base_url(); ?>Dashboard" class="nav-link <?= $Dashboard; ?>">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p class="nav-titles">Dashboard</p>
                             </a>
                         </li>
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item <?= $Proyectos_Menu; ?>">
+                            <a href="" class="nav-link <?= $Proyectos; ?>">
                                 <i class="nav-icon fas fa-archive"></i>
                                 <p class="nav-titles">Proyectos<i class="fas fa-angle-left right"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/aplication/proyectos-nuevo.html" class="nav-link">
+                                    <a href="<?= base_url(); ?>Proyectos/Nuevo" class="nav-link <?= $Proyectos_Nuevo; ?>">
                                         <i class="nav-icon fas fa-plus"></i>
                                         <p class="nav-titles">Nuevo</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/aplication/proyectos-todos.html" class="nav-link active">
+                                    <a href="<?= base_url(); ?>Proyectos/Todos" class="nav-link <?= $Proyectos_Todos; ?>">
                                         <i class="nav-icon fas fa-record-vinyl"></i>
                                         <p class="nav-titles">Todos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/aplication/proyectos-activos.html" class="nav-link">
+                                    <a href="<?= base_url(); ?>Proyectos/Activos" class="nav-link <?= $Proyectos_Activos; ?>">
                                         <i class="nav-icon fas fa-record-vinyl"></i>
                                         <p class="nav-titles">Activos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/aplication/proyectos-concluidos.html" class="nav-link">
+                                    <a href="<?= base_url(); ?>Proyectos/Concluidos" class="nav-link <?= $Proyectos_Concluidos; ?>">
                                         <i class="nav-icon fas fa-record-vinyl"></i>
                                         <p class="nav-titles">Concluidos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/aplication/proyectos-eliminados.html" class="nav-link">
+                                    <a href="<?= base_url(); ?>Proyectos/Eliminados" class="nav-link <?= $Proyectos_Eliminados; ?>">
                                         <i class="nav-icon fas fa-record-vinyl"></i>
                                         <p class="nav-titles">Eliminados</p>
                                     </a>
@@ -196,19 +240,19 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="/aplication/productos.html" class="nav-link">
+                            <a href="<?= base_url(); ?>" class="nav-link <?= $Productos; ?>">
                                 <i class="nav-icon fas fa-boxes"></i>
                                 <p class="nav-titles">Productos</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/aplication/proveedores.html" class="nav-link">
+                            <a href="<?= base_url(); ?>Proveedores" class="nav-link <?= $Proveedores; ?>">
                                 <i class="nav-icon fas fa-city"></i>
                                 <p class="nav-titles">Proveedores</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/aplication/agencias-aduanales.html" class="nav-link">
+                            <a href="<?= base_url(); ?>" class="nav-link <?= $Agencias; ?>">
                                 <i class="nav-icon fas fa-route"></i>
                                 <p class="nav-titles">Agencias aduanales</p>
                             </a>
@@ -218,15 +262,15 @@
             </div>
             <div class="sidebar-custom">
                 <nav>
-                    <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent nav-compact nav-flat" role="menu">
+                    <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact nav-collapse-hide-child" role="menu">
                         <li class="nav-item">
-                            <a href="/aplication/views/terminos_condiciones.html" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-file-signature"></i>
                                 <p class="nav-titles">Términos y condiciones</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/aplication/views/aviso_privacidad.html" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-file-archive"></i>
                                 <p class="nav-titles">Aviso de privacidad</p>
                             </a>

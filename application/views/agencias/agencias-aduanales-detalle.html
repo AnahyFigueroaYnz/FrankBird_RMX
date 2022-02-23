@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Plataforma | Detalle Agencias Aduanales</title>
+
+        <meta name="keywords" content="Template ReachMx" />
+        <meta name="keywords" content="Plantilla ReachMx" />
+
+        <meta name="description" content="Template Plataforma" />
+        <meta name="description" content="Plantilla de plataforma ReachMx" />
+
+        <meta name="responsive" content="no-cache" http-equiv="Cache-Control" />
+        <meta name="responsive" content="charset=UTF-8" http-equiv="Content-Type" />
+
+        <meta name="viewport" content="maximum-scale=1, user-scalable=no, width=device-width, initial-scale=1" />
+
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+
+        <link rel="stylesheet" href="/css/toastr.min.css" />
+        <link rel="stylesheet" href="/css/chartJS/Chart.css" />
+        <link rel="stylesheet" href="/css/chartJS/Chart.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap.css" />
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap/buttons.bootstrap4.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap-table.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap-switch-button.css" />
+        <link rel="stylesheet" href="/css/bootstrap/responsive.bootstrap4.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap-switch-button.min.css" />
+
+        <link rel="stylesheet" href="/system/dataTable/datatables.min.css" />
+        <link rel="stylesheet" href="/system/dataTable/datatables/css/dataTables.bootstrap4.min.css" />
+
+        <link rel="stylesheet" href="/system/adminLTE/css/ionicons.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/css/adminlte.min.css" />
+
+        <link rel="stylesheet" href="/system/adminLTE/plugins/jquery/css/jqvmap.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/jquery/css/jsgrid.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/jquery/css/jquery-ui.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/jquery/css/jquery-ui.theme.min.css" />
+
+        <link rel="stylesheet" href="/system/adminLTE/plugins/bootstrap/css/bootstrap-duallistbox.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/bootstrap/css/bootstrap-colorpicker.min.css" />
+
+        <link rel="stylesheet" href="/system/adminLTE/plugins/chart/css/Chart.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/pdfmake/pdfmake.min.js" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/toastr/css/toastr.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/fullcalendar/css/main.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/select2/css/select2.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/dropzone/css/dropzone.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/fontawesome-free/css/all.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/summernote/css/summernote.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/bs-stepper/css/bs-stepper.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/flag-icon-css/css/flag-icon.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/ekko-lightbox/css/ekko-lightbox.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/sweetalert2/css/sweetalert2.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/summernote/css/summernote-bs4.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/select2/css/select2-bootstrap4.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/daterangepicker/css/daterangepicker.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/ion-rangeslider/css/ion.rangeSlider.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
+        <link rel="stylesheet" href="/system/adminLTE/plugins/tempusdominus/css/tempusdominus-bootstrap-4.min.css" />
+
+        <link rel="stylesheet" href="/css/global.css" />
+        <link rel="stylesheet" href="/css/navbar.css" />
+
+        <link rel="stylesheet" href="/css/tablas-menu.css" />
+
+        <script src="/js/popper/popper.js"></script>
+        <script src="/js/sweetalert2/sweetalert2.js"></script>
+        <script src="/js/jquery/jquery-3.3.1.min.js"></script>
+    </head>
+
+    <body class="sidebar-mini-md layout-fixed control-sidebar-slide-open">
+        <div class="wrapper">
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link navbar-icon-menu" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown user-menu">
+                        <a href="" class="nav-link dropdown-toggle nav-drop-img" data-toggle="dropdown">
+                            <img src="/resources/img/usuario.jpg" class="user-image img-circle elevation-2" alt="Imagen Usuario" />
+                            <span class="d-none d-md-inline">Héctor López</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px">
+                            <li class="user-header bg-primary">
+                                <img src="/resources/img/usuario.jpg" class="user-image img-circle elevation-2" alt="Imagen Usuario Dropdown" />
+                                <p class="text-capitalize">Héctor López <small>Gerente Logística</small></p>
+                            </li>
+                            <li class="user-footer d-flex justify-content-between">
+                                <a href="/aplication/perfil.html" class="btn btn-default">Perfil</a>
+                                <a href="https://www.reachmx.com/" class="btn btn-default ml-auto">Cerrar Session</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <aside class="main-sidebar main-sidebar-custom sidebar-dark-primary elevation-4">
+                <a href="https://www.reachmx.com/" class="brand-link">
+                    <img src="/resources/svg/tu_logo_icon.svg" class="brand-image" alt="Logo Empresa" />
+                    <span class="brand-text font-weight-light"> <img src="/resources/svg/tu_logo.svg" class="brand-imagen img-fluid img-sm" alt="Nombre Empresa" />&nbsp; </span>
+                </a>
+                <div class="sidebar">
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact nav-collapse-hide-child" data-widget="treeview" role="menu" data-accordion="false">
+                            <li class="nav-item">
+                                <a href="/index.html" class="nav-link">
+                                    <i class="nav-icon fas fa-home"></i>
+                                    <p class="nav-titles">Dashboard</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-archive"></i>
+                                    <p class="nav-titles">Proyectos<i class="fas fa-angle-left right"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/aplication/proyectos-nuevo.html" class="nav-link">
+                                            <i class="nav-icon fas fa-plus"></i>
+                                            <p class="nav-titles">Nuevo</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/aplication/proyectos-todos.html" class="nav-link">
+                                            <i class="nav-icon fas fa-record-vinyl"></i>
+                                            <p class="nav-titles">Todos</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/aplication/proyectos-activos.html" class="nav-link">
+                                            <i class="nav-icon fas fa-record-vinyl"></i>
+                                            <p class="nav-titles">Activos</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/aplication/proyectos-concluidos.html" class="nav-link">
+                                            <i class="nav-icon fas fa-record-vinyl"></i>
+                                            <p class="nav-titles">Concluidos</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/aplication/proyectos-eliminados.html" class="nav-link">
+                                            <i class="nav-icon fas fa-record-vinyl"></i>
+                                            <p class="nav-titles">Eliminados</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/aplication/proyectos-mis-asignados.html" class="nav-link">
+                                            <i class="nav-icon fas fa-record-vinyl"></i>
+                                            <p class="nav-titles">Mis proyectos asignados</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/aplication/proyectos-mis-concluidos.html" class="nav-link">
+                                            <i class="nav-icon fas fa-record-vinyl"></i>
+                                            <p class="nav-titles">Mis proyectos concluidos</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/aplication/asesores.html" class="nav-link">
+                                    <i class="nav-icon fas fa-id-card-alt"></i>
+                                    <p class="nav-titles">Asesores</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/aplication/clientes.html" class="nav-link">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p class="nav-titles">Clientes</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/aplication/productos.html" class="nav-link">
+                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <p class="nav-titles">Productos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/aplication/proveedores.html" class="nav-link">
+                                    <i class="nav-icon fas fa-city"></i>
+                                    <p class="nav-titles">Proveedores</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/aplication/cotizaciones.html" class="nav-link">
+                                    <i class="nav-icon fas fa-file-invoice-dollar"></i>
+                                    <p class="nav-titles">Cotizaciones</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/aplication/agentes-carga.html" class="nav-link">
+                                    <i class="nav-icon fas fa-dolly-flatbed"></i>
+                                    <p class="nav-titles">Agentes carga</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/aplication/agencias-aduanales.html" class="nav-link active">
+                                    <i class="nav-icon fas fa-route"></i>
+                                    <p class="nav-titles">Agenicas aduanales</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="sidebar-custom">
+                    <nav>
+                        <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent nav-compact nav-flat" role="menu">
+                            <li class="nav-item">
+                                <a href="/aplication/views/terminos_condiciones.html" class="nav-link">
+                                    <i class="nav-icon fas fa-file-signature"></i>
+                                    <p class="nav-titles">Términos y condiciones</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/aplication/views/aviso_privacidad.html" class="nav-link">
+                                    <i class="nav-icon fas fa-file-archive"></i>
+                                    <p class="nav-titles">Aviso de privacidad</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1 class="h1-title">Detalles</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item">
+                                        <a href="/index.html"><i class="nav-icon fas fa-home"></i> Home</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="/aplication/agencias-aduanales.html">Agencias Aduanales</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">Detalles</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="fas fa-book mr-1"></i> Contacto</h5>
+                                <div class="card-tools">
+                                    <a href="" type="button" id="dataIdAgente" data-id="01" class="editAgente">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body" style="display: block">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="hidden" id="dataStatus" value="1" />
+                                        <h4><span class="text-muted" id="dataAgente">Victor Melendrez</span></h4>
+                                    </div>
+                                    <div class="col-xm-12 col-sm-6">
+                                        <strong>Correo</strong>
+                                        <p class="mb-0"><span class="text-muted" id="dataCorreo">victo@agencia3.com</span></p>
+                                    </div>
+                                    <div class="col-xm-12 col-sm-6">
+                                        <strong>Telefono</strong>
+                                        <p class="mb-0">
+                                            <span class="text-muted" id="dataLada">(+ 52)</span>
+                                            <span class="text-muted" id="dataTelefono">(000) 000-0000</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xm-12 col-sm-4">
+                                <div class="card card-primary card-outline">
+                                    <div class="card-header py-3">
+                                        <h3 class="float-left text-center m-0" style="font-size: 20px"><i class="nav-icon fas fa-route"></i> <span id="dataAgencia"> Agenica</span></h3>
+                                        <div class="card-tools">
+                                            <a href="" type="button" class="editAgencia">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body pt-3 pb-4">
+                                        <div class="row">
+                                            <div class="col-xm-6 col-sm-12 p-0">
+                                                <div class="post">
+                                                    <dl class="text-mute mb-0">
+                                                        <div class="post-dl mb-1">
+                                                            <strong style="font-size: 14px">Honorarios</strong>
+                                                            <p class="text-muted mb-0">$<span id="dataHonorarios">0.00</span></p>
+                                                        </div>
+                                                        <div class="post-dl mb-1">
+                                                            <strong style="font-size: 14px">Revalidación</strong>
+                                                            <p class="text-muted mb-0">$<span id="dataRevalidación">500.00</span></p>
+                                                        </div>
+                                                        <div class="post-dl mb-0">
+                                                            <strong style="font-size: 14px">Complementarios</strong>
+                                                            <p class="text-muted mb-0">$<span id="dataComplementarios">400.00</span></p>
+                                                        </div>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="col-xm-6 col-sm-12 p-0">
+                                                <div class="post">
+                                                    <dl class="text-mute mb-0">
+                                                        <div class="post-dl mb-1">
+                                                            <strong style="font-size: 14px">Previo</strong>
+                                                            <p class="text-muted mb-0">$<span id="dataPrevio">300.00</span></p>
+                                                        </div>
+                                                        <div class="post-dl mb-1">
+                                                            <strong style="font-size: 14px">Maniobras Puertos</strong>
+                                                            <p class="text-muted mb-0">$<span id="dataManiobras">5,000.00</span></p>
+                                                        </div>
+
+                                                        <div class="post-dl mb-0">
+                                                            <strong style="font-size: 14px">Desconsolidación</strong>
+                                                            <p class="text-muted mb-0">$<span id="dataDesconsolidación">1,500.00</span></p>
+                                                        </div>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xm-12 col-sm-8">
+                                <div class="card card-primary card-outline card-outline-tabs">
+                                    <div class="card-header p-0 border-bottom">
+                                        <ul class="nav nav-tabs nav-fill ml-auto" role="tablist">
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link active" id="tabsPuertos" data-toggle="pill" role="tab">Puertos</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link" id="tabsAgentes" data-toggle="pill" role="tab">Agentes</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="tabPuertos">
+                                            <div class="p-0 m-0">
+                                                <div class="text-right border-0 px-3 pt-3 pb-2">
+                                                    <a href="" class="newPuerto" type="button">Nuevo Puerto</a>
+                                                </div>
+                                                <div class="card-body p-2">
+                                                    <input id="txtContP" type="hidden" value="3" />
+                                                    <table id="tblPuertosAd" class="table table-borderless responsive" style="width: 100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th data-priority="0"></th>
+                                                                <th data-priority="1">Puerto</th>
+                                                                <th data-priority="3">Codgio</th>
+                                                                <th data-priority="2" class="row-icons"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="shadow border-row align-td">
+                                                                <td class="align-td"></td>
+                                                                <td class="align-td">
+                                                                    <span class="dataPuerto_01 td-text">Hermosillo</span>
+                                                                </td>
+                                                                <td class="align-td">
+                                                                    <span class="dataCodigo_01 td-text">MX-HMO</span>
+                                                                </td>
+                                                                <td class="icons-td">
+                                                                    <a href="" type="button" class="editPuerto" data-id="01"><i class="fas fa-edit"></i></a>
+                                                                    <a href="" type="button" class="trashCan" data-id="01"><i class="far fa-trash-alt"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="shadow border-row align-td">
+                                                                <td class="align-td"></td>
+                                                                <td class="align-td">
+                                                                    <span class="dataPuerto_02 td-text">Guadalajara</span>
+                                                                </td>
+                                                                <td class="align-td">
+                                                                    <span class="dataCodigo_02 td-text">MX-GDL</span>
+                                                                </td>
+                                                                <td class="icons-td">
+                                                                    <a href="" type="button" class="editPuerto" data-id="02"><i class="fas fa-edit"></i></a>
+                                                                    <a href="" type="button" class="trashCan" data-id="02"><i class="far fa-trash-alt"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="shadow border-row align-td">
+                                                                <td class="align-td"></td>
+                                                                <td class="align-td">
+                                                                    <span class="dataPuerto_03 td-text">Ciudad de México</span>
+                                                                </td>
+                                                                <td class="align-td">
+                                                                    <span class="dataCodigo_03 td-text">MX-CDM</span>
+                                                                </td>
+                                                                <td class="icons-td">
+                                                                    <a href="" type="button" class="editPuerto" data-id="03"><i class="fas fa-edit"></i></a>
+                                                                    <a href="" type="button" class="trashCan" data-id="03"><i class="far fa-trash-alt"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="tabAgentes" class="hidden">
+                                            <div class="p-0 m-0">
+                                                <div class="text-right border-0 px-3 pt-3 pb-2">
+                                                    <a href="" class="newAgente" type="button">Nuevo Agente</a>
+                                                </div>
+                                                <div class="card-body p-2">
+                                                    <input id="txtContA" type="hidden" value="1" />
+                                                    <table id="tblAgentesAd" class="table table-borderless responsive" style="width: 100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th data-priority="0"></th>
+                                                                <th data-priority="1">Agente</th>
+                                                                <th data-priority="3">Correo</th>
+                                                                <th data-priority="4">Telefono</th>
+                                                                <th data-priority="5">Estatus</th>
+                                                                <th data-priority="2" class="row-icons"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="shadow border-row align-td">
+                                                                <td class="align-td"></td>
+                                                                <td class="align-td">
+                                                                    <span class="dataAgente_01 td-text">Victor Melendrez</span>
+                                                                </td>
+                                                                <td class="align-td">
+                                                                    <span class="dataCorreo_01 td-text">victo@agencia3.com</span>
+                                                                </td>
+                                                                <td class="align-td">
+                                                                    <span class="dataLada_01 td-text">(+ 52)</span>
+                                                                    <span class="dataTelefono_01 td-text">(000) 000-0000</span>
+                                                                </td>
+                                                                <td class="align-td">
+                                                                    <span class="dataStatus_01 td-text tdStatus selected">Definido</span>
+                                                                </td>
+                                                                <td class="icons-td">
+                                                                    <a href="" type="button" class="editAgente" data-id="01"><i class="fas fa-edit"></i></a>
+                                                                    <a href="" type="button" class="trashCan" data-id="01"><i class="far fa-trash-alt"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modalAgencia" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modalAgencia" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 id="titleModal" class="modal-title title-color">Editar Agencia</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <form class="form-horizontal" id="editarAgencia">
+                                        <div class="modal-body p-0">
+                                            <div class="card-body cards-productos pb-0">
+                                                <div class="form-group">
+                                                    <label for="txtRevalidación">Revalidación</label>
+                                                    <input type="text" class="form-control form-control-border" id="txtRevalidación" placeholder="0.00" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtComplementarios">Complementarios</label>
+                                                    <input type="text" class="form-control form-control-border" id="txtComplementarios" placeholder="0.00" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtPrevio">Previo</label>
+                                                    <input type="text" class="form-control form-control-border" id="txtPrevio" placeholder="0.00" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtManiobras">Maniobras puertos</label>
+                                                    <input type="text" class="form-control form-control-border" id="txtManiobras" placeholder="0.00" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtDesconsolidación">Desconsolidación</label>
+                                                    <input type="text" class="form-control form-control-border" id="txtDesconsolidación" placeholder="0.00" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer d-flex justify-content-between">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm btn-nuevo" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-outline-success btn-sm btn-nuevo saveAgencia">Guardar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modalAgente" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modalAgente" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 id="titleModalA" class="modal-title title-color"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <form class="form-horizontal" id="agregarAgente">
+                                        <input type="hidden" id="idAgente" value="0" />
+                                        <div class="modal-body p-0">
+                                            <div class="card-body cards-productos pb-0">
+                                                <div class="row">
+                                                    <div class="fmAgente col-9">
+                                                        <div class="form-group">
+                                                            <label for="txtAgente">Nombre</label>
+                                                            <input type="text" class="form-control form-control-border" id="txtAgente" required placeholder="Nombre" />
+                                                            <div id="val_txtAgente" class="valid-inputs" style="display: none">Este campo es obligatorio</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fmStatus col-3">
+                                                        <div class="form-group">
+                                                            <label for="selEstatus">Definido</label>
+                                                            <select class="form-control form-control-border" id="selEstatus">
+                                                                <option value="0">No</option>
+                                                                <option value="1">Si</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtCorreo">Correo</label>
+                                                    <input type="email" class="form-control form-control-border" id="txtCorreo" required placeholder="ejemplo@ejemplo.com" />
+                                                    <div id="val_txtCorreo" class="valid-inputs" style="display: none">Este campo es obligatorio</div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtTelefono">Telefono</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control form-control-border" disabled id="txtTelefono" placeholder="(000) 000-0000" />
+                                                        <div class="input-group-append">
+                                                            <select class="form-control form-control-border" id="selLada" style="width: 100%">
+                                                                <option disabled selected>Lada</option>
+                                                                <option value="(+ 66)">TH</option>
+                                                                <option value="(+ 84)">VN</option>
+                                                                <option value="(+ 1)">US</option>
+                                                                <option value="(+ 52)">MX</option>
+                                                                <option value="(+ 82)">KR</option>
+                                                                <option value="(+ 81)">JP</option>
+                                                                <option value="(+ 91)">IN</option>
+                                                                <option value="(+ 86)">CN</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div id="val_selLada" class="valid-inputs" style="display: none">Este campo es necesario para llenar el teléfono</div>
+                                                    <div id="val_txtTelefono" class="valid-inputs" style="display: none">Este campo es obligatorio</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer d-flex justify-content-between">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm btn-nuevo" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-outline-success btn-sm btn-nuevo addAgente" id="btn-agente"></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modalPuerto" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modalPuerto" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 id="titleModalP" class="modal-title title-color"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <form class="form-horizontal" id="agregarPuerto">
+                                        <input type="hidden" id="idPuerto" value="0" />
+                                        <div class="modal-body p-0">
+                                            <div class="card-body cards-productos pb-0">
+                                                <div class="form-group">
+                                                    <label for="txtPuerto">Puerto</label>
+                                                    <input type="text" class="form-control form-control-border" id="txtPuerto" required placeholder="Puerto" />
+                                                    <div id="val_txtPuerto" class="valid-inputs" style="display: none">Este campo es obligatorio</div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtCodigo">Codigo puerto</label>
+                                                    <input type="text" class="form-control form-control-border" id="txtCodigo" required placeholder="Codigo puerto" />
+                                                    <div id="val_txtCodigo" class="valid-inputs" style="display: none">Este campo es obligatorio</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer d-flex justify-content-between">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm btn-nuevo" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-outline-success btn-sm btn-nuevo addPuerto" id="btn-puerto"></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <strong><a target="_blank" href="https://reachmx.com">ReachMX&#174;</a></strong>
+            <div class="float-right d-none d-sm-inline-block"></div>
+        </footer>
+
+        <script src="/js/tablas-menu.js"></script>
+        <script src="/js/global.js"></script>
+
+        <script src="/js/mask/jquery.mask.js"></script>
+        <script src="/js/popper/popper.min.js"></script>
+        <script src="/js/toastr/toastr.min.js"></script>
+        <script src="/js/mask/jquery.mask.min.js"></script>
+
+        <script src="/js/chartJS/Chart.js"></script>
+        <script src="/js/chartJS/Chart.min.js"></script>
+        <script src="/js/chartJS/Chart.bundle.js"></script>
+        <script src="/js/chartJS/Chart.bundle.min.js"></script>
+
+        <script src="/js/bootstrap/bootstrap-table.js"></script>
+        <script src="/js/bootstrap/bootstrap-table.min.js"></script>
+        <script src="/js/bootstrap/bootstrap-table-export.js"></script>
+        <script src="/js/bootstrap/bootstrap-table-export.min.js"></script>
+        <script src="/js/bootstrap/bootstrap-table-locale-all.js"></script>
+        <script src="/js/bootstrap/bootstrap-switch-button.min.js"></script>
+        <script src="/js/bootstrap/bootstrap-table-locale-all.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+        <script src="/system/dataTable/responsive/js/dataTables.responsive.min.js"></script>
+        <script src="/system/dataTable/datatables/js/dataTables.bootstrap4.min.js"></script>
+        <script src="/system/dataTable/responsive/js/responsive.bootstrap4.min.js"></script>
+        <script src="/system/dataTable/jsZip/jszip.min.js"></script>
+        <script src="/system/dataTable/pdfmake/vfs_fonts.js"></script>
+        <script src="/system/dataTable/pdfmake/pdfmake.min.js"></script>
+        <script src="/system/dataTable/buttons/js/buttons.print.min.js"></script>
+        <script src="/system/dataTable/buttons/js/buttons.html5.min.js"></script>
+        <script src="/system/dataTable/buttons/js/buttons.colVis.min.js"></script>
+        <script src="/system/dataTable/buttons/js/buttons.bootstrap4.min.js"></script>
+
+        <script src="/system/adminLTE/js/adminlte.min.js"></script>
+        <script src="/system/adminLTE/plugins/chart/js/Chart.min.js"></script>
+        <script src="/system/adminLTE/plugins/inputmask/inputmask.js"></script>
+        <script src="/system/adminLTE/plugins/sparklines/sparkline.js"></script>
+        <script src="/system/adminLTE/plugins/toastr/js/toastr.min.js"></script>
+        <script src="/system/adminLTE/plugins/moment/js/moment.min.js"></script>
+        <script src="/system/adminLTE/plugins/dropzone/js/dropzone.min.js"></script>
+        <script src="/system/adminLTE/plugins/select2/js/select2.full.min.js"></script>
+        <script src="/system/adminLTE/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+        <script src="/system/adminLTE/plugins/inputmask/jquery.inputmask.bundle.js"></script>
+        <script src="/system/adminLTE/plugins/daterangepicker/js/daterangepicker.js"></script>
+        <script src="/system/adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+        <script src="/system/adminLTE/plugins/sweetalert2/js/sweetalert2.min.js"></script>
+        <script src="/system/adminLTE/plugins/sweetalert2/js/sweetalert2.all.min.js"></script>
+
+        <script src="/system/adminLTE/plugins/bootstrap/js/bootstrap-switch.min.js"></script>
+        <script src="/system/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/system/adminLTE/plugins/bootstrap/js/bootstrap-colorpicker.min.js"></script>
+        <script src="/system/adminLTE/plugins/bootstrap/js/bootstrap-tempusdominus.min.js"></script>
+        <script src="/system/adminLTE/plugins/bootstrap/js/jquery.bootstrap-duallistbox.min.js"></script>
+
+        <script src="/system/adminLTE/plugins/summernote/js/summernote.min.js"></script>
+        <script src="/system/adminLTE/plugins/summernote/js/summernote-bs4.min.js"></script>
+        <script src="/system/adminLTE/plugins/summernote/js/summernote-lite.min.js"></script>
+
+        <script src="/system/adminLTE/plugins/jquery/js/jquery.min.js"></script>
+        <script src="/system/adminLTE/plugins/jquery/js/jquery-ui.min.js"></script>
+        <script src="/system/adminLTE/plugins/jquery/js/jquery.knob.min.js"></script>
+        <script src="/system/adminLTE/plugins/jquery/js/jquery.vmap.min.js"></script>
+        <script src="/system/adminLTE/plugins/jquery/js/maps/jquery.vmap.world.js"></script>
+        <script src="/system/adminLTE/plugins/jquery/js/jquery.overlayScrollbars.min.js"></script>
+
+        <script src="/js/agenicas-aduanales.js"></script>
+    </body>
+</html>

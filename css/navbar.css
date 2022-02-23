@@ -23,7 +23,7 @@
     right: -10px;
     font-size: 14px;
     font-weight: 600;
-    color: #5271FF;
+    color: #007bff;
     position: absolute;
     background-color: transparent;
 }
@@ -60,34 +60,59 @@
     left: 0;
     position: absolute;
     right: 0;
-    max-width:260px;
-    background: #2f2f2f;
+    max-width: 260px;
+    background: #343a40;
     border-top: 0;
     padding: 0;
 }
 
 .sidebar-dark-primary {
-    background-color: #2f2f2f !important;
+    background-color: #343a40 !important;
 }
 
 .brand-link {
     display: block;
     font-size: 20px;
     line-height: 30px;
-    padding: 13px 2px;
+    padding: 13px 5px;
     transition: width .3s ease-in-out;
     white-space: nowrap;
 }
 
+
+/* .brand-link {
+    line-height: 1.5;
+    font-size: 1.25rem;
+    padding: 10px 5px;
+    background-color: #343a40;
+} */
+
 .brand-link .brand-imagen {
-    float: left !important;
-    line-height: 0.8 !important;
-    margin-left: 0.8rem !important;
-    margin-right: 0.5rem !important;
-    margin-top: -3px !important;
-    max-height: 33px !important;
     width: auto !important;
+    float: left !important;
+    height: 42px !important;
     opacity: 0.8 !important;
+    max-height: 50px !important;
+    margin-top: -5px !important;
+    line-height: 0.8 !important;
+    margin-left: 15px !important;
+    margin-right: 0px !important;
+    margin-bottom: -35px !important;
+}
+
+.brand-link .brand-image {
+    float: left;
+    width: auto;
+    max-height: 40px;
+    margin-top: -4px;
+    line-height: 0.8;
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.navbar-light {
+    background-color: #fff !important;
+    color: #1f2d3d !important;
 }
 
 .nav-titles {
@@ -154,7 +179,7 @@
 
 .nav-tabs.flex-column .nav-item.show .nav-link,
 .nav-tabs.flex-column .nav-link.active {
-    color: #5271FF !important;
+    color: #007bff !important;
     border-color: #dee2e6 transparent !important;
 }
 
@@ -165,19 +190,17 @@
 .nav-compact .nav-link>.right,
 .nav-compact .nav-link>p>.right {
     top: 9px;
-    color: #b4b4b4;
     cursor: pointer !important;
 }
 
 .nav-compact .nav-header,
 .nav-compact .nav-link {
-    color: #b4b4b4;
     padding: 0.25rem 0.25rem 0.25rem 1rem;
 }
 
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-    color: #5271FF !important;
+    color: #007bff !important;
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff;
 }
@@ -198,7 +221,7 @@
 .sidebar-mini-xs.sidebar-collapse.layout-fixed .brand-link,
 .sidebar-mini-md.sidebar-collapse.layout-fixed .brand-link {
     width: 4rem;
-    padding: 13px 2px;
+    padding: 13px 5px;
 }
 
 .sidebar-collapse .nav-flat.nav-child-indent .nav-treeview .nav-icon {

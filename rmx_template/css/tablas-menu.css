@@ -1,0 +1,84 @@
+#tblTodosProy,
+#tblProyElimiados,
+#tblAsesores,
+#tblSearchProd,
+#tblSearchProd,
+#tblProveedores,
+#tblAgenciasAd,
+#tblAgentesCg,
+#tblPuertosAd,
+#tblAgentesAd {
+    border-collapse: separate;
+    border-spacing: 0px 20px;
+}
+
+#tblTodosProy tbody td,
+#tblProyElimiados tbody td,
+#tblAsesores tbody td,
+#tblClientes tbody td,
+#tblSearchProd tbody td,
+#tblProveedores tbody td,
+#tblAgenciasAd tbody td,
+#tblAgentesCg tbody td {
+    padding: 1rem 1rem;
+}
+
+#tblPuertosAd tbody td,
+#tblPuertosAd tbody th,
+#tblAgentesAd tbody th,
+#tblAgentesAd tbody td {
+    padding: 0.5rem 0.75rem;
+}
+
+table.dataTable.dtr-column>tbody>tr>td.dtr-control:before,
+table.dataTable.dtr-column>tbody>tr>th.dtr-control:before,
+table.dataTable.dtr-column>tbody>tr>td.control:before,
+table.dataTable.dtr-column>tbody>tr>th.control:before {
+    border: 0px;
+    height: auto;
+    top: initial;
+    left: initial;
+    display: block;
+    line-height: 0;
+    margin-top: 0em;
+    margin-left: 0em;
+    box-shadow: none;
+    position: inherit;
+    text-align: center;
+    width: fit-content;
+    color: transparent;
+    border-radius: 50%;
+    box-sizing: content-box;
+    text-indent: 0px !important;
+    background-color: transparent;
+    font-family: "Courier New", Courier, monospace;
+    content: url("../system/dataTable/details_open.png");
+}
+
+table.dataTable.dtr-column>tbody>tr.parent td.dtr-control:before,
+table.dataTable.dtr-column>tbody>tr.parent th.dtr-control:before,
+table.dataTable.dtr-column>tbody>tr.parent td.control:before,
+table.dataTable.dtr-column>tbody>tr.parent th.control:before {
+    background-color: transparent;
+    content: url("../system/dataTable/details_close.png");
+}
+
+.td-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.badge-defin {
+    background-color: #adb5bd !important;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0rem !important;
+}
+
+@media (min-width: 992px) {
+    .sidebar-mini-xs.sidebar-collapse.layout-fixed .brand-link {
+        width: 4rem;
+        padding: 12px 2px;
+    }
+}

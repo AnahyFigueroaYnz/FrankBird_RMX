@@ -1,8 +1,8 @@
-#tblSourcings,
-#tblPendientes {
+/* #tblSourcings,
+#tblTareas {
     border-collapse: separate;
     border-spacing: 0px 20px;
-}
+} */
 
 #tblSourcings tbody th,
 #tblSourcings tbody td {
@@ -10,7 +10,7 @@
 }
 
 #tblSourcings tbody td,
-#tblPendientes tbody td {
+#tblTareas tbody td {
     padding: 0.5rem 0.75rem;
 }
 
@@ -18,33 +18,37 @@ table.dataTable.dtr-column>tbody>tr>td.dtr-control:before,
 table.dataTable.dtr-column>tbody>tr>th.dtr-control:before,
 table.dataTable.dtr-column>tbody>tr>td.control:before,
 table.dataTable.dtr-column>tbody>tr>th.control:before {
-    top: initial;
-    left: initial;
-    height: auto;
-    width: fit-content;
-    margin-top: 0em;
-    margin-left: 0em;
-    display: block;
-    position: inherit;
-    color: transparent;
     border: 0;
-    border-radius: 50%;
-    box-shadow: none;
-    box-sizing: content-box;
-    text-align: center;
-    text-indent: 0 !important;
-    font-family: "Courier New", Courier, monospace;
+    top: initial;
+    height: auto;
+    left: initial;
+    display: block;
     line-height: 0;
-    content: url("/system/dataTable/details_open.png");
+    margin-top: 0em;
+    box-shadow: none;
+    margin-left: 0em;
+    position: inherit;
+    width: fit-content;
+    color: transparent;
+    text-align: center;
+    border-radius: 50%;
+    box-sizing: content-box;
+    text-indent: 0 !important;
     background-color: transparent;
+    font-family: "Courier New", Courier, monospace;
+    content: url("../resources/libraries/dataTable/details_open.png");
 }
 
 table.dataTable.dtr-column>tbody>tr.parent td.dtr-control:before,
 table.dataTable.dtr-column>tbody>tr.parent th.dtr-control:before,
 table.dataTable.dtr-column>tbody>tr.parent td.control:before,
 table.dataTable.dtr-column>tbody>tr.parent th.control:before {
-    content: url("/system/dataTable/details_close.png");
     background-color: transparent;
+    content: url("../resources/libraries/dataTable/details_close.png");
+}
+
+#tblTareas thead th {
+    border-bottom: 0px !important;
 }
 
 .td-text {
@@ -56,22 +60,22 @@ table.dataTable.dtr-column>tbody>tr.parent th.control:before {
     background-color: #adb5bd !important;
 }
 
-div.dataTables_wrapper div.dataTables_info {
-    padding-top: 0rem !important;
-}
-
 .btn-light {
     border: 1px solid #d0d0d2 !important;
 }
 
-.btn-check {
+.btn-task {
     width: 20px;
     height: 20px;
     line-height: 0;
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 0px;
+    font-weight: 400;
+    user-select: none;
+    border-width: 1px;
     text-align: center;
     border-radius: 50%;
+    border-style: solid;
     display: inline-grid;
     align-content: center;
     vertical-align: middle;
@@ -79,9 +83,9 @@ div.dataTables_wrapper div.dataTables_info {
 }
 
 .btn-bf {
-    color: transparent;
-    border-color: #d0d0d2;
+    color: #444;
     background-color: transparent;
+    border-color: #ddd !important;
 }
 
 .btn-af {
@@ -100,34 +104,11 @@ div.dataTables_wrapper div.dataTables_info {
     margin-right: 10px;
 }
 
-.brand-link .brand-image {
-    float: left;
-    line-height: 0.8;
-    margin-left: 0.8rem;
-    margin-right: 1rem;
-    margin-top: -5px;
-    max-height: 40px;
-    width: auto;
-}
-
-.brand-link {
-    font-size: 1.25rem;
-    line-height: 1.5;
-    padding: 13px 2px;
-}
-
 .chartjs-render-monitor {
-    min-height: 250px;
-    height: 250px;
-    max-height: 250px;
-    max-width: 100%;
-    display: block;
     width: 575px;
+    height: 250px;
+    display: block;
+    max-width: 100%;
+    min-height: 250px;
+    max-height: 250px;
 }
-
-/* @media (min-width: 992px) {
-    .sidebar-mini.sidebar-collapse.layout-fixed .brand-link {
-        width: 4rem;
-        padding: 12px 2px;
-    }
-} */
